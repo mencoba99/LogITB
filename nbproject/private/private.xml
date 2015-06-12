@@ -3,8 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/html/log-itb/AddMahasiswa.php</file>
-            <file>file:/var/www/html/log-itb/db.php</file>
+            <file>file:/C:/xampp/htdocs/LogITB/controller/Mahasiswa.php</file>
+            <file>file:/C:/xampp/htdocs/LogITB/js/validate.js</file>
+            <file>file:/C:/xampp/htdocs/LogITB/db.php</file>
+            <file>file:/C:/xampp/htdocs/LogITB/js/quicksand/setting.js</file>
+            <file>file:/C:/xampp/htdocs/LogITB/js/portfolio/jquery.quicksand.js</file>
+            <file>file:/C:/xampp/htdocs/LogITB/js/animate.js</file>
+            <file>file:/C:/xampp/htdocs/LogITB/AddMahasiswa.php</file>
+            <file>file:/C:/xampp/htdocs/LogITB/model/Mahasiswa.php</file>
         </group>
     </open-files>
 </project-private>
