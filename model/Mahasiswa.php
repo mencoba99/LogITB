@@ -2,12 +2,12 @@
 <?php
     
     function insert ($nim,$nama,$email,$alamat,$telp){
-        include $_SERVER['DOCUMENT_ROOT'].'/log-itb/db.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
         $sql = "INSERT INTO Mahasiswa VALUES ('".$nim."','".$nama."','".$email."','".$alamat."','".$telp."')";
         return mysqli_query($link,$sql);
     }
     function view(){
-        include $_SERVER['DOCUMENT_ROOT'].'/log-itb/db.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
         $sql = "SELECT * FROM Mahasiswa";
         $res = mysqli_query($link, $sql);
         $i=0;
@@ -22,7 +22,7 @@
         return $value;
     }
     function viewByNim($nim){
-        include $_SERVER['DOCUMENT_ROOT'].'/log-itb/db.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
         $sql = "SELECT * FROM Mahasiswa WHERE nim='".$nim."'";
         $res = mysqli_query($link, $sql);
         $i=0;
@@ -37,12 +37,12 @@
         return $value;
     }
     function update ($nim,$nama,$email,$alamat,$telp){
-        include $_SERVER['DOCUMENT_ROOT'].'/log-itb/db.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
         $sql = "UPDATE Mahasiswa SET nama='".$nama."',email='".$email."',alamat='".$alamat."',noTelp='".$telp."' WHERE nim='".$nim."'";
         return mysqli_query($link,$sql);
     }
     function delete ($nim){
-        include $_SERVER['DOCUMENT_ROOT'].'/log-itb/db.php';
+        include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
         $sql = "DELETE FROM Mahasiswa WHERE nim='".$nim."'";
         return mysqli_query($link,$sql);
     }

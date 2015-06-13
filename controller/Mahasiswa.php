@@ -1,6 +1,6 @@
 <!--Mahasiswa Controller-->
 <?php
-    include $_SERVER['DOCUMENT_ROOT'].'/log-itb/model/Mahasiswa.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/LogITB/model/Mahasiswa.php';
     
     if(isset($_POST['add'])){
         $r = insert($_POST['nim'], $_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['telp']);
