@@ -1,5 +1,4 @@
 <?php
-session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,12 +37,12 @@ session_start();
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand logo" href="index.html"><img src="img/logo-itb.png" alt="" /></a>
+                    <a class="navbar-brand logo" href="index.php"><img src="img/logo-itb.png" alt="" /></a>
                 </div>
                 <div class="navbar-collapse collapse ">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active"><a href="registrasi.html">Registrasi</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="registrasi.html">Registrasi</a></li>
                         <li><a href="contact.html">Hubungi Kami</a></li>
                     </ul>
                 </div>
@@ -57,7 +56,7 @@ session_start();
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
                             <li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li class="active">Form Ubah Data Dosen</li>
+                            <li class="active">Home</li>
                         </ul>
                     </div>
                 </div>
@@ -68,30 +67,7 @@ session_start();
 		<div class="row">
                     <div class="col-lg-2"></div>
                     <div class="col-lg-8">
-                        <form action="./controller/Dosen.php" method="POST" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label for="nip">NIP</label>
-                                <input type="text" name="nip" id="nip"  class="form-control" placeholder="NIP" value="<?php echo $_SESSION['data']['nip'];?>">
-                            </div>
-                            <div class="form-group">
-                                <label for="nama">Nama</label>
-                                <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama Lengkap" value="<?php echo $_SESSION['data']['nama'];?>">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="text" name="email" id="email" class="form-control" placeholder="Email" value="<?php echo $_SESSION['data']['email'];?>">
-                            </div>
-                            <div class="form-group">
-                                <label for="alamat">Alamat</label>
-                                <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Alamat" value="<?php echo $_SESSION['data']['alamat'];?>">
-                            </div>
-                            <div class="form-group">
-                                <label for="telp">No. Telepon</label>
-                                <input type="text" name="telp" id="telp" class="form-control" placeholder="Nomor Telepon/Handphone" value="<?php echo $_SESSION['data']['telp'];?>">
-                            </div>
-                            
-                            <input type="submit" name="update" value="Update" class="btn btn-blue" />
-                        </form>
+                        
                     </div>
                     <div class="col-lg-2"></div>
 		</div>
