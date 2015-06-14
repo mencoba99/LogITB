@@ -38,7 +38,7 @@
     }
     function delete ($idrole){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "DELETE FROM Role WHERE role='".$role."'";
+        $sql = "DELETE FROM Role WHERE idrole='".$idrole."'";
         return mysqli_query($link,$sql);
     }
     
