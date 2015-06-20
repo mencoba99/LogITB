@@ -6,6 +6,7 @@
     if(isset($_POST['add'])){
         $r = insert($_POST['nip'], $_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['telp']);
         if($r){
+            session_start();
             $_SESSION['success']="Berhasil tambah Karyawan.. :)";
             header('Location: ../AddKaryawan.php');
         }

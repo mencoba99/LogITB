@@ -69,6 +69,7 @@ session_start();
                     <div class="col-lg-2"></div>
                     <div class="col-lg-8">
                         <div class="alert-success"><?php if(isset($_SESSION['success'])){echo $_SESSION['success'];session_destroy();}?></div>
+                        <div class="alert-danger"><?php if(isset($_SESSION['fail'])){echo $_SESSION['fail'];session_destroy();}?></div>
                         <form action="./controller/User.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="username">Username</label>

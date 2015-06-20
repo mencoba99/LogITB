@@ -8,12 +8,15 @@
         if(checkUser($_POST['username'])){
             $r = insert($_POST['username'], $_POST['password']);
             if($r){
+                session_start();
                 $_SESSION['success']="Berhasil tambah User.. :)";
                 header('Location: ../AddUser.php');
             }
         }
         else{
-            echo "Username tidak termasuk Mahasiswa , Dosen, atau Karyawan";
+             session_start();
+             $_SESSION['fail']="Username bukan termasuk, NIM, NIP atau ID terdaftar";
+             header('Location: ../AddUser.php');
         }
     }
     

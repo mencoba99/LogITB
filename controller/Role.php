@@ -6,6 +6,7 @@
     if(isset($_POST['add'])){
         $r = insert($_POST['idrole'], $_POST['deskripsi']);
         if($r){
+            session_start();
             $_SESSION['success']="Berhasil tambah Role.. :)";
             header('Location: ../AddRole.php');
         }
