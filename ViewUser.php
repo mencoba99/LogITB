@@ -1,4 +1,9 @@
 <?php
+session_start();
+session_destroy();
+session_start();
+$_SESSION['status']="view";
+include 'controller/User.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,12 +42,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand logo" href="index.php"><img src="img/logo-itb.png" alt="" /></a>
+                    <a class="navbar-brand logo" href="index.html"><img src="img/logo-itb.png" alt="" /></a>
                 </div>
                 <div class="navbar-collapse collapse ">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="registrasi.html">Registrasi</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active"><a href="registrasi.html">Registrasi</a></li>
                         <li><a href="contact.html">Hubungi Kami</a></li>
                     </ul>
                 </div>
@@ -56,7 +61,7 @@
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
                             <li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li class="active">Home</li>
+                            <li class="active">Tabel Seluruh Data User </li>
                         </ul>
                     </div>
                 </div>
@@ -67,30 +72,29 @@
 		<div class="row">
                     <div class="col-lg-2"></div>
                     <div class="col-lg-8">
-                      <div class="form-group">
-                          <label><a href="AddMahasiswa.php">Add Mahasiswa</a></label>    
-                      </div>
-                      <div class="form-group">
-                          <label><a href="ViewMahasiswa.php">View Mahasiswa</a></label>    
-                      </div>
-                      <div class="form-group">
-                          <label><a href="AddDosen.php">Add Dosen</a></label>    
-                      </div>
-                      <div class="form-group">
-                          <label><a href="ViewDosen.php">View Dosen</a></label>    
-                      </div>
-                        <div class="form-group">
-                            <label><a href="AddKaryawan.php">Add Karyawan</a></label>    
-                      </div>
-                      <div class="form-group">
-                          <label><a href="ViewKaryawan.php">View Karyawan</a></label>    
-                      </div>
-                        <div class="form-group">
-                            <label><a href="AddUser.php">Add User</a></label>    
-                      </div>
-                      <div class="form-group">
-                          <label><a href="ViewUser.php">View User</a></label>    
-                      </div>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Username</th>
+                                <th>Aksi</th>
+                            </tr>
+                            <?php
+                                $val = $_SESSION['value'];
+                                $x = count($val['username']);
+                                for($i=0;$i<$x;$i++){
+                                    echo "<tr>";
+                                    echo "<td>".$val['username'][$i]."</td>";
+                                    echo "<td>";
+                                    echo "<form action=\"controller/User.php\" method=\"POST\" enctype=\"multipart/form-data\">";
+                                    echo "<input type=\"hidden\" name=\"username\" value=".$val['username'][$i]." class=\"btn btn-blue\" />";
+                                    echo "<input type=\"submit\" name=\"edit\" value=\"Edit\" class=\"btn btn-green\" />";
+                                    echo "<input type=\"submit\" name=\"delete\" value=\"Delete\" class=\"btn btn-red\" />";
+                                    echo "<input type=\"submit\" name=\"detail\" value=\"Detail\" class=\"btn btn-black\" />";
+                                    echo "</form>";
+                                    echo "</td>";
+                                    echo "</tr>";
+                                }
+                            ?>
+                        </table>
                     </div>
                     <div class="col-lg-2"></div>
 		</div>

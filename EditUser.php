@@ -1,4 +1,5 @@
 <?php
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,8 +42,8 @@
                 </div>
                 <div class="navbar-collapse collapse ">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="registrasi.html">Registrasi</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active"><a href="registrasi.html">Registrasi</a></li>
                         <li><a href="contact.html">Hubungi Kami</a></li>
                     </ul>
                 </div>
@@ -56,7 +57,7 @@
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
                             <li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li class="active">Home</li>
+                            <li class="active">Form Ubah Data Role</li>
                         </ul>
                     </div>
                 </div>
@@ -67,30 +68,25 @@
 		<div class="row">
                     <div class="col-lg-2"></div>
                     <div class="col-lg-8">
-                      <div class="form-group">
-                          <label><a href="AddMahasiswa.php">Add Mahasiswa</a></label>    
-                      </div>
-                      <div class="form-group">
-                          <label><a href="ViewMahasiswa.php">View Mahasiswa</a></label>    
-                      </div>
-                      <div class="form-group">
-                          <label><a href="AddDosen.php">Add Dosen</a></label>    
-                      </div>
-                      <div class="form-group">
-                          <label><a href="ViewDosen.php">View Dosen</a></label>    
-                      </div>
-                        <div class="form-group">
-                            <label><a href="AddKaryawan.php">Add Karyawan</a></label>    
-                      </div>
-                      <div class="form-group">
-                          <label><a href="ViewKaryawan.php">View Karyawan</a></label>    
-                      </div>
-                        <div class="form-group">
-                            <label><a href="AddUser.php">Add User</a></label>    
-                      </div>
-                      <div class="form-group">
-                          <label><a href="ViewUser.php">View User</a></label>    
-                      </div>
+                        <form action="./controller/User.php" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="username">User</label>
+                                <input type="text" name="username" id="idrole"  class="form-control" placeholder="Username" value="<?php echo $_SESSION['data']['username'];?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password Sebelumnya</label>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Password" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordbaru">Password Baru</label>
+                                <input type="password" name="passwordbaru" id="passwordbaru" class="form-control" placeholder="Password Baru" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordbaru2">Ulangi Password Baru</label>
+                                <input type="password" name="passwordbaru2" id="passwordbaru2" class="form-control" placeholder="Ulangi Password Baru" value="">
+                            </div>
+                            <input type="submit" name="update" value="Update" class="btn btn-blue" />
+                        </form>
                     </div>
                     <div class="col-lg-2"></div>
 		</div>

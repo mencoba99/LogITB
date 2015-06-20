@@ -1,4 +1,5 @@
 <?php
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,12 +38,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand logo" href="index.php"><img src="img/logo-itb.png" alt="" /></a>
+                    <a class="navbar-brand logo" href="index.html"><img src="img/logo-itb.png" alt="" /></a>
                 </div>
                 <div class="navbar-collapse collapse ">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="registrasi.html">Registrasi</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active"><a href="registrasi.html">Registrasi</a></li>
                         <li><a href="contact.html">Hubungi Kami</a></li>
                     </ul>
                 </div>
@@ -56,7 +57,7 @@
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
                             <li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li class="active">Home</li>
+                            <li class="active">Form Tambah Data User </li>
                         </ul>
                     </div>
                 </div>
@@ -67,30 +68,22 @@
 		<div class="row">
                     <div class="col-lg-2"></div>
                     <div class="col-lg-8">
-                      <div class="form-group">
-                          <label><a href="AddMahasiswa.php">Add Mahasiswa</a></label>    
-                      </div>
-                      <div class="form-group">
-                          <label><a href="ViewMahasiswa.php">View Mahasiswa</a></label>    
-                      </div>
-                      <div class="form-group">
-                          <label><a href="AddDosen.php">Add Dosen</a></label>    
-                      </div>
-                      <div class="form-group">
-                          <label><a href="ViewDosen.php">View Dosen</a></label>    
-                      </div>
-                        <div class="form-group">
-                            <label><a href="AddKaryawan.php">Add Karyawan</a></label>    
-                      </div>
-                      <div class="form-group">
-                          <label><a href="ViewKaryawan.php">View Karyawan</a></label>    
-                      </div>
-                        <div class="form-group">
-                            <label><a href="AddUser.php">Add User</a></label>    
-                      </div>
-                      <div class="form-group">
-                          <label><a href="ViewUser.php">View User</a></label>    
-                      </div>
+                        <div class="alert-success"><?php if(isset($_SESSION['success'])){echo $_SESSION['success'];session_destroy();}?></div>
+                        <form action="./controller/User.php" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" name="username" id="username" class="form-control" placeholder="Username" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Password" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="password2">Ulangi Password</label>
+                                <input type="password" name="password2" id="password2" class="form-control" placeholder="Ulangi Password" value="">
+                            </div>
+                            <input type="submit" name="add" value="Add" class="btn btn-blue" />
+                        </form>
                     </div>
                     <div class="col-lg-2"></div>
 		</div>
