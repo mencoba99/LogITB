@@ -5,18 +5,23 @@
 
     
     if(isset($_POST['add'])){
-        if(checkUser($_POST['username'])){
-            $r = insert($_POST['username'], $_POST['password']);
-            if($r){
-                session_start();
-                $_SESSION['success']="Berhasil tambah User.. :)";
-                header('Location: ../AddUser.php');
+        if(matchPassword($_POST['password'], $_POST['password2'])){
+            if(checkUser($_POST['username'])){
+                $r = insert($_POST['username'], $_POST['password']);
+                if($r){
+                    session_start();
+                    $_SESSION['success']="Berhasil tambah User";
+                    header('Location: ../AddUser.php');
+                }
+            }else{
+                 session_start();
+                 $_SESSION['fail']="Username bukan termasuk, NIM, NIP atau ID terdaftar";
+                 header('Location: ../AddUser.php');
             }
-        }
-        else{
-             session_start();
-             $_SESSION['fail']="Username bukan termasuk, NIM, NIP atau ID terdaftar";
-             header('Location: ../AddUser.php');
+        }else {
+            session_start();
+            $_SESSION['fail']="Password tidak sama";
+            header('Location: ../AddUser.php');
         }
     }
     
@@ -48,10 +53,16 @@
     
     if(isset($_POST['detail'])){
         $r = viewByUsername($_POST['username']);
-        //echo $r['username'];
         session_start();
         $_SESSION['datadetail']=$r;
         header('Location: ../ViewDetailUser.php');
+    }
+    
+    if(isset($_POST['managerole'])){
+        $r = viewByUsername($_POST['username']);
+        session_start();
+        $_SESSION['managerole']=$r;
+        header('Location: ../ManageRole.php');
     }
     
     function checkUser ($username){
@@ -62,13 +73,19 @@
                 }
                 else{
                     $valid=true;} 
-            }
-            else {
+            }else{
                $valid=true;}           
-        }
-        else {
+        }else{
            $valid=true;}
     return $valid;
+    }
+    
+    function matchPassword($password,$ulangpassword){
+        $match = false;
+        if(strcmp($password, $ulangpassword)== 0){
+            $match = true;
+        }
+        return $match;
     }
     
 ?>

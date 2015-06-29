@@ -30,25 +30,9 @@ session_start();
 <div id="wrapper">
 	<!-- start header -->
 	<header>
-        <div class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand logo" href="index.html"><img src="img/logo-itb.png" alt="" /></a>
-                </div>
-                <div class="navbar-collapse collapse ">
-                    <ul class="nav navbar-nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active"><a href="registrasi.html">Registrasi</a></li>
-                        <li><a href="contact.html">Hubungi Kami</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <?php
+            include($_SERVER['DOCUMENT_ROOT'] . "/LogITB/Menu.html");
+        ?>
 	</header>
 	<!-- end header -->
 	<section id="inner-headline">

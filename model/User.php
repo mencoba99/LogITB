@@ -91,4 +91,10 @@
         return $value;
     }
     
+    function addRole($username,$role){
+        include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
+        $sql = "INSERT into USERROLE VALUES ('".$username."','".$role."')";
+        return mysqli_query($link,$sql);
+    }
+    
 ?>
