@@ -50,32 +50,53 @@
             <div class="container">
 		<div class="row">
                     <div class="col-lg-2">
-                        <div class="form-group">
-                          <label><a href="AddMahasiswa.php">Add Mahasiswa</a></label>    
+                      <div class="form-group">
+                        <h3>Informasi</h3>
+                        <ul>
+                            <li>
+                                Mahasiswa
+                            </li>
+                            <li>
+                                Dosen
+                            </li>
+                            <li>
+                                TU akademik
+                            </li>
+                        </ul>
                       </div>
                       <div class="form-group">
-                          <label><a href="ViewMahasiswa.php">View Mahasiswa</a></label>    
-                      </div>
-                      <div class="form-group">
-                          <label><a href="AddDosen.php">Add Dosen</a></label>    
-                      </div>
-                      <div class="form-group">
-                          <label><a href="ViewDosen.php">View Dosen</a></label>    
-                      </div>
-                        <div class="form-group">
-                            <label><a href="AddKaryawan.php">Add Karyawan</a></label>    
-                      </div>
-                      <div class="form-group">
-                          <label><a href="ViewKaryawan.php">View Karyawan</a></label>    
-                      </div>
-                        <div class="form-group">
-                            <label><a href="AddUser.php">Add User</a></label>    
-                      </div>
-                      <div class="form-group">
-                          <label><a href="ViewUser.php">View User</a></label>    
+                        <h3>Aksi</h3>
+                        <ul>
+                            <li>
+                                Log in
+                            </li>
+                            <li>
+                                Lupa Password
+                            </li>
+                        </ul>
                       </div>
                     </div>
                     <div class="col-lg-8">
+                        <h3>Petunjuk</h3>
+                        <p>Anda menuju ke situs 
+                            <strong>Sistem Tugas Akhir, Kerja Praktek, dan SKPI online</strong>
+                        .
+                        </p>
+                        <p>
+                        Masukan User ID dan Password untuk dapat mengakses aplikasi.
+                        </p>
+                        <h3>Login</h3>
+                        <form method="POST">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" name="username" id="username" class="form-control" placeholder="Username" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Password" value="">
+                            </div>
+                            <input type="submit" name="add" value="Log In" class="btn btn-blue" />
+                        </form>   
                     </div>
                     <div class="col-lg-2"></div>
 		</div>
