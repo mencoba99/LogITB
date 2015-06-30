@@ -86,7 +86,8 @@
                         Masukan User ID dan Password untuk dapat mengakses aplikasi.
                         </p>
                         <h3>Login</h3>
-                        <form method="POST">
+                        <form action="controller/Login.php" method="POST" enctype="multipart/form-data">
+                            <div class="alert-danger"><?php if(isset($_GET['error'])){echo "Username atau Password Salah";}?></div>
                             <div class="form-group">
                                 <label for="username">Username</label>
                                 <input type="text" name="username" id="username" class="form-control" placeholder="Username" value="">
@@ -95,7 +96,7 @@
                                 <label for="password">Password</label>
                                 <input type="password" name="password" id="password" class="form-control" placeholder="Password" value="">
                             </div>
-                            <input type="submit" name="add" value="Log In" class="btn btn-blue" />
+                            <input type="submit" name="login" value="Log In" class="btn btn-blue" />
                         </form>   
                     </div>
                     <div class="col-lg-2"></div>
