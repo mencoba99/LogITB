@@ -65,27 +65,13 @@
         header('Location: ../ManageRole.php');
     }
     
-    function checkUser ($username){
-    $valid = false;
-    if(is_null(viewByNim($username))){
-            if(is_null(viewByNipDosen($username))){
-                if(is_null(viewByNipKaryawan($username))){
-                }
-                else{
-                    $valid=true;} 
-            }else{
-               $valid=true;}           
-        }else{
-           $valid=true;}
-    return $valid;
+    if(isset($_POST['saverole'])){
+        $s = clearRole($_POST['username']);
+        session_start();
+        $_SESSION['managerole']=$r;
+        header('Location: ../ManageRole.php');
     }
     
-    function matchPassword($password,$ulangpassword){
-        $match = false;
-        if(strcmp($password, $ulangpassword)== 0){
-            $match = true;
-        }
-        return $match;
-    }
+    
     
 ?>

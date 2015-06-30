@@ -60,7 +60,28 @@ session_start();
                         </div>
                         <div class="form-group">
                             <label for="role">Role</label>
-                            <input type="button" name="addrole" value="Add Role" class="btn btn-blue" />
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Check</th>
+                                    <th>Role</th>
+                                    <th>Penjelasan</th>
+                                </tr>
+                                     <?php
+                                $_SESSION['status']="view";
+                                include 'controller/Role.php';
+                                $val = $_SESSION['value'];
+                                $x = count($val['idrole']);
+                                for($i=0;$i<$x;$i++){
+                                    echo "<tr>";
+                                    echo "<td>";
+                                    echo "<input type=\"checkbox\">";
+                                    echo "</td>";
+                                    echo "<td>".$val['idrole'][$i]."</td>";
+                                    echo "<td>".$val['deskripsi'][$i]."</td>";
+                                    echo "</tr>";
+                                }
+                            ?>
+                            </table>
                         </div>
                          <div class="form-group">
                             <input type="submit" name="saverole" value="Save Role" class="btn btn-blue" />

@@ -97,4 +97,33 @@
         return mysqli_query($link,$sql);
     }
     
+    function clearRole($username){
+        include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
+        $sql = "DELETE FROM UserRole WHERE username='".$username."'";
+        return mysqli_query($link,$sql);
+    }
+    
+    function checkUser ($username){
+    $valid = false;
+    if(is_null(viewByNim($username))){
+            if(is_null(viewByNipDosen($username))){
+                if(is_null(viewByNipKaryawan($username))){
+                }
+                else{
+                    $valid=true;} 
+            }else{
+               $valid=true;}           
+        }else{
+           $valid=true;}
+    return $valid;
+    }
+    
+    function matchPassword($password,$ulangpassword){
+        $match = false;
+        if(strcmp($password, $ulangpassword)== 0){
+            $match = true;
+        }
+        return $match;
+    }
+    
 ?>
