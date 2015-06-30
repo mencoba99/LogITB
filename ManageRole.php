@@ -74,7 +74,7 @@ session_start();
                                 for($i=0;$i<$x;$i++){
                                     echo "<tr>";
                                     echo "<td>";
-                                    echo "<input type=\"checkbox\">";
+                                    echo "<input type=\"checkbox\" name=\"role[]\" value=\"".$val['idrole'][$i]."\"/>";
                                     echo "</td>";
                                     echo "<td>".$val['idrole'][$i]."</td>";
                                     echo "<td>".$val['deskripsi'][$i]."</td>";

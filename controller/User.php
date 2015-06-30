@@ -66,10 +66,13 @@
     }
     
     if(isset($_POST['saverole'])){
-        $s = clearRole($_POST['username']);
+        clearRole($_POST['username']);
+        $x = count($_POST['role']);
+        for($i=0;$i<$x;$i++){
+            addRole($_POST['username'], $_POST['role'][$i]);
+        }
         session_start();
-        $_SESSION['managerole']=$r;
-        header('Location: ../ManageRole.php');
+        header('Location: ../Viewuser.php');
     }
     
     
