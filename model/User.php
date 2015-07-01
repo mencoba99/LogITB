@@ -2,14 +2,14 @@
 <?php
     
     function insert ($username,$password){
-        include '../db.php';
-        $sql = "INSERT INTO User VALUES ('".$username."','".$password."')";
+        include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
+        $sql = "INSERT INTO user VALUES ('".$username."','".$password."')";
         return mysqli_query($link,$sql);
     }
     
     function view(){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT * FROM User";
+        $sql = "SELECT * FROM user";
         $res = mysqli_query($link, $sql);
         $i=0;
         while($r = mysqli_fetch_assoc($res)){
@@ -21,7 +21,7 @@
     }
     function viewByUsername($username){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT * FROM User WHERE username='".$username."'";
+        $sql = "SELECT * FROM user WHERE username='".$username."'";
         $res = mysqli_query($link, $sql);
         $i=0;
         if($r = mysqli_fetch_assoc($res)){
@@ -33,12 +33,12 @@
     }
     function update ($username,$password){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "UPDATE User SET password='".$deskripsi."' WHERE username='".$username."'";
+        $sql = "UPDATE user SET password='".$deskripsi."' WHERE username='".$username."'";
         return mysqli_query($link,$sql);
     }
     function delete ($username){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "DELETE FROM User WHERE username='".$username."'";
+        $sql = "DELETE FROM user WHERE username='".$username."'";
         return mysqli_query($link,$sql);
     }
     
@@ -93,13 +93,13 @@
     
     function addRole($username,$role){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "INSERT into USERROLE VALUES ('".$username."','".$role."')";
+        $sql = "INSERT into userrole VALUES ('".$username."','".$role."')";
         return mysqli_query($link,$sql);
     }
     
     function clearRole($username){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "DELETE FROM UserRole WHERE username='".$username."'";
+        $sql = "DELETE FROM userrole WHERE username='".$username."'";
         return mysqli_query($link,$sql);
     }
     
@@ -118,12 +118,39 @@
     return $valid;
     }
     
+    function checkUserValue ($username){
+    $value = "";
+    if(is_null(viewByNim($username))){
+            if(is_null(viewByNipDosen($username))){
+                if(is_null(viewByNipKaryawan($username))){
+                }
+                else{
+                    $value="Karyawan";} 
+            }else{
+               $value="Dosen";}           
+        }else{
+           $value="Mahasiswa";}
+    return $value;
+    }
+    
     function matchPassword($password,$ulangpassword){
         $match = false;
         if(strcmp($password, $ulangpassword)== 0){
             $match = true;
         }
         return $match;
+    }
+    
+    function viewRole($username){
+        include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
+        $sql = "SELECT * FROM userrole WHERE username='".$username."'";
+        $row = mysqli_query($link, $sql);
+        $i=0;
+        while($r = mysqli_fetch_assoc($row)){
+            $value[$i]=$r['idrole'];
+            $i++;
+        }
+        return $value;
     }
     
 ?>

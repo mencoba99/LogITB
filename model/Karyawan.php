@@ -3,13 +3,13 @@
     
     function insert ($nip,$nama,$email,$alamat,$telp){
         include '../db.php';
-        $sql = "INSERT INTO Karyawan VALUES ('".$nip."','".$nama."','".$email."','".$alamat."','".$telp."')";
+        $sql = "INSERT INTO karyawan VALUES ('".$nip."','".$nama."','".$email."','".$alamat."','".$telp."')";
         return mysqli_query($link,$sql);
     }
     
     function view(){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT * FROM Karyawan";
+        $sql = "SELECT * FROM karyawan";
         $res = mysqli_query($link, $sql);
         $i=0;
         while($r = mysqli_fetch_assoc($res)){
@@ -24,7 +24,7 @@
     }
     function viewByNip($nip){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT * FROM Karyawan WHERE nip='".$nip."'";
+        $sql = "SELECT * FROM karyawan WHERE nip='".$nip."'";
         $res = mysqli_query($link, $sql);
         $i=0;
         if($r = mysqli_fetch_assoc($res)){
@@ -39,12 +39,12 @@
     }
     function update ($nip,$nama,$email,$alamat,$telp){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "UPDATE Karyawan SET nama='".$nama."',email='".$email."',alamat='".$alamat."',noTelp='".$telp."' WHERE nip='".$nip."'";
+        $sql = "UPDATE karyawan SET nama='".$nama."',email='".$email."',alamat='".$alamat."',noTelp='".$telp."' WHERE nip='".$nip."'";
         return mysqli_query($link,$sql);
     }
     function delete ($nip){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "DELETE FROM Karyawan WHERE nip='".$nip."'";
+        $sql = "DELETE FROM karyawan WHERE nip='".$nip."'";
         return mysqli_query($link,$sql);
     }
     

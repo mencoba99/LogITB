@@ -1,7 +1,8 @@
 <?php
 session_start();
-session_destroy();
-session_start();
+    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
+        header("Location: index.php");
+    }
 $_SESSION['status']="view";
 include 'controller/Dosen.php';
 ?>
@@ -35,7 +36,7 @@ include 'controller/Dosen.php';
 	<!-- start header -->
 	<header>
          <?php
-            include($_SERVER['DOCUMENT_ROOT'] . "/LogITB/Menu.html");
+            include($_SERVER['DOCUMENT_ROOT'] . "/LogITB/Menu.php");
         ?>
 	</header>
 	<!-- end header -->
