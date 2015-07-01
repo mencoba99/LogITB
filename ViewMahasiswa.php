@@ -55,7 +55,7 @@ include 'controller/Mahasiswa.php';
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"></div>
+                    <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
                     <div class="col-lg-8">
                         <table class="table table-bordered">
                             <tr>

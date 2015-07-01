@@ -53,7 +53,7 @@ if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['used
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"></div>
+                    <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
                     <div class="col-lg-8">
                         <div class="alert-success"><?php if(isset($_SESSION['success'])){echo $_SESSION['success'];unset($_SESSION['success']);}?></div>
                         <div class="alert-danger"><?php if(isset($_SESSION['fail'])){echo $_SESSION['fail'];unset($_SESSION['fail']);}?></div>

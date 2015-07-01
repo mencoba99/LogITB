@@ -53,7 +53,7 @@ session_start();
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"></div>
+                    <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
                     <div class="col-lg-8">
                         <form action="./controller/User.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
