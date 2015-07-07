@@ -1,8 +1,4 @@
 <?php
-    session_start();
-    if(isset($_SESSION['role'])){
-        header('Location: etalase.php');
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +30,7 @@
 	<!-- start header -->
 	<header>
          <?php
-            include($_SERVER['DOCUMENT_ROOT'] . "/LogITB/Menu.php");
+            include($_SERVER['DOCUMENT_ROOT'] . "/LogITB/Menu.html");
         ?>
 	</header>
 	<!-- end header -->
@@ -91,7 +87,7 @@
                         </p>
                         <h3>Login</h3>
                         <form action="controller/Login.php" method="POST" enctype="multipart/form-data">
-                            <div class="alert-danger"><?php if(isset($_SESSION['fail'])){echo $_SESSION['fail'];unset($_SESSION['fail']);}?></div>
+                            <div class="alert-danger"><?php if(isset($_GET['error'])){echo "Username atau Password Salah";}?></div>
                             <div class="form-group">
                                 <label for="username">Username</label>
                                 <input type="text" name="username" id="username" class="form-control" placeholder="Username" value="">

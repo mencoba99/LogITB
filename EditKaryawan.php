@@ -1,8 +1,5 @@
 <?php
 session_start();
-    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
-        header("Location: index.php");
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +31,7 @@ session_start();
 	<!-- start header -->
 	<header>
          <?php
-            include($_SERVER['DOCUMENT_ROOT'] . "/LogITB/Menu.php");
+            include($_SERVER['DOCUMENT_ROOT'] . "/LogITB/Menu.html");
         ?>
 	</header>
 	<!-- end header -->
@@ -53,7 +50,7 @@ session_start();
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
+                    <div class="col-lg-2"></div>
                     <div class="col-lg-8">
                         <form action="./controller/Karyawan.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">

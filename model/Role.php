@@ -3,7 +3,7 @@
     
     function insert ($idrole,$deskripsi){
         include '../db.php';
-        $sql = "INSERT INTO role VALUES ('".$idrole."','".$deskripsi."')";
+        $sql = "INSERT INTO Role VALUES ('".$idrole."','".$deskripsi."')";
         return mysqli_query($link,$sql);
     }
     
@@ -21,7 +21,7 @@
     }
     function viewByIdRole($idrole){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT * FROM role WHERE idrole='".$idrole."'";
+        $sql = "SELECT * FROM Role WHERE idrole='".$idrole."'";
         $res = mysqli_query($link, $sql);
         $i=0;
         if($r = mysqli_fetch_assoc($res)){
@@ -33,12 +33,12 @@
     }
     function update ($idrole,$deskripsi){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "UPDATE role SET deskripsi='".$deskripsi."' WHERE idrole='".$idrole."'";
+        $sql = "UPDATE Role SET deskripsi='".$deskripsi."' WHERE idrole='".$idrole."'";
         return mysqli_query($link,$sql);
     }
     function delete ($idrole){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "DELETE FROM role WHERE idrole='".$idrole."'";
+        $sql = "DELETE FROM Role WHERE idrole='".$idrole."'";
         return mysqli_query($link,$sql);
     }
     

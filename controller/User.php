@@ -55,30 +55,6 @@
         $r = viewByUsername($_POST['username']);
         session_start();
         $_SESSION['datadetail']=$r;
-        $value = checkUserValue($r['username']);
-        $id="";
-        if($value=="Karyawan"){
-            $id=viewByNipKaryawan($r['username']);
-            $nama=$id['nama'];
-        }
-        if($value=="Dosen"){
-            $id=viewByNipDosen($r['username']);
-            $nama=$id['nama'];
-        }
-        if($value=="Mahasiswa"){
-            $id=viewByNim($r['username']);
-            $nama=$id['nama'];
-        }
-        $role = viewRole($r['username']);
-        $str = "Nama : ".$nama."<br />";
-        $str .= "<table class=\"table table-bordered\">";
-        $str .= "<tr><th>Role</th></tr>";
-        $x=count($role);
-        for($i=0;$i<$x;$i++){
-            $str .= "<tr><td>".$role[$i]."</td></tr>";
-        }
-        $str .= "</table>";
-        $_SESSION['datadetail']['str']=$str;
         header('Location: ../ViewDetailUser.php');
     }
     
@@ -96,7 +72,7 @@
             addRole($_POST['username'], $_POST['role'][$i]);
         }
         session_start();
-        header('Location: ../ViewUser.php');
+        header('Location: ../Viewuser.php');
     }
     
     
