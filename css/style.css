@@ -2209,3 +2209,21 @@ article img.pull-right, article .align-right{
   -moz-border-radius: 3px 0 0 3px;
   border-radius: 3px 0 0 3px;
 }
+
+#images_hz {
+	text-align: justify;
+	}
+#images_hz > div {
+	width: 150px; /* Declare your value. Can be in relative units. */
+	display: inline-block;
+	vertical-align: top;
+
+	/* IE fix. */
+	*display: inline;
+	zoom: 1;
+	}
+#images_hz:after {
+	content: "";
+	width: 100%;
+	display: inline-block;
+    }

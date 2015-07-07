@@ -55,18 +55,25 @@ include 'controller/User.php';
 		<div class="row">
                     <div class="col-lg-2"></div>
                     <div class="col-lg-8">
-                        <form action="checker.php" method="POST" enctype="multipart/form-data">
-                        <table class="table table-bordered">
-                            <tr>
-                                <?php
-                                    if(in_array("Admin", $_SESSION['role'])){
-                                        echo "<td><input type=\"submit\" name=\"Admin\" value=\"Admin\" /></td>";
-                                    }
-                                ?>
-                            </tr>
+                        <div id="images_hz" style="padding-top:20px;">
+                            <div>
+                                <img src="img/icon etalase/Admin Icon.png" alt="Mountain View" style="width:150px;height:150px;">
+                                <h4 class="text-center" style="margin-top:20px;">Admin</h4>
+                            </div>
+                            <div>
+                                <img src="img/icon etalase/Mahasiswa Icon 2.png" alt="Mountain View" style="width:150px;height:150px;">
+                                 <h4 class="text-center" style="margin-top:20px;">Mahasiswa</h4>
+                            </div>
+                            <div>
+                                <img src="img/icon etalase/Pembimbing Icon.png" alt="Mountain View" style="width:150px;height:150px;">
+                                 <h4 class="text-center" style="margin-top:20px;">Pembimbing</h4>
+                            </div>
+                            <div>
+                                <img src="img/icon etalase/TU Akademik Icon.png "alt="Mountain View" style="width:150px;height:150px;">
+                                 <h4 class="text-center" style="margin-top:20px;">TU Akademik</h4>
+                            </div>
                             
-                        </table>
-                        </form>
+                        </div>
                     </div>
                     <div class="col-lg-2"></div>
 		</div>
