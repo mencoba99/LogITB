@@ -3,8 +3,6 @@ session_start();
     if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
         header("Location: index.php");
     }
-$_SESSION['status']="view";
-include 'controller/Mahasiswa.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,36 +55,22 @@ include 'controller/Mahasiswa.php';
 		<div class="row">
                     <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
                     <div class="col-lg-8">
-                        <table class="table table-bordered">
-                            <tr>
-                                <th>NIM</th>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>Alamat</th>
-                                <th>No. Telp</th>
-                                <th>Aksi</th>
-                            </tr>
-                            <?php
-                                $val = $_SESSION['value'];
-                                $x = count($val['nim']);
-                                for($i=0;$i<$x;$i++){
-                                    echo "<tr>";
-                                    echo "<td>".$val['nim'][$i]."</td>";
-                                    echo "<td>".$val['nama'][$i]."</td>";
-                                    echo "<td>".$val['email'][$i]."</td>";
-                                    echo "<td>".$val['alamat'][$i]."</td>";
-                                    echo "<td>".$val['telp'][$i]."</td>";
-                                    echo "<td>";
-                                    echo "<form action=\"controller/Mahasiswa.php\" method=\"POST\" enctype=\"multipart/form-data\">";
-                                    echo "<input type=\"hidden\" name=\"nim\" value=".$val['nim'][$i]." class=\"btn btn-blue\" />";
-                                    echo "<input type=\"submit\" name=\"edit\" value=\"Edit\" class=\"btn btn-green\" />";
-                                    echo "<input type=\"submit\" name=\"delete\" value=\"Delete\" class=\"btn btn-red\" />";
-                                    echo "</form>";
-                                    echo "</td>";
-                                    echo "</tr>";
-                                }
-                            ?>
-                        </table>
+                        <form action="./controller/TA.php" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="id" value="<?php echo $_SESSION['data']['id'];?>" />
+                            <div class="form-group">
+                                <label for="nim">NIM</label>
+                                <input type="text" name="nim" id="nim"  class="form-control" placeholder="NIM" value="<?php echo $_SESSION['data']['nim'];?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="judul">Judul</label>
+                                <input type="text" name="judul" id="judul" class="form-control" placeholder="Judul Tugas AKhir" value="<?php echo $_SESSION['data']['judul'];?>">
+                            </div>
+                            <div class="form-group">
+                                <label for="topik">Topik</label>
+                                <input type="text" name="topik" id="topik" class="form-control" placeholder="Topik" value="<?php echo $_SESSION['data']['topik'];?>">
+                            </div>
+                            <input type="submit" name="update" value="Update" class="btn btn-blue" />
+                        </form>
                     </div>
                     <div class="col-lg-2"></div>
 		</div>

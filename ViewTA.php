@@ -4,7 +4,7 @@ session_start();
         header("Location: index.php");
     }
 $_SESSION['status']="view";
-include 'controller/Mahasiswa.php';
+include 'controller/TA.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,26 +59,23 @@ include 'controller/Mahasiswa.php';
                     <div class="col-lg-8">
                         <table class="table table-bordered">
                             <tr>
+                                <th>ID</th>
                                 <th>NIM</th>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>Alamat</th>
-                                <th>No. Telp</th>
-                                <th>Aksi</th>
+                                <th>Judul</th>
+                                <th>Topik</th>
                             </tr>
                             <?php
                                 $val = $_SESSION['value'];
-                                $x = count($val['nim']);
+                                $x = count($val['id']);
                                 for($i=0;$i<$x;$i++){
                                     echo "<tr>";
+                                    echo "<td>".$val['id'][$i]."</td>";
                                     echo "<td>".$val['nim'][$i]."</td>";
-                                    echo "<td>".$val['nama'][$i]."</td>";
-                                    echo "<td>".$val['email'][$i]."</td>";
-                                    echo "<td>".$val['alamat'][$i]."</td>";
-                                    echo "<td>".$val['telp'][$i]."</td>";
+                                    echo "<td>".$val['judul'][$i]."</td>";
+                                    echo "<td>".$val['topik'][$i]."</td>";
                                     echo "<td>";
-                                    echo "<form action=\"controller/Mahasiswa.php\" method=\"POST\" enctype=\"multipart/form-data\">";
-                                    echo "<input type=\"hidden\" name=\"nim\" value=".$val['nim'][$i]." class=\"btn btn-blue\" />";
+                                    echo "<form action=\"controller/TA.php\" method=\"POST\" enctype=\"multipart/form-data\">";
+                                    echo "<input type=\"hidden\" name=\"id\" value=".$val['id'][$i]." class=\"btn btn-blue\" />";
                                     echo "<input type=\"submit\" name=\"edit\" value=\"Edit\" class=\"btn btn-green\" />";
                                     echo "<input type=\"submit\" name=\"delete\" value=\"Delete\" class=\"btn btn-red\" />";
                                     echo "</form>";

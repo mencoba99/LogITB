@@ -1,9 +1,9 @@
 <?php
 session_start();
-    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
-        header("Location: index.php");
-    }
-$_SESSION['status']="view";
+//if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
+//        header("Location: index.php");
+//    }
+    $_SESSION['status']="view";
 include 'controller/Mahasiswa.php';
 ?>
 <!DOCTYPE html>
@@ -57,36 +57,32 @@ include 'controller/Mahasiswa.php';
 		<div class="row">
                     <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
                     <div class="col-lg-8">
-                        <table class="table table-bordered">
-                            <tr>
-                                <th>NIM</th>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>Alamat</th>
-                                <th>No. Telp</th>
-                                <th>Aksi</th>
-                            </tr>
-                            <?php
-                                $val = $_SESSION['value'];
-                                $x = count($val['nim']);
-                                for($i=0;$i<$x;$i++){
-                                    echo "<tr>";
-                                    echo "<td>".$val['nim'][$i]."</td>";
-                                    echo "<td>".$val['nama'][$i]."</td>";
-                                    echo "<td>".$val['email'][$i]."</td>";
-                                    echo "<td>".$val['alamat'][$i]."</td>";
-                                    echo "<td>".$val['telp'][$i]."</td>";
-                                    echo "<td>";
-                                    echo "<form action=\"controller/Mahasiswa.php\" method=\"POST\" enctype=\"multipart/form-data\">";
-                                    echo "<input type=\"hidden\" name=\"nim\" value=".$val['nim'][$i]." class=\"btn btn-blue\" />";
-                                    echo "<input type=\"submit\" name=\"edit\" value=\"Edit\" class=\"btn btn-green\" />";
-                                    echo "<input type=\"submit\" name=\"delete\" value=\"Delete\" class=\"btn btn-red\" />";
-                                    echo "</form>";
-                                    echo "</td>";
-                                    echo "</tr>";
-                                }
-                            ?>
-                        </table>
+                        <div class="alert-success"><?php if(isset($_SESSION['success'])){echo $_SESSION['success'];unset($_SESSION['success']);}?></div>
+                        <div class="alert-danger"><?php if(isset($_SESSION['fail'])){echo $_SESSION['fail'];unset($_SESSION['fail']);}?></div>
+                        <form action="./controller/TA.php" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="nim">NIM</label>
+                                <input type="text" list="dataNIM" name="nim" id="nim" class="form-control" placeholder="NIM" value="" autocomplete="off">
+                                <datalist id="dataNIM">
+                                    <?php
+                                        $nim = $_SESSION['value']['nim'];
+                                        $x=  count($nim);
+                                        for($i=0;$i<$x;$i++){
+                                            echo "<option value=".$nim[$i].">";
+                                        }
+                                    ?>
+                                </datalist>
+                            </div>
+                            <div class="form-group">
+                                <label for="judul">Judul</label>
+                                <input type="text" name="judul" id="judul" class="form-control" placeholder="Judul Tugas Akhir" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="topik">Topik</label>
+                                <input type="text" name="topik" id="topik" class="form-control" placeholder="Topik" value="">
+                            </div>
+                            <input type="submit" name="add" value="Add" class="btn btn-blue" />
+                        </form>
                     </div>
                     <div class="col-lg-2"></div>
 		</div>
