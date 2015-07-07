@@ -1,10 +1,8 @@
 <?php
 session_start();
-    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
-        header("Location: index.php");
-    }
+
 $_SESSION['status']="view";
-include 'controller/Mahasiswa.php';
+include 'controller/User.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +44,7 @@ include 'controller/Mahasiswa.php';
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
                             <li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li class="active">Form Registrasi</li>
+                            <li class="active">Tabel Seluruh Data User </li>
                         </ul>
                     </div>
                 </div>
@@ -55,38 +53,21 @@ include 'controller/Mahasiswa.php';
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
+                    <div class="col-lg-2"></div>
                     <div class="col-lg-8">
+                        <form action="checker.php" method="POST" enctype="multipart/form-data">
                         <table class="table table-bordered">
                             <tr>
-                                <th>NIM</th>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>Alamat</th>
-                                <th>No. Telp</th>
-                                <th>Aksi</th>
+                                <?php
+                                    if(in_array("Admin", $_SESSION['role'])){
+                                        echo "<td><input type=\"submit\" name=\"Admin\" value=\"Admin\" /></td>";
+                                        echo "<td><input type=\"submit\" name=\"Admin\" value=\"Admin\" /></td>";
+                                    }
+                                ?>
                             </tr>
-                            <?php
-                                $val = $_SESSION['value'];
-                                $x = count($val['nim']);
-                                for($i=0;$i<$x;$i++){
-                                    echo "<tr>";
-                                    echo "<td>".$val['nim'][$i]."</td>";
-                                    echo "<td>".$val['nama'][$i]."</td>";
-                                    echo "<td>".$val['email'][$i]."</td>";
-                                    echo "<td>".$val['alamat'][$i]."</td>";
-                                    echo "<td>".$val['telp'][$i]."</td>";
-                                    echo "<td>";
-                                    echo "<form action=\"controller/Mahasiswa.php\" method=\"POST\" enctype=\"multipart/form-data\">";
-                                    echo "<input type=\"hidden\" name=\"nim\" value=".$val['nim'][$i]." class=\"btn btn-blue\" />";
-                                    echo "<input type=\"submit\" name=\"edit\" value=\"Edit\" class=\"btn btn-green\" />";
-                                    echo "<input type=\"submit\" name=\"delete\" value=\"Delete\" class=\"btn btn-red\" />";
-                                    echo "</form>";
-                                    echo "</td>";
-                                    echo "</tr>";
-                                }
-                            ?>
+                            
                         </table>
+                        </form>
                     </div>
                     <div class="col-lg-2"></div>
 		</div>

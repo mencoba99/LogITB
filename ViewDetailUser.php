@@ -1,5 +1,8 @@
 <?php
 session_start();
+    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
+        header("Location: index.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +34,7 @@ session_start();
 	<!-- start header -->
 	<header>
          <?php
-            include($_SERVER['DOCUMENT_ROOT'] . "/LogITB/Menu.html");
+            include($_SERVER['DOCUMENT_ROOT'] . "/LogITB/Menu.php");
         ?>
 	</header>
 	<!-- end header -->
@@ -51,27 +54,14 @@ session_start();
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"></div>
+                    <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
                     <div class="col-lg-8">
                         <div class="form-group">
                             <label for="username">Username</label>
                             <input type="text" name="username" id="username"  class="form-control" readonly value="<?php echo $_SESSION['datadetail']['username'];?>">
                         </div>
                         <div class="form-group">
-                        <table class="table table-bordered">
-                            <tr>
-                                <th>Role</th>
-                            </tr>
-<!--                            <tr>
-                                <td>Test</td>
-                            </tr>
-                            <tr>
-                                <td>Test</td>
-                            </tr>
-                            <tr>
-                                <td>Test</td>
-                            </tr>-->
-                        </table>
+                            <?php echo $_SESSION['datadetail']['str'];?>
                         </div>
                     </div>
                     <div class="col-lg-2"></div>
