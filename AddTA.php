@@ -1,10 +1,10 @@
 <?php
 session_start();
-//if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
-//        header("Location: index.php");
-//    }
-    $_SESSION['status']="view";
-include 'controller/Mahasiswa.php';
+if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
+        header("Location: index.php");
+    }
+    $_SESSION['status']="collect";
+include 'controller/TA.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +65,7 @@ include 'controller/Mahasiswa.php';
                                 <input type="text" list="dataNIM" name="nim" id="nim" class="form-control" placeholder="NIM" value="" autocomplete="off">
                                 <datalist id="dataNIM">
                                     <?php
-                                        $nim = $_SESSION['value']['nim'];
+                                        $nim = $_SESSION['mhs']['nim'];
                                         $x=  count($nim);
                                         for($i=0;$i<$x;$i++){
                                             echo "<option value=".$nim[$i].">";
@@ -81,6 +81,23 @@ include 'controller/Mahasiswa.php';
                                 <label for="topik">Topik</label>
                                 <input type="text" name="topik" id="topik" class="form-control" placeholder="Topik" value="">
                             </div>
+                            <div class="form-group">
+                                <label for="p1">Pembimbing 1</label>
+                                <input type="text" list="dataDosen" name="p1" id="p1" class="form-control" placeholder="Pembimbing 1" value="" autocomplete="off"> 
+                            </div>
+                            <div class="form-group">
+                                <label for="p2">Pembimbing 2</label>
+                                <input type="text" list="dataDosen" name="p2" id="p2" class="form-control" placeholder="Pembimbing 2" value="" autocomplete="off">
+                            </div>
+                            <datalist id="dataDosen">
+                                    <?php
+                                        $dosen = $_SESSION['dosen'];
+                                        $y=  count($dosen['nama']);
+                                        for($j=0;$j<$y;$j++){
+                                            echo "<option value=\"".$dosen['inisial'][$j]."-".$dosen['nama'][$j]."\">";
+                                        }
+                                    ?>
+                            </datalist>
                             <input type="submit" name="add" value="Add" class="btn btn-blue" />
                         </form>
                     </div>

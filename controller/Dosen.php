@@ -4,7 +4,7 @@
  include $_SERVER['DOCUMENT_ROOT'].'/LogITB/model/Dosen.php';
     
     if(isset($_POST['add'])){
-        $r = insert($_POST['nip'], $_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['telp']);
+        $r = insert($_POST['nip'], $_POST['nama'], $_POST['inisial'], $_POST['email'], $_POST['alamat'], $_POST['telp']);
         if($r){
             session_start();
             $_SESSION['success']="Berhasil tambah Dosen.. :)";
@@ -27,7 +27,7 @@
     }
     
     if(isset($_POST['update'])){
-        $r = update($_POST['nip'], $_POST['nama'], $_POST['email'], $_POST['alamat'], $_POST['telp']);
+        $r = update($_POST['nip'], $_POST['nama'], $_POST['inisial'], $_POST['email'], $_POST['alamat'], $_POST['telp']);
         if($r){
             header('Location: ../ViewDosen.php');
         }

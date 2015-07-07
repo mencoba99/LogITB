@@ -66,6 +66,10 @@
                                 <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama Lengkap" value="">
                             </div>
                             <div class="form-group">
+                                <label for="nama">Inisial</label>
+                                <input type="text" name="inisial" id="inisial" class="form-control" placeholder="Inisial" value="">
+                            </div>
+                            <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="text" name="email" id="email" class="form-control" placeholder="Email" value="">
                             </div>

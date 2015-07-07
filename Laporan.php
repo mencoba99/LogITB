@@ -1,6 +1,6 @@
 <?php
 session_start();
-    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
+if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
         header("Location: index.php");
     }
 ?>
@@ -18,6 +18,7 @@ session_start();
 <link href="css/jcarousel.css" rel="stylesheet" />
 <link href="css/flexslider.css" rel="stylesheet" />
 <link href="css/style.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/ >
 
 
 <!-- Theme skin -->
@@ -44,7 +45,7 @@ session_start();
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
                             <li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li class="active">Form Registrasi</li>
+                            <li class="active">Form Laporan</li>
                         </ul>
                     </div>
                 </div>
@@ -53,40 +54,23 @@ session_start();
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
+                    <div class="col-lg-2"><?php include 'MhsMenu.php';?></div>
                     <div class="col-lg-8">
-                        <form action="./controller/TA.php" method="POST" enctype="multipart/form-data">
-                            <input type="hidden" name="id" value="<?php echo $_SESSION['data']['id'];?>" />
+                        <div class="alert-success"><?php if(isset($_SESSION['success'])){echo $_SESSION['success'];unset($_SESSION['success']);}?></div>
+                        <form action="./controller/Mahasiswa.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="nim">NIM</label>
-                                <input type="text" name="nim" id="nim"  class="form-control" placeholder="NIM" value="<?php echo $_SESSION['data']['nim'];?>">
+                                <label for="p">Pembimbing</label>
+                                <input type="text" name="p" id="p" class="form-control" placeholder="Pembimbing" value="">
                             </div>
                             <div class="form-group">
-                                <label for="judul">Judul</label>
-                                <input type="text" name="judul" id="judul" class="form-control" placeholder="Judul Tugas AKhir" value="<?php echo $_SESSION['data']['judul'];?>">
+                                <label for="lapor">Laporan</label>
+                                <textarea name="lapor" id="lapor" cols="90" rows="6"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="topik">Topik</label>
-                                <input type="text" name="topik" id="topik" class="form-control" placeholder="Topik" value="<?php echo $_SESSION['data']['topik'];?>">
+                                <label for="tgl">Tanggal</label>
+                                <input type="text" name="tgl" id="datetimepicker2" class="form-control" placeholder="Tanggal Bimbingan" value="">
                             </div>
-                            <div class="form-group">
-                                <label for="p1">Pembimbing 1</label>
-                                <input type="text" list="dataDosen" name="p1" id="p1" class="form-control" placeholder="Pembimbing 1" value="<?php echo $_SESSION['data']['p1'];?>" autocomplete="off"> 
-                            </div>
-                            <div class="form-group">
-                                <label for="p2">Pembimbing 2</label>
-                                <input type="text" list="dataDosen" name="p2" id="p2" class="form-control" placeholder="Pembimbing 2" value="<?php echo $_SESSION['data']['p2'];?>" autocomplete="off">
-                            </div>
-                            <datalist id="dataDosen">
-                                    <?php
-                                        $dosen = $_SESSION['dosen'];
-                                        $y=  count($dosen['nama']);
-                                        for($j=0;$j<$y;$j++){
-                                            echo "<option value=\"".$dosen['inisial'][$j]."-".$dosen['nama'][$j]."\">";
-                                        }
-                                    ?>
-                            </datalist>
-                            <input type="submit" name="update" value="Update" class="btn btn-blue" />
+                            <input type="submit" name="add" value="Add" class="btn btn-blue" />
                         </form>
                     </div>
                     <div class="col-lg-2"></div>
@@ -163,5 +147,14 @@ session_start();
 <script src="js/jquery.flexslider.js"></script>
 <script src="js/animate.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/jquery.datetimepicker.js"></script>
+<script>
+$('#datetimepicker2').datetimepicker({
+	lang:'id',
+	timepicker:false,
+	format:'d-m-Y',
+	formatDate:'d-m-Y'
+});
+</script>
 </body>
 </html>

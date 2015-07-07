@@ -63,6 +63,8 @@ include 'controller/TA.php';
                                 <th>NIM</th>
                                 <th>Judul</th>
                                 <th>Topik</th>
+                                <th>Pembimbing 1</th>
+                                <th>Pembimbing 2</th>
                             </tr>
                             <?php
                                 $val = $_SESSION['value'];
@@ -73,6 +75,8 @@ include 'controller/TA.php';
                                     echo "<td>".$val['nim'][$i]."</td>";
                                     echo "<td>".$val['judul'][$i]."</td>";
                                     echo "<td>".$val['topik'][$i]."</td>";
+                                    echo "<td>".$val['p1'][$i]."</td>";
+                                    echo "<td>".$val['p2'][$i]."</td>";
                                     echo "<td>";
                                     echo "<form action=\"controller/TA.php\" method=\"POST\" enctype=\"multipart/form-data\">";
                                     echo "<input type=\"hidden\" name=\"id\" value=".$val['id'][$i]." class=\"btn btn-blue\" />";

@@ -1,9 +1,9 @@
 <!--Dosen Model-->
 <?php
     
-    function insert ($nip,$nama,$email,$alamat,$telp){
+    function insert ($nip,$nama,$inisial,$email,$alamat,$telp){
         include '../db.php';
-        $sql = "INSERT INTO dosen VALUES ('".$nip."','".$nama."','".$email."','".$alamat."','".$telp."')";
+        $sql = "INSERT INTO dosen VALUES ('".$nip."','".$nama."','".$inisial."','".$email."','".$alamat."','".$telp."')";
         return mysqli_query($link,$sql);
     }
     
@@ -15,6 +15,7 @@
         while($r = mysqli_fetch_assoc($res)){
             $value['nip'][$i]=$r['nip'];
             $value['nama'][$i]=$r['nama'];
+            $value['inisial'][$i]=$r['inisial'];
             $value['email'][$i]=$r['email'];
             $value['alamat'][$i]=$r['alamat'];
             $value['telp'][$i]=$r['noTelp'];
@@ -30,6 +31,7 @@
         if($r = mysqli_fetch_assoc($res)){
             $value['nip']=$r['nip'];
             $value['nama']=$r['nama'];
+            $value['inisial']=$r['inisial'];
             $value['email']=$r['email'];
             $value['alamat']=$r['alamat'];
             $value['telp']=$r['noTelp'];
@@ -37,9 +39,9 @@
         }
         return $value;
     }
-    function update ($nip,$nama,$email,$alamat,$telp){
+    function update ($nip,$nama,$inisial,$email,$alamat,$telp){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "UPDATE dosen SET nama='".$nama."',email='".$email."',alamat='".$alamat."',noTelp='".$telp."' WHERE nip='".$nip."'";
+        $sql = "UPDATE dosen SET nama='".$nama."',inisial='".$inisial.",email='".$email."',alamat='".$alamat."',noTelp='".$telp."' WHERE nip='".$nip."'";
         return mysqli_query($link,$sql);
     }
     function delete ($nip){

@@ -65,6 +65,10 @@ session_start();
                                 <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama Lengkap" value="<?php echo $_SESSION['data']['nama'];?>">
                             </div>
                             <div class="form-group">
+                                <label for="nama">Inisial</label>
+                                <input type="text" name="inisial" id="inisial" class="form-control" placeholder="Inisial" value="<?php echo $_SESSION['data']['inisial'];?>">
+                            </div>
+                            <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="text" name="email" id="email" class="form-control" placeholder="Email" value="<?php echo $_SESSION['data']['email'];?>">
                             </div>

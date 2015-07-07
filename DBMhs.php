@@ -1,9 +1,10 @@
 <?php
-session_start();
+    session_start();
     if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
         header("Location: index.php");
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +45,7 @@ session_start();
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
                             <li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li class="active">Form Registrasi</li>
+                            <li class="active">Home</li>
                         </ul>
                     </div>
                 </div>
@@ -53,41 +54,33 @@ session_start();
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
+                    <div class="col-lg-2">
+                        <?php include 'MhsMenu.php';?>
+                    </div>
+                
+            
                     <div class="col-lg-8">
-                        <form action="./controller/TA.php" method="POST" enctype="multipart/form-data">
-                            <input type="hidden" name="id" value="<?php echo $_SESSION['data']['id'];?>" />
+                        <h3>Petunjuk</h3>
+                        <p>Anda menuju ke situs 
+                            <strong>Sistem Tugas Akhir, Kerja Praktek, dan SKPI online</strong>
+                        .
+                        </p>
+                        <p>
+                        Masukan User ID dan Password untuk dapat mengakses aplikasi.
+                        </p>
+                        <h3>Login</h3>
+                        <form action="controller/Login.php" method="POST" enctype="multipart/form-data">
+                            <div class="alert-danger"><?php if(isset($_GET['error'])){echo "Username atau Password Salah";}?></div>
                             <div class="form-group">
-                                <label for="nim">NIM</label>
-                                <input type="text" name="nim" id="nim"  class="form-control" placeholder="NIM" value="<?php echo $_SESSION['data']['nim'];?>">
+                                <label for="username">Username</label>
+                                <input type="text" name="username" id="username" class="form-control" placeholder="Username" value="">
                             </div>
                             <div class="form-group">
-                                <label for="judul">Judul</label>
-                                <input type="text" name="judul" id="judul" class="form-control" placeholder="Judul Tugas AKhir" value="<?php echo $_SESSION['data']['judul'];?>">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Password" value="">
                             </div>
-                            <div class="form-group">
-                                <label for="topik">Topik</label>
-                                <input type="text" name="topik" id="topik" class="form-control" placeholder="Topik" value="<?php echo $_SESSION['data']['topik'];?>">
-                            </div>
-                            <div class="form-group">
-                                <label for="p1">Pembimbing 1</label>
-                                <input type="text" list="dataDosen" name="p1" id="p1" class="form-control" placeholder="Pembimbing 1" value="<?php echo $_SESSION['data']['p1'];?>" autocomplete="off"> 
-                            </div>
-                            <div class="form-group">
-                                <label for="p2">Pembimbing 2</label>
-                                <input type="text" list="dataDosen" name="p2" id="p2" class="form-control" placeholder="Pembimbing 2" value="<?php echo $_SESSION['data']['p2'];?>" autocomplete="off">
-                            </div>
-                            <datalist id="dataDosen">
-                                    <?php
-                                        $dosen = $_SESSION['dosen'];
-                                        $y=  count($dosen['nama']);
-                                        for($j=0;$j<$y;$j++){
-                                            echo "<option value=\"".$dosen['inisial'][$j]."-".$dosen['nama'][$j]."\">";
-                                        }
-                                    ?>
-                            </datalist>
-                            <input type="submit" name="update" value="Update" class="btn btn-blue" />
-                        </form>
+                            <input type="submit" name="login" value="Log In" class="btn btn-blue" />
+                        </form>   
                     </div>
                     <div class="col-lg-2"></div>
 		</div>

@@ -61,6 +61,7 @@ include 'controller/Dosen.php';
                             <tr>
                                 <th>NIP</th>
                                 <th>Nama</th>
+                                <th>Inisial</th>
                                 <th>Email</th>
                                 <th>Alamat</th>
                                 <th>No. Telp</th>
@@ -73,6 +74,7 @@ include 'controller/Dosen.php';
                                     echo "<tr>";
                                     echo "<td>".$val['nip'][$i]."</td>";
                                     echo "<td>".$val['nama'][$i]."</td>";
+                                    echo "<td>".$val['inisial'][$i]."</td>";
                                     echo "<td>".$val['email'][$i]."</td>";
                                     echo "<td>".$val['alamat'][$i]."</td>";
                                     echo "<td>".$val['telp'][$i]."</td>";
