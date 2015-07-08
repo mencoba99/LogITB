@@ -1,9 +1,3 @@
-<?php
-    session_start();
-    if(isset($_SESSION['role'])){
-        header('Location: etalase.php');
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,27 +53,8 @@
                       ?>
                     </div>
                     <div class="col-lg-8">
-                        <h3>Petunjuk</h3>
-                        <p>Anda menuju ke situs 
-                            <strong>Sistem Tugas Akhir, Kerja Praktek, dan SKPI online</strong>
-                        .
-                        </p>
-                        <p>
-                        Masukan User ID dan Password untuk dapat mengakses aplikasi.
-                        </p>
-                        <h3>Login</h3>
-                        <form action="controller/Login.php" method="POST" enctype="multipart/form-data">
-                            <div class="alert-danger"><?php if(isset($_SESSION['fail'])){echo $_SESSION['fail'];unset($_SESSION['fail']);}?></div>
-                            <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="text" name="username" id="username" class="form-control" placeholder="Username" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" name="password" id="password" class="form-control" placeholder="Password" value="">
-                            </div>
-                            <input type="submit" name="login" value="Log In" class="btn btn-blue" />
-                        </form>   
+                        <h3>Lupa Password</h3>
+                        <p>Silahkan menghubungi <strong>TU Akademik</strong>.</p>
                     </div>
                     <div class="col-lg-2"></div>
 		</div>
