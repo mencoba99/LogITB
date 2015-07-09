@@ -7,11 +7,9 @@
         <li class="has-sub"><a href='#'><span>Bimbingan</span></a>
             <ul>
                 <li>
-                    <a href="Laporan.php">Laporan</a>
+                    <a href="Approval.php">Approval</a>
                 </li>
-                 <li>
-                    <a href="ViewLaporan.php">Lihat</a>
-                </li>
+                
             </ul>
         </li>
 

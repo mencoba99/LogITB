@@ -1,7 +1,7 @@
 <?php
 
 ?>
-<h4>Admin Menu</h4>
+<h4>Menu</h4>
 <div id="cssmenu">
     <ul>
         <li class="has-sub"><a href='#'><span>Mahasiswa</span></a>
@@ -55,16 +55,7 @@
 
             </ul>
         </li>
-        <li class="has-sub"><a href='#'><span>TA</span></a>
-            <ul>
-                <li>
-                    <a href="AddTA.php">Add</a>
-                </li>
-                <li>
-                    <a href="ViewTA.php">View</a>
-                </li>
-            </ul>
-        </li>
+        
     </ul>
 </div>
 

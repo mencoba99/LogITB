@@ -1,6 +1,6 @@
 <?php
 session_start();
-    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
+    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="TU_Akademik")){
         header("Location: index.php");
     }
 ?>
@@ -53,7 +53,7 @@ session_start();
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
+                    <div class="col-lg-2"><?php include 'TUMenu.php';?></div>
                     <div class="col-lg-8">
                         <form action="./controller/TA.php" method="POST" enctype="multipart/form-data">
                             <input type="hidden" name="id" value="<?php echo $_SESSION['data']['id'];?>" />

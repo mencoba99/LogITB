@@ -1,8 +1,10 @@
 <?php
 session_start();
-if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
+if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Mahasiswa")){
         header("Location: index.php");
     }
+    $_SESSION['status']="collect";
+    include 'controller/Laporan.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,18 +59,28 @@ if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['used
                     <div class="col-lg-2"><?php include 'MhsMenu.php';?></div>
                     <div class="col-lg-8">
                         <div class="alert-success"><?php if(isset($_SESSION['success'])){echo $_SESSION['success'];unset($_SESSION['success']);}?></div>
-                        <form action="./controller/Mahasiswa.php" method="POST" enctype="multipart/form-data">
+                        <form action="./controller/Laporan.php" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="nim" value="<?php echo $_SESSION['username'];?>"/>
                             <div class="form-group">
                                 <label for="p">Pembimbing</label>
-                                <input type="text" name="p" id="p" class="form-control" placeholder="Pembimbing" value="">
+                                <input type="text" list="dataDosen" name="p" id="p" class="form-control" placeholder="Pembimbing" value="" autocomplete="off">
                             </div>
+                            <datalist id="dataDosen">
+                                    <?php
+                                        $dosen = $_SESSION['dosen'];
+                                        $y=  count($dosen['nama']);
+                                        for($j=0;$j<$y;$j++){
+                                            echo "<option value=\"".$dosen['inisial'][$j]."-".$dosen['nama'][$j]."\">";
+                                        }
+                                    ?>
+                            </datalist>
                             <div class="form-group">
                                 <label for="lapor">Laporan</label>
                                 <textarea name="lapor" id="lapor" cols="90" rows="6"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="tgl">Tanggal</label>
-                                <input type="text" name="tgl" id="datetimepicker2" class="form-control" placeholder="Tanggal Bimbingan" value="">
+                                <input type="text" name="tgl" id="datetimepicker2" class="form-control" placeholder="Tanggal Bimbingan" value="" autocomplete="off">
                             </div>
                             <input type="submit" name="add" value="Add" class="btn btn-blue" />
                         </form>

@@ -1,11 +1,10 @@
 <?php
-session_start();
+    session_start();
     if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="TU_Akademik")){
         header("Location: index.php");
     }
-$_SESSION['status']="view";
-include 'controller/TA.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +45,7 @@ include 'controller/TA.php';
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
                             <li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li class="active">Form Registrasi</li>
+                            <li class="active">Home</li>
                         </ul>
                     </div>
                 </div>
@@ -55,39 +54,33 @@ include 'controller/TA.php';
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"><?php include 'TUMenu.php';?></div>
+                    <div class="col-lg-2">
+                        <?php include 'TUMenu.php';?>
+                    </div>
+                
+            
                     <div class="col-lg-8">
-                        <table class="table table-bordered">
-                            <tr>
-                                <th>ID</th>
-                                <th>NIM</th>
-                                <th>Judul</th>
-                                <th>Topik</th>
-                                <th>Pembimbing 1</th>
-                                <th>Pembimbing 2</th>
-                            </tr>
-                            <?php
-                                $val = $_SESSION['value'];
-                                $x = count($val['id']);
-                                for($i=0;$i<$x;$i++){
-                                    echo "<tr>";
-                                    echo "<td>".$val['id'][$i]."</td>";
-                                    echo "<td>".$val['nim'][$i]."</td>";
-                                    echo "<td>".$val['judul'][$i]."</td>";
-                                    echo "<td>".$val['topik'][$i]."</td>";
-                                    echo "<td>".$val['p1'][$i]."</td>";
-                                    echo "<td>".$val['p2'][$i]."</td>";
-                                    echo "<td>";
-                                    echo "<form action=\"controller/TA.php\" method=\"POST\" enctype=\"multipart/form-data\">";
-                                    echo "<input type=\"hidden\" name=\"id\" value=".$val['id'][$i]." class=\"btn btn-blue\" />";
-                                    echo "<input type=\"submit\" name=\"edit\" value=\"Edit\" class=\"btn btn-green\" />";
-                                    echo "<input type=\"submit\" name=\"delete\" value=\"Delete\" class=\"btn btn-red\" />";
-                                    echo "</form>";
-                                    echo "</td>";
-                                    echo "</tr>";
-                                }
-                            ?>
-                        </table>
+                        <h3>Petunjuk</h3>
+                        <p>Anda menuju ke situs 
+                            <strong>Sistem Tugas Akhir, Kerja Praktek, dan SKPI online</strong>
+                        .
+                        </p>
+                        <p>
+                        Masukan User ID dan Password untuk dapat mengakses aplikasi.
+                        </p>
+                        <h3>Login</h3>
+                        <form action="controller/Login.php" method="POST" enctype="multipart/form-data">
+                            <div class="alert-danger"><?php if(isset($_GET['error'])){echo "Username atau Password Salah";}?></div>
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" name="username" id="username" class="form-control" placeholder="Username" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Password" value="">
+                            </div>
+                            <input type="submit" name="login" value="Log In" class="btn btn-blue" />
+                        </form>   
                     </div>
                     <div class="col-lg-2"></div>
 		</div>

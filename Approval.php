@@ -1,10 +1,10 @@
 <?php
 session_start();
-    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="TU_Akademik")){
+    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Pembimbing_TA")){
         header("Location: index.php");
     }
 $_SESSION['status']="view";
-include 'controller/TA.php';
+include 'controller/Approve.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,16 +55,17 @@ include 'controller/TA.php';
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"><?php include 'TUMenu.php';?></div>
+                    <div class="col-lg-2"><?php include 'MhsMenu.php';?></div>
                     <div class="col-lg-8">
                         <table class="table table-bordered">
                             <tr>
                                 <th>ID</th>
                                 <th>NIM</th>
-                                <th>Judul</th>
-                                <th>Topik</th>
-                                <th>Pembimbing 1</th>
-                                <th>Pembimbing 2</th>
+                                <th>Pembimbing</th>
+                                <th>Laporan</th>
+                                <th>Tanggal</th>
+                                <th>Time Input</th>
+                                <th>Approved</th>
                             </tr>
                             <?php
                                 $val = $_SESSION['value'];
@@ -73,15 +74,19 @@ include 'controller/TA.php';
                                     echo "<tr>";
                                     echo "<td>".$val['id'][$i]."</td>";
                                     echo "<td>".$val['nim'][$i]."</td>";
-                                    echo "<td>".$val['judul'][$i]."</td>";
-                                    echo "<td>".$val['topik'][$i]."</td>";
-                                    echo "<td>".$val['p1'][$i]."</td>";
-                                    echo "<td>".$val['p2'][$i]."</td>";
+                                    echo "<td>".$val['p'][$i]."</td>";
+                                    echo "<td>".$val['laporan'][$i]."</td>";
+                                    echo "<td>".$val['tanggal'][$i]."</td>";
+                                    echo "<td>".$val['timestamp'][$i]."</td>";
+                                    echo "<td>".$val['approved'][$i]."</td>";
                                     echo "<td>";
-                                    echo "<form action=\"controller/TA.php\" method=\"POST\" enctype=\"multipart/form-data\">";
+                                    echo "<form action=\"controller/Approve.php\" method=\"POST\" enctype=\"multipart/form-data\">";
                                     echo "<input type=\"hidden\" name=\"id\" value=".$val['id'][$i]." class=\"btn btn-blue\" />";
-                                    echo "<input type=\"submit\" name=\"edit\" value=\"Edit\" class=\"btn btn-green\" />";
-                                    echo "<input type=\"submit\" name=\"delete\" value=\"Delete\" class=\"btn btn-red\" />";
+                                    if($val['approved'][$i]=="No"){
+                                        echo "<input type=\"submit\" name=\"approve\" value=\"Approve\" class=\"btn btn-green\" />";
+                                    }else{
+                                        echo "<input type=\"submit\" name=\"unapprove\" value=\"Unapprove\" class=\"btn btn-red\" />";
+                                    }
                                     echo "</form>";
                                     echo "</td>";
                                     echo "</tr>";
