@@ -43,8 +43,8 @@ include 'controller/User.php';
                 <div class="row">
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
-                            <li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li class="active">Tabel Seluruh Data User </li>
+                            <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                            <li class="active">Hak Akses</li>
                         </ul>
                     </div>
                 </div>
@@ -71,7 +71,7 @@ include 'controller/User.php';
                                     if(in_array("Admin", $_SESSION['role'])){
                                 ?>
                                 <div class="col-lg-3">
-                                    <button class = "etalaseButton" type="submit" name="Admin" value="Admin"><img src="img/icon etalase/Admin Icon.png" alt="Mountain View" style="width:150px;height:150px;"></button>
+                                    <button class = "btn btn-default etalaseButton" type="submit" name="Admin" value="Admin"><img src="img/icon etalase/Admin Icon.png" alt="Mountain View" style="width:150px;height:150px;"></button>
                                     <h4 class="text-center" style="margin-top:20px;">Admin</h4>
                                 </div>
                                 <?php
@@ -79,7 +79,7 @@ include 'controller/User.php';
                                     if(in_array("Mahasiswa", $_SESSION['role'])){
                                 ?>
                                 <div class="col-lg-3">
-                                    <button class = "etalaseButton" type="submit" name="Mahasiswa" value="Mahasiswa"><img src="img/icon etalase/Mahasiswa Icon 2.png" alt="Mountain View" style="width:150px;height:150px;"></button>
+                                    <button class = "btn btn-default  etalaseButton" type="submit" name="Mahasiswa" value="Mahasiswa"><img src="img/icon etalase/Mahasiswa Icon 2.png" alt="Mountain View" style="width:150px;height:150px;"></button>
                                      <h4 class="text-center" style="margin-top:20px;">Mahasiswa</h4>
                                 </div>
                                 <?php
@@ -87,7 +87,7 @@ include 'controller/User.php';
                                     if(in_array("Pembimbing_TA", $_SESSION['role'])){
                                 ?>
                                 <div class="col-lg-3">
-                                    <button class = "etalaseButton" type="submit" name="Pembimbing_TA" value="Pembimbing_TA"><img src="img/icon etalase/Pembimbing Icon.png" alt="Mountain View" style="width:150px;height:150px;"></button>
+                                    <button class =  "btn btn-default etalaseButton" type="submit" name="Pembimbing_TA" value="Pembimbing_TA"><img src="img/icon etalase/Pembimbing Icon.png" alt="Mountain View" style="width:150px;height:150px;"></button>
                                      <h4 class="text-center" style="margin-top:20px;">Pembimbing</h4>
                                 </div>
                                 <?php
@@ -95,7 +95,7 @@ include 'controller/User.php';
                                     if(in_array("TU_Akademik", $_SESSION['role'])){
                                 ?>
                                 <div class="col-lg-3">
-                                    <button class = "etalaseButton" type="submit" name="TU_Akademik" value="TU_Akademik"><img src="img/icon etalase/TU Akademik Icon.png "alt="Mountain View" style="width:150px;height:150px;"></button>
+                                    <button class = "btn btn-default  etalaseButton" type="submit" name="TU_Akademik" value="TU_Akademik"><img src="img/icon etalase/TU Akademik Icon.png "alt="Mountain View" style="width:150px;height:150px;"></button>
                                      <h4 class="text-center" style="margin-top:20px;">TU Akademik</h4>
                                 </div>
                                 <?php
