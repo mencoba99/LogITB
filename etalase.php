@@ -55,12 +55,13 @@ include 'controller/User.php';
 		<div class="row">
                     <div class="jumbotron">
                         <h1>Selamat Datang</h1>
-                       <p>Anda menuju ke situs 
+                       <p>Anda telah memasuki 
                             <strong>Sistem Tugas Akhir, Kerja Praktek, dan SKPI online</strong>
                         .
                         </p>
                         <p>
-                        Masukan User ID dan Password untuk dapat mengakses aplikasi.
+                        Hak akses anda telah ditetapkan oleh sistem, jika anda merasa hak akses tidak sesuai dengan peran anda silahkan hubungi
+                        <strong>Tata Usaha Akademik</strong>
                         </p>
                     </div>
                     <div class="col-lg-12">

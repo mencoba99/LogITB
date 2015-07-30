@@ -53,16 +53,9 @@
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="jumbotron">
-                        <h1>Selamat Datang</h1>
-                       <p>Anda menuju ke situs 
-                            <strong>Sistem Tugas Akhir, Kerja Praktek, dan SKPI online</strong>
-                        .
-                        </p>
-                        <p>
-                        Masukan User ID dan Password untuk dapat mengakses aplikasi.
-                        </p>
-                    </div>
+                   <?php
+                             include ($_SERVER['DOCUMENT_ROOT'] . "/LogITB/PetunjukJumbotron.php");
+                     ?>
                     <div class="col-lg-2">
                       <?php
                               include($_SERVER['DOCUMENT_ROOT'] . "/LogITB/InformasiMenu.php");
@@ -81,7 +74,9 @@
                                 <label for="password">Password</label>
                                 <input type="password" name="password" id="password" class="form-control" placeholder="Password" value="">
                             </div>
-                            <input type="submit" name="login" value="Log In" class="btn btn-blue" />
+                            <button type="submit" name="login" value="Log In" class="btn btn-blue">
+                                Log In
+                            </button>
                         </form>   
                     </div>
                     <div class="col-lg-2"></div>

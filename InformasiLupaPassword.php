@@ -47,6 +47,9 @@
 	<section id="content">
             <div class="container">
 		<div class="row">
+                     <?php
+                             include ($_SERVER['DOCUMENT_ROOT'] . "/LogITB/PetunjukJumbotron.php");
+                     ?>
                     <div class="col-lg-2">
                       <?php
                               include($_SERVER['DOCUMENT_ROOT'] . "/LogITB/InformasiMenu.php");
