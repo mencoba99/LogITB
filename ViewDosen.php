@@ -45,8 +45,9 @@ include 'controller/Dosen.php';
                 <div class="row">
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
-                            <li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li class="active">Tabel Seluruh Data Dosen </li>
+                            <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                            <li><a href="DBAdmin.php">Admin</a></li>
+                            <li class="active">View Data Dosen</li>
                         </ul>
                     </div>
                 </div>
@@ -56,7 +57,8 @@ include 'controller/Dosen.php';
             <div class="container">
 		<div class="row">
                     <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
-                    <div class="col-lg-8">
+                    <div class="col-lg-10">
+                        <h3>Tabel Data Dosen</h3>
                         <table class="table table-bordered">
                             <tr>
                                 <th>NIP</th>

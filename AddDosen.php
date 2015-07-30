@@ -43,8 +43,9 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
-                            <li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li class="active">Form Tambah Data Dosen </li>
+                            <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                            <li><a href="DBAdmin.php">Admin</a></li>
+                            <li class="active">Add Data Dosen</li>
                         </ul>
                     </div>
                 </div>
@@ -54,7 +55,8 @@
             <div class="container">
 		<div class="row">
                     <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
-                    <div class="col-lg-8">
+                    <div class="col-lg-10">
+                        <h3>Add Data Dosen</h3>
                         <div class="alert-success"><?php if(isset($_SESSION['success'])){echo $_SESSION['success'];unset($_SESSION['success']);}?></div>
                         <form action="./controller/Dosen.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
