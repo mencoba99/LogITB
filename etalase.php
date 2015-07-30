@@ -53,39 +53,48 @@ include 'controller/User.php';
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"></div>
-                    <div class="col-lg-8">
+                    <div class="jumbotron">
+                        <h1>Selamat Datang</h1>
+                       <p>Anda menuju ke situs 
+                            <strong>Sistem Tugas Akhir, Kerja Praktek, dan SKPI online</strong>
+                        .
+                        </p>
+                        <p>
+                        Masukan User ID dan Password untuk dapat mengakses aplikasi.
+                        </p>
+                    </div>
+                    <div class="col-lg-12">
                         <div id="images_hz" style="padding-top:20px;">
                             <form action="checker.php" method="POST" enctype="multipart/form-data">
                                 <?php
                                     if(in_array("Admin", $_SESSION['role'])){
                                 ?>
-                                <div>
-                                    <button type="submit" name="Admin" value="Admin"><img src="img/icon etalase/Admin Icon.png" alt="Mountain View" style="width:150px;height:150px;"></button>
+                                <div class="col-lg-3">
+                                    <button class = "etalaseButton" type="submit" name="Admin" value="Admin"><img src="img/icon etalase/Admin Icon.png" alt="Mountain View" style="width:150px;height:150px;"></button>
                                     <h4 class="text-center" style="margin-top:20px;">Admin</h4>
                                 </div>
                                 <?php
                                     }
                                     if(in_array("Mahasiswa", $_SESSION['role'])){
                                 ?>
-                                <div>
-                                    <button type="submit" name="Mahasiswa" value="Mahasiswa"><img src="img/icon etalase/Mahasiswa Icon 2.png" alt="Mountain View" style="width:150px;height:150px;"></button>
+                                <div class="col-lg-3">
+                                    <button class = "etalaseButton" type="submit" name="Mahasiswa" value="Mahasiswa"><img src="img/icon etalase/Mahasiswa Icon 2.png" alt="Mountain View" style="width:150px;height:150px;"></button>
                                      <h4 class="text-center" style="margin-top:20px;">Mahasiswa</h4>
                                 </div>
                                 <?php
                                     }
                                     if(in_array("Pembimbing_TA", $_SESSION['role'])){
                                 ?>
-                                <div>
-                                    <button type="submit" name="Pembimbing_TA" value="Pembimbing_TA"><img src="img/icon etalase/Pembimbing Icon.png" alt="Mountain View" style="width:150px;height:150px;"></button>
+                                <div class="col-lg-3">
+                                    <button class = "etalaseButton" type="submit" name="Pembimbing_TA" value="Pembimbing_TA"><img src="img/icon etalase/Pembimbing Icon.png" alt="Mountain View" style="width:150px;height:150px;"></button>
                                      <h4 class="text-center" style="margin-top:20px;">Pembimbing</h4>
                                 </div>
                                 <?php
                                     }
                                     if(in_array("TU_Akademik", $_SESSION['role'])){
                                 ?>
-                                <div>
-                                    <button type="submit" name="TU_Akademik" value="TU_Akademik"><img src="img/icon etalase/TU Akademik Icon.png "alt="Mountain View" style="width:150px;height:150px;"></button>
+                                <div class="col-lg-3">
+                                    <button class = "etalaseButton" type="submit" name="TU_Akademik" value="TU_Akademik"><img src="img/icon etalase/TU Akademik Icon.png "alt="Mountain View" style="width:150px;height:150px;"></button>
                                      <h4 class="text-center" style="margin-top:20px;">TU Akademik</h4>
                                 </div>
                                 <?php
@@ -95,7 +104,6 @@ include 'controller/User.php';
                             </form>
                         </div>
                     </div>
-                    <div class="col-lg-2"></div>
 		</div>
             </div>
 	</section>
