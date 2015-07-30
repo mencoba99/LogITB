@@ -59,26 +59,22 @@ include 'controller/Laporan.php';
                     <div class="col-lg-8">
                         <table class="table table-bordered">
                             <tr>
-                                <th>ID</th>
-                                <th>NIM</th>
-                                <th>Pembimbing</th>
-                                <th>Laporan</th>
+                                <th>No</th>
                                 <th>Tanggal</th>
-                                <th>Time Input</th>
-                                <th>Approved</th>
+                                <th>Catatan</th>
+                                <th>Pembimbing 1</th>
+                                <th>Pembimbing 2</th>
                             </tr>
                             <?php
                                 $val = $_SESSION['value'];
-                                $x = count($val['id']);
+                                $x = count($val['nourut']);
                                 for($i=0;$i<$x;$i++){
                                     echo "<tr>";
-                                    echo "<td>".$val['id'][$i]."</td>";
-                                    echo "<td>".$val['nim'][$i]."</td>";
-                                    echo "<td>".$val['p'][$i]."</td>";
-                                    echo "<td>".$val['laporan'][$i]."</td>";
-                                    echo "<td>".$val['tanggal'][$i]."</td>";
-                                    echo "<td>".$val['timestamp'][$i]."</td>";
-                                    echo "<td>".$val['approved'][$i]."</td>";
+                                    echo "<td>".$val['nourut'][$i]."</td>";
+                                    echo "<td>".$val['tgl'][$i]."</td>";
+                                    echo "<td>".$val['lapor'][$i]."</td>";
+                                    echo "<td>".$val['p1'][$i]."</td>";
+                                    echo "<td>".$val['p2'][$i]."</td>";
                                     echo "</tr>";
                                 }
                             ?>

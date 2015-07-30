@@ -1,11 +1,14 @@
 <?php
-session_start();
+    session_start();
     if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Pembimbing_TA")){
         header("Location: index.php");
     }
-$_SESSION['status']="view";
+    if(!isset($_SESSION['value2'])){
+        header("Location: DBPembimbing.php");
+    }
 include 'controller/Approve.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +49,7 @@ include 'controller/Approve.php';
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
                             <li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li class="active">Form Registrasi</li>
+                            <li class="active">Home</li>
                         </ul>
                     </div>
                 </div>
@@ -55,38 +58,33 @@ include 'controller/Approve.php';
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"><?php include 'MhsMenu.php';?></div>
+                    <div class="col-lg-2">
+                        <?php include 'PBMenu.php';?>
+                    </div>
+                
+            
                     <div class="col-lg-8">
+                        NIM : <?php echo $_SESSION['value2']['nim'][0]; ?>
                         <table class="table table-bordered">
                             <tr>
-                                <th>ID</th>
-                                <th>NIM</th>
-                                <th>Pembimbing</th>
-                                <th>Laporan</th>
+                                <th>No</th>
+                                <th>Kode</th>
                                 <th>Tanggal</th>
-                                <th>Time Input</th>
-                                <th>Approved</th>
+                                <th>Detail</th>
                             </tr>
                             <?php
-                                $val = $_SESSION['value'];
-                                $x = count($val['id']);
+                                $val = $_SESSION['value2'];
+                                $x = count($val['nim']);
                                 for($i=0;$i<$x;$i++){
                                     echo "<tr>";
-                                    echo "<td>".$val['id'][$i]."</td>";
-                                    echo "<td>".$val['nim'][$i]."</td>";
-                                    echo "<td>".$val['p'][$i]."</td>";
-                                    echo "<td>".$val['laporan'][$i]."</td>";
-                                    echo "<td>".$val['tanggal'][$i]."</td>";
-                                    echo "<td>".$val['timestamp'][$i]."</td>";
-                                    echo "<td>".$val['approved'][$i]."</td>";
+                                    echo "<td>".$val['no'][$i]."</td>";
+                                    echo "<td>".$val['kode'][$i]."</td>";
+                                    echo "<td>".$val['tgl'][$i]."</td>";
                                     echo "<td>";
                                     echo "<form action=\"controller/Approve.php\" method=\"POST\" enctype=\"multipart/form-data\">";
-                                    echo "<input type=\"hidden\" name=\"id\" value=".$val['id'][$i]." class=\"btn btn-blue\" />";
-                                    if($val['approved'][$i]=="No"){
-                                        echo "<input type=\"submit\" name=\"approve\" value=\"Approve\" class=\"btn btn-green\" />";
-                                    }else{
-                                        echo "<input type=\"submit\" name=\"unapprove\" value=\"Unapprove\" class=\"btn btn-red\" />";
-                                    }
+                                    echo "<input type=\"hidden\" name=\"no\" value=".$val['no'][$i]." />";
+                                    echo "<input type=\"hidden\" name=\"sk\" value=".$val['sk'][$i]." />";
+                                    echo "<input type=\"submit\" name=\"detail\" value=\"View\" class=\"btn btn-blue\" />";
                                     echo "</form>";
                                     echo "</td>";
                                     echo "</tr>";

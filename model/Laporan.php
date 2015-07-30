@@ -1,38 +1,41 @@
 <!--Laporan Model-->
 <?php
     
-    function insert ($nim,$p1,$lapor,$tanggal){
+    function insert ($nim,$sk,$tgl,$lapor,$tgl2,$lapor2){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        list($inisial1,$nama1)=  explode("-", $p1);
+        $sql = "SELECT count(peserta) as jml FROM bimbinganta WHERE nosk='".$sk."'";
+        $res = mysqli_query($link, $sql);
+        if($r = mysqli_fetch_assoc($res)){
+            $jml=$r['jml']+1;
+        }else{
+            $jml=1;
+        }
         
-        $sql = "SELECT nip FROM dosen where inisial='".$inisial1."'";
-        $row = mysqli_query($link, $sql);
-        $r = mysqli_fetch_assoc($row);
-        $nip1 = $r['nip'];
-        date_default_timezone_set("Asia/Jakarta");
-        $ts = date("Y-m-d H:i:s");
-        $sql = "INSERT INTO bimbingan(nim,pembimbing,laporan,tanggal,timestamp) VALUES ('".$nim."','".$nip1."','".$lapor."','".$tanggal."','".$ts."')";
+        $sql = "INSERT INTO bimbinganta(nourut,nosk,kodeta,peserta,tanggal,catatanbimbingan,tglbimbinganyad,rencanabimbinganyad) VALUES "
+                . "(".$jml.",'".$sk."',1,'".$nim."','".$tgl."','".$lapor."','".$tgl2."','".$lapor2."')";
         return mysqli_query($link,$sql);
     }
-    function view(){
+    function view($sk){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT * FROM bimbingan";
+        $sql = "SELECT * FROM bimbinganta where nosk='".$sk."'";
         $res = mysqli_query($link, $sql);
         $approve="";
         $i=0;
         while($r = mysqli_fetch_assoc($res)){
-            $value['id'][$i]=$r['id'];
-            $value['nim'][$i]=$r['nim'];
-            $value['p'][$i]=getNamaDosenByNip($r['pembimbing']);
-            $value['laporan'][$i]=$r['laporan'];
-            $value['tanggal'][$i]=$r['tanggal'];
-            $value['timestamp'][$i]=$r['timestamp'];
-            if($r['approved']==0){
-                $approve="No";
+            $value['nourut'][$i]=$r['nourut'];
+            $value['tgl'][$i]=$r['tanggal'];
+            $value['lapor'][$i]=$r['catatanbimbingan'];
+            if($r['tspersetujuanpembimbing1']==NULL){
+                $value['p1'][$i]="Belum Setuju";
             }else{
-                $approve="Yes";
+                $value['p1'][$i]="Setuju";
             }
-            $value['approved'][$i]=$approve;
+            if($r['tspersetujuanpembimbing2']==NULL){
+                $value['p2'][$i]="Belum Setuju";
+            }else{
+                $value['p2'][$i]="Setuju";
+            }
+            
             $i++;
         }
         return $value;
@@ -103,5 +106,15 @@
             $value="";
         }
         return $value;
+    }
+    
+    function sk($nim){
+        include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
+        $sql = "SELECT nosk FROM skbimbinganta WHERE peserta='".$nim."' AND status='Aktif'";
+        $res = mysqli_query($link, $sql);
+        if($r = mysqli_fetch_assoc($res)){
+            $nosk=$r['nosk'];
+        }
+        return $nosk;
     }
 ?>

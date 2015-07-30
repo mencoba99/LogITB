@@ -3,7 +3,8 @@
     include $_SERVER['DOCUMENT_ROOT'].'/LogITB/model/Laporan.php';
     
     if(isset($_POST['add'])){
-        $r = insert($_POST['nim'], $_POST['p'], $_POST['lapor'],$_POST['tgl']);
+        $r = insert($_POST['nim'], $_POST['sk'],$_POST['tgl'],$_POST['lapor'],$_POST['tgl2'],$_POST['lapor2']);
+        echo $_POST['nim']."-".$_POST['sk']."-(".$_POST['tgl'].")(".$_POST['tgl2'].")";
         if($r){
             session_start();
             $_SESSION['success']="Berhasil tambah TA.. :)";
@@ -14,11 +15,11 @@
     }
     if(isset($_SESSION['status'])){
         if($_SESSION['status']=="view"){
-            $_SESSION['value'] = view();
+            $_SESSION['value'] = view(sk($_SESSION['username']));
         }
         if($_SESSION['status']=="collect"){
             
-            $_SESSION['dosen']=viewDosen($_SESSION['username']);
+            $_SESSION['nosk']=sk($_SESSION['username']);
         }
     }
     
