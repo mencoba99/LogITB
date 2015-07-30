@@ -4,7 +4,7 @@ if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['used
         header("Location: index.php");
     }
     $_SESSION['status']="collect";
-include 'controller/TA.php';
+include 'controller/SK.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +59,11 @@ include 'controller/TA.php';
                     <div class="col-lg-8">
                         <div class="alert-success"><?php if(isset($_SESSION['success'])){echo $_SESSION['success'];unset($_SESSION['success']);}?></div>
                         <div class="alert-danger"><?php if(isset($_SESSION['fail'])){echo $_SESSION['fail'];unset($_SESSION['fail']);}?></div>
-                        <form action="./controller/TA.php" method="POST" enctype="multipart/form-data">
+                        <form action="./controller/SK.php" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="judul">No. SK</label>
+                                <input type="text" name="sk" id="judul" class="form-control" placeholder="Nomor SK Bimbingan" value="">
+                            </div>
                             <div class="form-group">
                                 <label for="nim">NIM</label>
                                 <input type="text" list="dataNIM" name="nim" id="nim" class="form-control" placeholder="NIM" value="" autocomplete="off">
@@ -74,14 +78,6 @@ include 'controller/TA.php';
                                 </datalist>
                             </div>
                             <div class="form-group">
-                                <label for="judul">Judul</label>
-                                <input type="text" name="judul" id="judul" class="form-control" placeholder="Judul Tugas Akhir" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="topik">Topik</label>
-                                <input type="text" name="topik" id="topik" class="form-control" placeholder="Topik" value="">
-                            </div>
-                            <div class="form-group">
                                 <label for="p1">Pembimbing 1</label>
                                 <input type="text" list="dataDosen" name="p1" id="p1" class="form-control" placeholder="Pembimbing 1" value="" autocomplete="off"> 
                             </div>
@@ -94,10 +90,24 @@ include 'controller/TA.php';
                                         $dosen = $_SESSION['dosen'];
                                         $y=  count($dosen['nama']);
                                         for($j=0;$j<$y;$j++){
-                                            echo "<option value=\"".$dosen['inisial'][$j]."-".$dosen['nama'][$j]."\">";
+                                            echo "<option value=\"".$dosen['nip'][$j]."-".$dosen['nama'][$j]."\">";
                                         }
                                     ?>
                             </datalist>
+                            <div class="form-group">
+                                <label for="judul">Judul</label>
+                                <input type="text" name="judul" id="judul" class="form-control" placeholder="Judul Tugas Akhir" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="status">Status</label>
+                                <input type="radio" class="radio radio-inline" id="status" name="status" value="Aktif" checked>Aktif
+                                <input type="radio" class="radio radio-inline" id="status" name="status" value="Tidak Aktif" >Tidak Aktif
+                            </div>
+                            <div class="form-group">
+                                <label for="upload">Upload SK</label>
+                                <input type="file" name="upload" id="upload">
+                            </div>
+                            
                             <input type="submit" name="add" value="Add" class="btn btn-blue" />
                         </form>
                     </div>

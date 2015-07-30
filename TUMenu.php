@@ -5,13 +5,13 @@
 <div id="cssmenu">
     <ul>
         
-        <li class="has-sub"><a href='#'><span class = "menu" >Tugas Akhir</span></a>
+        <li class="has-sub"><a href='#'><span class = "menu" >SK Bimbingan</span></a>
             <ul>
                 <li>
-                    <a href="AddTA.php">Add Tugas Akhir</a>
+                    <a href="AddSK.php">Add SK</a>
                 </li>
                 <li>
-                    <a href="ViewTA.php">View Tugas Akhir</a>
+                    <a href="ViewSK.php">View SK</a>
                 </li>
             </ul>
         </li>

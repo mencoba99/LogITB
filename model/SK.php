@@ -1,39 +1,40 @@
 <!--TA Model-->
 <?php
     
-    function insert ($nim,$judul,$topik,$p1,$p2){
+    function insert ($sk,$nim,$p1,$p2,$judul,$status,$file){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        list($inisial1,$nama1)=  explode("-", $p1);
+        list($nip1,$nama1)=  explode("-", $p1);
         if($p2!=""){
-            list($inisial2,$nama2)=  explode("-", $p2);
+            list($nip2,$nama2)=  explode("-", $p2);
         }
-        $sql = "SELECT nip FROM dosen where inisial='".$inisial1."'";
-        $row = mysqli_query($link, $sql);
-        $r = mysqli_fetch_assoc($row);
-        $nip1 = $r['nip'];
-        if($p2!=""){
-            $sql = "SELECT nip FROM dosen where inisial='".$inisial2."'";
-            $row = mysqli_query($link, $sql);
-            $r = mysqli_fetch_assoc($row);
-            $nip2 = $r['nip'];
-        }else{
-            $nip2="";
-        }
-        $sql = "INSERT INTO tugasakhir(nim,judul,topik,pembimbing1,pembimbing2) VALUES ('".$nim."','".$judul."','".$topik."','".$nip1."','".$nip2."')";
+//        $sql = "SELECT nip FROM dosen where inisial='".$inisial1."'";
+//        $row = mysqli_query($link, $sql);
+//        $r = mysqli_fetch_assoc($row);
+//        $nip1 = $r['nip'];
+//        if($p2!=""){
+//            $sql = "SELECT nip FROM dosen where inisial='".$inisial2."'";
+//            $row = mysqli_query($link, $sql);
+//            $r = mysqli_fetch_assoc($row);
+//            $nip2 = $r['nip'];
+//        }else{
+//            $nip2="";
+//        }
+        $sql = "INSERT INTO skbimbinganta (nosk,peserta,pembimbing1,pembimbing2,judulta,status,file) VALUES ('".$sk."','".$nim."','".$nip1."','".$nip2."','".$judul."','".$status."','".$file."')";
         return mysqli_query($link,$sql);
     }
     function view(){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT * FROM tugasakhir";
+        $sql = "SELECT * FROM skbimbinganta";
         $res = mysqli_query($link, $sql);
         $i=0;
         while($r = mysqli_fetch_assoc($res)){
-            $value['id'][$i]=$r['id'];
-            $value['nim'][$i]=$r['nim'];
-            $value['judul'][$i]=$r['judul'];
-            $value['topik'][$i]=$r['topik'];
+            $value['nosk'][$i]=$r['nosk'];
+            $value['peserta'][$i]=$r['peserta'];
             $value['p1'][$i]=getNamaDosenByNip($r['pembimbing1']);
             $value['p2'][$i]=getNamaDosenByNip($r['pembimbing2']);
+            $value['judulta'][$i]=$r['judulta'];
+            $value['status'][$i]=$r['status'];
+            $value['file'][$i]=$r['file'];
             $i++;
         }
         return $value;
@@ -54,30 +55,22 @@
         }
         return $value;
     }
-    function update ($id,$nim,$judul,$topik,$p1,$p2){
+    function update ($sk,$status){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        list($inisial1,$nama1)=  explode("-", $p1);
-        if($p2!=""){
-            list($inisial2,$nama2)=  explode("-", $p2);
-        }
-        $sql = "SELECT nip FROM dosen where inisial='".$inisial1."'";
-        $row = mysqli_query($link, $sql);
-        $r = mysqli_fetch_assoc($row);
-        $nip1 = $r['nip'];
-        if($p2!=""){
-            $sql = "SELECT nip FROM dosen where inisial='".$inisial2."'";
-            $row = mysqli_query($link, $sql);
-            $r = mysqli_fetch_assoc($row);
-            $nip2 = $r['nip'];
+        $stat="";
+        
+        if($status=="Activate"){
+            $stat = "Aktif";
         }else{
-            $nip2="";
+            $stat = "Tidak Aktif";
         }
-        $sql = "UPDATE tugasakhir SET nim='".$nim."',judul='".$judul."',topik='".$topik."',pembimbing1='".$nip1."',pembimbing2='".$nip2."' WHERE id='".$id."'";
+        $sql = "UPDATE skbimbinganta SET status='".$stat."' WHERE nosk='".$sk."'";
         return mysqli_query($link,$sql);
     }
-    function delete ($id){
+    function delete ($sk){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "DELETE FROM tugasakhir WHERE id='".$id."'";
+        unlink("../SK/".$sk.".pdf");
+        $sql = "DELETE FROM skbimbinganta WHERE nosk='".$sk."'";
         return mysqli_query($link,$sql);
     }
     
@@ -120,7 +113,7 @@
         $res = mysqli_query($link, $sql);
         $i=0;
         if($r = mysqli_fetch_assoc($res)){
-            $value=$r['inisial']."-".$r['nama'];
+            $value=$r['nip']."-".$r['nama'];
             $i++;
         }else{
             $value="";

@@ -4,7 +4,7 @@ session_start();
         header("Location: index.php");
     }
 $_SESSION['status']="view";
-include 'controller/TA.php';
+include 'controller/SK.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,26 +61,33 @@ include 'controller/TA.php';
                             <tr>
                                 <th>ID</th>
                                 <th>NIM</th>
-                                <th>Judul</th>
-                                <th>Topik</th>
                                 <th>Pembimbing 1</th>
                                 <th>Pembimbing 2</th>
+                                <th>Judul</th>
+                                <th>Status</th>
+                                <th>File</th>
+                                <th>Aksi</th>
                             </tr>
                             <?php
                                 $val = $_SESSION['value'];
-                                $x = count($val['id']);
+                                $x = count($val['nosk']);
                                 for($i=0;$i<$x;$i++){
                                     echo "<tr>";
-                                    echo "<td>".$val['id'][$i]."</td>";
-                                    echo "<td>".$val['nim'][$i]."</td>";
-                                    echo "<td>".$val['judul'][$i]."</td>";
-                                    echo "<td>".$val['topik'][$i]."</td>";
+                                    echo "<td>".$val['nosk'][$i]."</td>";
+                                    echo "<td>".$val['peserta'][$i]."</td>";
                                     echo "<td>".$val['p1'][$i]."</td>";
                                     echo "<td>".$val['p2'][$i]."</td>";
+                                    echo "<td>".$val['judulta'][$i]."</td>";
+                                    echo "<td>".$val['status'][$i]."</td>";
+                                    echo "<td><a href=\"SK/".$val['file'][$i]."\" target=\"_blank\">".$val['file'][$i]."</a></td>";
                                     echo "<td>";
-                                    echo "<form action=\"controller/TA.php\" method=\"POST\" enctype=\"multipart/form-data\">";
-                                    echo "<input type=\"hidden\" name=\"id\" value=".$val['id'][$i]." class=\"btn btn-blue\" />";
-                                    echo "<input type=\"submit\" name=\"edit\" value=\"Edit\" class=\"btn btn-green\" />";
+                                    echo "<form action=\"controller/SK.php\" method=\"POST\" enctype=\"multipart/form-data\">";
+                                    echo "<input type=\"hidden\" name=\"sk\" value=".$val['nosk'][$i]." />";
+                                    if($val['status'][$i]=="Aktif"){
+                                        echo "<input type=\"submit\" name=\"aktif\" value=\"Deaktivate\" class=\"btn btn-orange\" />";
+                                    }else{
+                                        echo "<input type=\"submit\" name=\"aktif\" value=\"Activate\" class=\"btn btn-green\" />";
+                                    }
                                     echo "<input type=\"submit\" name=\"delete\" value=\"Delete\" class=\"btn btn-red\" />";
                                     echo "</form>";
                                     echo "</td>";
