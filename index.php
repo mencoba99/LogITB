@@ -53,20 +53,23 @@
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2">
-                      <?php
-                              include($_SERVER['DOCUMENT_ROOT'] . "/LogITB/InformasiMenu.php");
-                      ?>
-                    </div>
-                    <div class="col-lg-8">
-                        <h3>Petunjuk</h3>
-                        <p>Anda menuju ke situs 
+                    <div class="jumbotron">
+                        <h1>Selamat Datang</h1>
+                       <p>Anda menuju ke situs 
                             <strong>Sistem Tugas Akhir, Kerja Praktek, dan SKPI online</strong>
                         .
                         </p>
                         <p>
                         Masukan User ID dan Password untuk dapat mengakses aplikasi.
                         </p>
+                    </div>
+                    <div class="col-lg-2">
+                      <?php
+                              include($_SERVER['DOCUMENT_ROOT'] . "/LogITB/InformasiMenu.php");
+                      ?>
+                    </div>
+                    <div class="col-lg-8">
+                        
                         <h3>Login</h3>
                         <form action="controller/Login.php" method="POST" enctype="multipart/form-data">
                             <div class="alert-danger"><?php if(isset($_SESSION['fail'])){echo $_SESSION['fail'];unset($_SESSION['fail']);}?></div>

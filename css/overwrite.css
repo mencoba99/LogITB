@@ -337,7 +337,7 @@ input.search-query {
 ul,
 ol {
   padding: 0;
-  margin: 0 0 10px 25px;
+  margin: 0 0 0px 0px;
 }
 
 ul ul,
@@ -1363,6 +1363,26 @@ font-weight:600;
      -moz-border-radius: 2px;
           border-radius: 2px;
 }
+
+.jumbotron{
+          padding:30px;
+          margin-bottom:30px;
+          color:inherit;
+          background-color:#eee}
+
+.jumbotron h1,.jumbotron .h1{
+            color:inherit}
+
+.jumbotron p{
+            margin-bottom:15px;
+            font-size:21px;
+            font-weight:200}
+
+.container .jumbotron{
+            border-radius:6px}
+
+.jumbotron .container{
+            max-width:100%}
 
 
 

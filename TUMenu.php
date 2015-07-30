@@ -1,11 +1,11 @@
 <?php
 
 ?>
-<h4>Menu</h4>
+<h3>Menu</h3>
 <div id="cssmenu">
     <ul>
         
-        <li class="has-sub"><a href='#'><span>Tugas Akhir</span></a>
+        <li class="has-sub"><a href='#'><span class = "menu" >Tugas Akhir</span></a>
             <ul>
                 <li>
                     <a href="AddTA.php">Add Tugas Akhir</a>
@@ -15,7 +15,7 @@
                 </li>
             </ul>
         </li>
-        <li class="has-sub"><a href='#'><span>Mata Kuliah</span></a>
+        <li class="has-sub"><a href='#'><span class = "menu" >Mata Kuliah</span></a>
             <ul>
                 <li>
                     <a href="AddMataKuliah.php">Add Mata Kuliah</a>
@@ -25,7 +25,7 @@
                 </li> 
             </ul>
         </li>
-        <li class="has-sub"><a href='#'><span>Pengumuman</span></a>
+        <li class="has-sub"><a href='#'><span class = "menu" >Pengumuman</span></a>
             <ul>
                 <li>
                     <a href="AddPengumuman.php">Add Pengumuman</a>
@@ -35,7 +35,7 @@
                 </li>
             </ul>
         </li>
-        <li class="has-sub"><a href='#'><span>Wali Mahasiswa</span></a>
+        <li class="has-sub"><a href='#'><span class = "menu" >Wali Mahasiswa</span></a>
             <ul>
                 <li>
                     <a href="AddWaliMahasiswa.php">Add Wali Mahasiswa</a>
