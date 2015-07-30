@@ -44,7 +44,7 @@ include 'controller/User.php';
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
                             <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li class="active">Hak Akses</li>
+                            <li class="active">Home</li>
                         </ul>
                     </div>
                 </div>

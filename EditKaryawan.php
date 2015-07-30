@@ -43,8 +43,10 @@ session_start();
                 <div class="row">
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
-                            <li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li class="active">Form Ubah Data Karyawan</li>
+                            <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                            <li><a href="DBAdmin.php">Admin</a></li>
+                            <li><a href="ViewKaryawan.php">View Data Karyawan</a></li>
+                            <li class="active">Edit Data Karyawan</li>
                         </ul>
                     </div>
                 </div>
@@ -54,7 +56,8 @@ session_start();
             <div class="container">
 		<div class="row">
                     <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
-                    <div class="col-lg-8">
+                    <div class="col-lg-10">
+                        <h3>Edit Data Karyawan</h3>
                         <form action="./controller/Karyawan.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="nip">NIP</label>
