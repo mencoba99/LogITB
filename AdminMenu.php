@@ -1,7 +1,7 @@
 <?php
 
 ?>
-<h4>Menu</h4>
+<h3>Menu</h3>
 <div id="cssmenu">
     <ul>
         <li class="has-sub"><a href='#'><span>Mahasiswa</span></a>
@@ -56,6 +56,8 @@
             </ul>
         </li>
         
+        <li class="has-sub"><a href='#'><span>Log Sistem</span></a>
+        </li>
     </ul>
 </div>
 
