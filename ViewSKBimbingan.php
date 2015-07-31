@@ -1,9 +1,9 @@
 <?php
 session_start();
-if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="TU_Akademik")){
+    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="TU_Akademik")){
         header("Location: index.php");
     }
-    $_SESSION['status']="collect";
+$_SESSION['status']="view";
 include 'controller/SK.php';
 ?>
 <!DOCTYPE html>
@@ -45,8 +45,9 @@ include 'controller/SK.php';
                 <div class="row">
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
-                            <li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li class="active">Form Registrasi</li>
+                            <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                            <li><a href="DBTU.php">Admin</a></li>
+                            <li class="active">Tabel Data SK Bimbingan Tugas Akhir</li>
                         </ul>
                     </div>
                 </div>
@@ -56,60 +57,46 @@ include 'controller/SK.php';
             <div class="container">
 		<div class="row">
                     <div class="col-lg-2"><?php include 'TUMenu.php';?></div>
-                    <div class="col-lg-8">
-                        <div class="alert-success"><?php if(isset($_SESSION['success'])){echo $_SESSION['success'];unset($_SESSION['success']);}?></div>
-                        <div class="alert-danger"><?php if(isset($_SESSION['fail'])){echo $_SESSION['fail'];unset($_SESSION['fail']);}?></div>
-                        <form action="./controller/SK.php" method="POST" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label for="judul">No. SK</label>
-                                <input type="text" name="sk" id="judul" class="form-control" placeholder="Nomor SK Bimbingan" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="nim">NIM</label>
-                                <input type="text" list="dataNIM" name="nim" id="nim" class="form-control" placeholder="NIM" value="" autocomplete="off">
-                                <datalist id="dataNIM">
-                                    <?php
-                                        $nim = $_SESSION['mhs']['nim'];
-                                        $x=  count($nim);
-                                        for($i=0;$i<$x;$i++){
-                                            echo "<option value=".$nim[$i].">";
-                                        }
-                                    ?>
-                                </datalist>
-                            </div>
-                            <div class="form-group">
-                                <label for="p1">Pembimbing 1</label>
-                                <input type="text" list="dataDosen" name="p1" id="p1" class="form-control" placeholder="Pembimbing 1" value="" autocomplete="off"> 
-                            </div>
-                            <div class="form-group">
-                                <label for="p2">Pembimbing 2</label>
-                                <input type="text" list="dataDosen" name="p2" id="p2" class="form-control" placeholder="Pembimbing 2" value="" autocomplete="off">
-                            </div>
-                            <datalist id="dataDosen">
-                                    <?php
-                                        $dosen = $_SESSION['dosen'];
-                                        $y=  count($dosen['nama']);
-                                        for($j=0;$j<$y;$j++){
-                                            echo "<option value=\"".$dosen['nip'][$j]."-".$dosen['nama'][$j]."\">";
-                                        }
-                                    ?>
-                            </datalist>
-                            <div class="form-group">
-                                <label for="judul">Judul</label>
-                                <input type="text" name="judul" id="judul" class="form-control" placeholder="Judul Tugas Akhir" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="status">Status</label>
-                                <input type="radio" class="radio radio-inline" id="status" name="status" value="Aktif" checked>Aktif
-                                <input type="radio" class="radio radio-inline" id="status" name="status" value="Tidak Aktif" >Tidak Aktif
-                            </div>
-                            <div class="form-group">
-                                <label for="upload">Upload SK</label>
-                                <input type="file" name="upload" id="upload">
-                            </div>
-                            
-                            <input type="submit" name="add" value="Add" class="btn btn-blue" />
-                        </form>
+                    <div class="col-lg-10">
+                        <h3>Tabel Surat Keputusan Bimbingan Tugas Akhir</h3>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>ID</th>
+                                <th>NIM</th>
+                                <th>Pembimbing 1</th>
+                                <th>Pembimbing 2</th>
+                                <th>Judul</th>
+                                <th>Status</th>
+                                <th>File</th>
+                                <th>Aksi</th>
+                            </tr>
+                            <?php
+                                $val = $_SESSION['value'];
+                                $x = count($val['nosk']);
+                                for($i=0;$i<$x;$i++){
+                                    echo "<tr>";
+                                    echo "<td>".$val['nosk'][$i]."</td>";
+                                    echo "<td>".$val['peserta'][$i]."</td>";
+                                    echo "<td>".$val['p1'][$i]."</td>";
+                                    echo "<td>".$val['p2'][$i]."</td>";
+                                    echo "<td>".$val['judulta'][$i]."</td>";
+                                    echo "<td>".$val['status'][$i]."</td>";
+                                    echo "<td><a href=\"SK/".$val['file'][$i]."\" target=\"_blank\">".$val['file'][$i]."</a></td>";
+                                    echo "<td>";
+                                    echo "<form action=\"controller/SK.php\" method=\"POST\" enctype=\"multipart/form-data\">";
+                                    echo "<input type=\"hidden\" name=\"sk\" value=".$val['nosk'][$i]." />";
+                                    if($val['status'][$i]=="Aktif"){
+                                        echo "<input type=\"submit\" name=\"aktif\" value=\"Deaktivate\" class=\"btn btn-orange\" />";
+                                    }else{
+                                        echo "<input type=\"submit\" name=\"aktif\" value=\"Activate\" class=\"btn btn-green\" />";
+                                    }
+                                    echo "<input type=\"submit\" name=\"delete\" value=\"Delete\" class=\"btn btn-red\" />";
+                                    echo "</form>";
+                                    echo "</td>";
+                                    echo "</tr>";
+                                }
+                            ?>
+                        </table>
                     </div>
                     <div class="col-lg-2"></div>
 		</div>

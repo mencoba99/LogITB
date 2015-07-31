@@ -73,14 +73,14 @@
     if(isset($_POST['aktif'])){
         $r = update($_POST['sk'], $_POST['aktif']);
         if($r){
-            header('Location: ../ViewSK.php');
+            header('Location: ../ViewSKBimbingan.php');
         }
     }
     
     if(isset($_POST['delete'])){
         $r = delete($_POST['sk']);
         if($r){
-            header('Location: ../ViewSK.php');
+            header('Location: ../ViewSKBimbingan.php');
         }
     }
 ?>
