@@ -43,11 +43,11 @@
         if($r){
             session_start();
             $_SESSION['success']="Berhasil tambah SK.. :)";
-            header('Location: ../AddSK.php');
+            header('Location: ../AddSKBimbingan.php');
         }else{
             session_start();
             $_SESSION['fail']=$error;
-            header('Location: ../AddSK.php');
+            header('Location: ../AddSKBimbingan.php');
         }
     }else{
         
