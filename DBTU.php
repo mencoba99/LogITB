@@ -56,29 +56,27 @@
 		<div class="row">
                     <div class="col-lg-2">
                         <?php include 'TUMenu.php';?>
-                    </div>
-                
-            
-                    <div class="col-lg-8">
-                        <h3>Tata Usaha Akademik</h3>
-                        <img src="img/icon etalase/TU Akademik Icon.png "alt="Mountain View" style="width:150px;height:150px;">
-                        <p>Anda telah masuk dengan role tata usaha silahkan memilih menu disamping.
-                        <span class="ikon glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                            
-                        </p>
-<!--                        <h3>Login</h3>
-                        <form action="controller/Login.php" method="POST" enctype="multipart/form-data">
-                            <div class="alert-danger"><?php if(isset($_GET['error'])){echo "Username atau Password Salah";}?></div>
-                            <div class="form-group">
-                                <label for="username">Username</label>
-                                <input type="text" name="username" id="username" class="form-control" placeholder="Username" value="">
+                    </div>         
+                    <div class="col-lg-10">
+                        <h3>Dashboard Tata Usaha Akademik</h3>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Dashboard Tugas Akhir</div>
+                            <div class="panel-body">
+                                Jumlah data Tugas Akhir dalam sistem adalah xx
                             </div>
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" name="password" id="password" class="form-control" placeholder="Password" value="">
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Dashboard Kerja Praktek</div>
+                            <div class="panel-body">
+                                Jumlah data Kerja Praktek dalam sistem adalah xx
                             </div>
-                            <input type="submit" name="login" value="Log In" class="btn btn-blue" />
-                        </form>   -->
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Dashboard SKPI</div>
+                            <div class="panel-body">
+                                Jumlah data SKPI dalam sistem adalah xx
+                            </div>
+                        </div>
                     </div>
                     <div class="col-lg-2"></div>
 		</div>

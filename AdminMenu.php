@@ -38,6 +38,16 @@
                 </li>
             </ul>
         </li>
+        <li class="has-sub"><a href='ViewUserLain.php'><span>Pengguna Lain</span></a>
+            <ul>
+                <li>
+                    <a href="AddUserLain.php">Tambah Pengguna Lain</a>
+                </li>
+                <li>
+                    <a href="ViewUserLain.php">Lihat Pengguna Lain</a>
+                </li>
+            </ul>
+        </li>
         <li class="has-sub"><a href='ViewUser.php'><span>Pengguna</span></a>
             <ul>
                 <li>

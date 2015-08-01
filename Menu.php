@@ -1,3 +1,4 @@
+
 <?php
     
 ?>
@@ -9,8 +10,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <!--<a class="navbar-brand logo" href="index.php"><img src="img/logo-itb.png" alt="" /></a>-->
-                    <a class="navbar-brand logo" href="index.php"><img src="img/Logo_Institut_Teknologi_Bandung.png" alt="" /></a>
+                    <a class="navbar-brand logo" href="index.php"><img src="img/logo-itb.png" alt="" /></a>
+                    <!--<a class="navbar-brand logo" href="index.php"><img src="img/Logo_Institut_Teknologi_Bandung.png" alt="" /></a>-->
                     <!--<a class="navbar-brand logo" href="index.php"><img src="img/logo-if-abet-computing.png" alt="" /></a>-->
                 </div>
                 <div class="navbar-collapse collapse ">

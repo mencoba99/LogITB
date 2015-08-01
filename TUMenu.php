@@ -2,6 +2,7 @@
 
 ?>
 <h3>Menu</h3>
+<h4>Umum</h4>
 <div id="cssmenu">
     <ul>
         <li><a href='DBTU.php'><span>Dashboard TU Akademik</span></a>
@@ -9,10 +10,10 @@
         <li class="has-sub"><a href="ViewMataKuliah.php"><span>Mata Kuliah</span></a>
             <ul>
                 <li>
-                    <a href="AddMataKuliah.php">Add Mata Kuliah</a>
+                    <a href="AddMataKuliah.php">Tambah Mata Kuliah</a>
                 </li>
                 <li>
-                    <a href="ViewMataKuliah.php">View Mata Kuliah</a>
+                    <a href="ViewMataKuliah.php">Lihat Mata Kuliah</a>
                 </li> 
             </ul>
         </li>
@@ -20,81 +21,30 @@
         <li class="has-sub"><a href="ViewPengumuman.php"><span >Pengumuman</span></a>
             <ul>
                 <li>
-                    <a href="AddPengumuman.php">Add Pengumuman</a>
+                    <a href="AddPengumuman.php">Tambah Pengumuman</a>
                 </li>
                 <li>
-                    <a href="ViewPengumuman.php">View Pengumuman</a>
+                    <a href="ViewPengumuman.php">Lihat Pengumuman</a>
                 </li>
             </ul>
         </li>
         <li class="has-sub"><a href="ViewWaliMahasiswa.php"><span >Wali Mahasiswa</span></a>
             <ul>
                 <li>
-                    <a href="AddWaliMahasiswa.php">Add Wali Mahasiswa</a>
+                    <a href="AddWaliMahasiswa.php">Tambah Wali Mahasiswa</a>
                 </li>
                 <li>
-                    <a href="ViewWaliMahasiswa.php">view Wali Mahasiswa</a>
-                </li>
-            </ul>
-        </li>
-        <li class="has-sub"><a href="ViewPeriodeTA.php"><span >Periode TA</span></a>
-            <ul>
-                <li>
-                    <a href="AddPeriodeTA.php">Add Periode TA</a>
-                </li>
-                <li>
-                    <a href="ViewPeriodeTA.php">view Periode TA</a>
+                    <a href="ViewWaliMahasiswa.php">Lihat Wali Mahasiswa</a>
                 </li>
             </ul>
         </li>
         <li class="has-sub"><a href="ViewPengambilanMataKuliah.php"><span>Pengambilan Mata Kuliah</span></a>
             <ul>
                 <li>
-                    <a href="AddPengambilanMataKuliah.php">Add Pengambilan Mata Kuliah</a>
+                    <a href="AddPengambilanMataKuliah.php">Tambah Pengambilan Mata Kuliah</a>
                 </li>
                 <li>
-                    <a href="ViewPengambilanMataKuliah.php">View Pengambilan Mata Kuliah</a>
-                </li> 
-            </ul>
-        </li>
-        <li class="has-sub"><a href='ViewSKBimbingan.php'><span>SK Bimbingan</span></a>
-            <ul>
-                <li>
-                    <a href="AddSKBimbingan.php">Add SK Bimbingan</a>
-                </li>
-                <li>
-                    <a href="ViewSKBimbingan.php">View SK Bimbingan</a>
-                </li> 
-            </ul>
-        </li>
-        <li class="has-sub"><a href="ViewSKSidangTA.php"><span>SK Sidang TA</span></a>
-            <ul>
-                <li>
-                    <a href="AddSKSidangTA.php">Add SK Sidang TA</a>
-                </li>
-                <li>
-                    <a href="ViewSKSidangTA.php">View SK Sidang TA</a>
-                </li> 
-            </ul>
-        </li>
-<!--        <li><a href='#'><span>History Judul TA</span></a> </li>-->
-        <li class="has-sub"><a href="ViewSeminarTA1.php"><span>Seminar TA 1</span></a>
-            <ul>
-                <li>
-                    <a href="AddSeminarTA1.php">Add Seminar TA 1</a>
-                </li>
-                <li>
-                    <a href="ViewSeminarTA1.php">View Seminar TA 1</a>
-                </li> 
-            </ul>
-        </li>
-        <li class="has-sub"><a href="ViewNilaiTA1.php"><span>Nilai TA 1</span></a>
-            <ul>
-                <li>
-                    <a href="AddNilaiTA1.php">Add Nilai TA 1</a>
-                </li>
-                <li>
-                    <a href="ViewNilaiTA1.php">View Nilai TA 1</a>
+                    <a href="ViewPengambilanMataKuliah.php">Lihat Pengambilan Mata Kuliah</a>
                 </li> 
             </ul>
         </li>
@@ -128,13 +78,59 @@
                 </li> 
             </ul>
         </li>
-        <li class="has-sub"><a href="ViewSyaratSeminarTA1.php"><span>Syarat Seminar Tugas Akhir 1</span></a>
+    </ul>
+</div>
+<h4>Tugas Akhir</h4>
+<div id="cssmenu">
+    <ul>
+        <li class="has-sub"><a href="ViewPeriodeTA.php"><span >Periode TA</span></a>
             <ul>
                 <li>
-                    <a href="AddSyaratSeminarTA1.php">Tambah Syarat Seminar Tugas Akhir 1</a>
+                    <a href="AddPeriodeTA.php">Tambah Periode TA</a>
                 </li>
                 <li>
-                    <a href="ViewSyaratSeminarTA1.php">Lihat Syarat Seminar Tugas Akhir 1</a>
+                    <a href="ViewPeriodeTA.php">Lihat Periode TA</a>
+                </li>
+            </ul>
+        </li>
+        <li class="has-sub"><a href='ViewSKBimbingan.php'><span>SK Bimbingan TA</span></a>
+            <ul>
+                <li>
+                    <a href="AddSKBimbingan.php">Tambah SK Bimbingan TA</a>
+                </li>
+                <li>
+                    <a href="ViewSKBimbingan.php">Lihat SK Bimbingan TA</a>
+                </li> 
+            </ul>
+        </li>
+        <li class="has-sub"><a href="ViewSyaratSeminarTA1.php"><span>Syarat Seminar TA 1</span></a>
+            <ul>
+                <li>
+                    <a href="AddSyaratSeminarTA1.php">Tambah Syarat Seminar TA 1</a>
+                </li>
+                <li>
+                    <a href="ViewSyaratSeminarTA1.php">Lihat Syarat Seminar TA 1</a>
+                </li> 
+            </ul>
+        </li>
+<!--        <li><a href='#'><span>History Judul TA</span></a> </li>-->
+        <li class="has-sub"><a href="ViewSeminarTA1.php"><span>Seminar TA 1</span></a>
+            <ul>
+                <li>
+                    <a href="AddSeminarTA1.php">Tambah Seminar TA 1</a>
+                </li>
+                <li>
+                    <a href="ViewSeminarTA1.php">Lihat Seminar TA 1</a>
+                </li> 
+            </ul>
+        </li>
+        <li class="has-sub"><a href="ViewNilaiTA1.php"><span>Nilai TA 1</span></a>
+            <ul>
+                <li>
+                    <a href="AddNilaiTA1.php">Tambah Nilai TA 1</a>
+                </li>
+                <li>
+                    <a href="ViewNilaiTA1.php">Lihat Nilai TA 1</a>
                 </li> 
             </ul>
         </li>
@@ -145,6 +141,16 @@
                 </li>
                 <li>
                     <a href="ViewDaftarHadirSeminarTA1.php">Lihat Daftar Hadir Seminar TA 1</a>
+                </li> 
+            </ul>
+        </li>
+        <li class="has-sub"><a href="ViewSKSidangTA.php"><span>SK Sidang TA</span></a>
+            <ul>
+                <li>
+                    <a href="AddSKSidangTA.php">Tambah SK Sidang TA</a>
+                </li>
+                <li>
+                    <a href="ViewSKSidangTA.php">Lihat SK Sidang TA</a>
                 </li> 
             </ul>
         </li>
@@ -181,4 +187,94 @@
         
     </ul>
 </div>
-
+<h4>Kerja Praktek</h4>
+<div id="cssmenu">
+    <ul>
+        <li class="has-sub"><a href="ViewKelompokKP.php"><span >Kelompok KP</span></a>
+            <ul>
+                <li>
+                    <a href="AddKelompokKP.php">Tambah Kelompok KP</a>
+                </li>
+                <li>
+                    <a href="ViewKelompokKP.php">Lihat Kelompok KP</a>
+                </li>
+            </ul>
+        </li>
+        <li class="has-sub"><a href="ViewSuratPengantarKP.php"><span >Surat Pengantar KP</span></a>
+            <ul>
+                <li>
+                    <a href="AddSuratPengantarKP.php">Tambah Surat Pengantar KP</a>
+                </li>
+                <li>
+                    <a href="ViewSuratPengantarKP.php">Lihat Surat Pengantar KP</a>
+                </li>
+            </ul>
+        </li>
+        <li class="has-sub"><a href="ViewSKBimbinganKP.php"><span >SK Bimbingan KP</span></a>
+            <ul>
+                <li>
+                    <a href="AddSKBimbinganKP.php">Tambah SK Bimbingan KP</a>
+                </li>
+                <li>
+                    <a href="ViewSKBimbinganKP.php">Lihat SK Bimbingan KP</a>
+                </li>
+            </ul>
+        </li>
+        <li class="has-sub"><a href="ViewSeminarKP.php"><span >Seminar KP</span></a>
+            <ul>
+                <li>
+                    <a href="AddSeminarKP.php">Tambah Seminar KP</a>
+                </li>
+                <li>
+                    <a href="ViewSeminarKP.php">Lihat Seminar KP</a>
+                </li>
+            </ul>
+        </li>
+        <li class="has-sub"><a href="ViewNilaiDetailKP.php"><span >Nilai Detail KP</span></a>
+            <ul>
+                <li>
+                    <a href="AddNilaiDetailKP.php">Tambah Nilai Detail KP</a>
+                </li>
+                <li>
+                    <a href="ViewNilaiDetailKP.php">Lihat Nilai Detail KP</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<h4>SKPI</h4>
+<div id="cssmenu">
+    <ul>
+        <li class="has-sub"><a href="ViewKegiatanSKPI.php"><span >Kegiatan</span></a>
+            <ul>
+                <li>
+                    <a href="AddKegiatanSKPI.php">Tambah Kegiatan</a>
+                </li>
+                <li>
+                    <a href="ViewKegiatanSKPI.php">Lihat Kegiatan</a>
+                </li>
+            </ul>
+        </li>
+        <li class="has-sub"><a href="ViewPrestasiSKPI.php"><span >Prestasi</span></a>
+            <ul>
+                <li>
+                    <a href="AddPrestasiSKPI.php">Tambah Prestasi</a>
+                </li>
+                <li>
+                    <a href="ViewPrestasiSKPI.php">Lihat Prestasi</a>
+                </li>
+            </ul>
+        </li>
+        <li class="has-sub"><a href="ViewSKPI.php"><span >SKPI</span></a>
+            <ul>
+                <li>
+                    <a href="AddSKPI.php">Tambah SKPI</a>
+                </li>
+                <li>
+                    <a href="ViewSKPI.php">Lihat SKPI</a>
+                </li>
+            </ul>
+        </li>
+        
+    </ul>
+</div>

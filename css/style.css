@@ -2081,7 +2081,7 @@ article img.pull-right, article .align-right{
 }
 /* Custom CSS Styles */
 #cssmenu {
-  width: 150px;
+  width: 165px;
   background: #68a4c4;
   font-family: 'Oxygen Mono', Tahoma, Arial, sans-serif;
   zoom: 1;
@@ -2104,10 +2104,10 @@ article img.pull-right, article .align-right{
   text-transform: uppercase;
 }
 #cssmenu > ul {
-  width: 150px;
+  width: 165px;
 }
 #cssmenu ul ul {
-  width: 150px;
+  width: 165px;
 }
 #cssmenu > ul > li > a {
   border-right: 4px solid #ffffff;
