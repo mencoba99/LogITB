@@ -151,7 +151,7 @@ include 'controller/User.php';
                                     if(in_array("Wali", $_SESSION['role'])){
                                 ?>
                                 <div class="col-lg-3">
-                                    <button class = "btn btn-default  etalaseButton" type="submit" name="Wali" value="Wali"><img src="img/icon etalase/TU Akademik Icon.png "alt="Mountain View" style="width:150px;height:150px;"></button>
+                                    <button class = "btn btn-default  etalaseButton" type="submit" name="Wali" value="Wali"><img src="img/icon etalase/Wali Icon.png"alt="Mountain View" style="width:150px;height:150px;"></button>
                                      <h4 class="text-center" style="margin-top:20px;">Dosen Wali</h4>
                                 </div>
                                 <?php
@@ -159,7 +159,7 @@ include 'controller/User.php';
                                     if(in_array("Kaprodi", $_SESSION['role'])){
                                 ?>
                                 <div class="col-lg-3">
-                                    <button class = "btn btn-default  etalaseButton" type="submit" name="Kaprodi" value="Kaprodi"><img src="img/icon etalase/TU Akademik Icon.png "alt="Mountain View" style="width:150px;height:150px;"></button>
+                                    <button class = "btn btn-default  etalaseButton" type="submit" name="Kaprodi" value="Kaprodi"><img src="img/icon etalase/Kaprodi Icon.png"alt="Mountain View" style="width:150px;height:150px;"></button>
                                      <h4 class="text-center" style="margin-top:20px;">Kapordi</h4>
                                 </div>
                                 <?php
