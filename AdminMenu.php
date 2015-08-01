@@ -61,9 +61,9 @@
 
         <li class="has-sub"><a href='ViewRole.php'><span>Peran Pengguna</span></a>
             <ul>
-                <li>
+<!--                <li>
                     <a href="AddRole.php">Tambah Peran Pengguna</a>
-                </li>
+                </li>-->
                 <li>
                     <a href="ViewRole.php">Lihat Peran Pengguna</a>
                 </li>

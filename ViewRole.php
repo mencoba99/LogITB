@@ -63,7 +63,7 @@ include 'controller/Role.php';
                             <tr>
                                 <th>Peran Pengguna</th>
                                 <th>Deskripsi Peran Pengguna</th>
-                                <th>Aksi</th>
+<!--                                <th>Aksi</th>-->
                             </tr>
                             <?php
                                 $val = $_SESSION['value'];
@@ -72,11 +72,11 @@ include 'controller/Role.php';
                                     echo "<tr>";
                                     echo "<td>".$val['idrole'][$i]."</td>";
                                     echo "<td>".$val['deskripsi'][$i]."</td>";
-                                    echo "<td>";
-                                    echo "<form action=\"controller/Role.php\" method=\"POST\" enctype=\"multipart/form-data\">";
-                                    echo "<input type=\"hidden\" name=\"idrole\" value=".$val['idrole'][$i]." class=\"btn btn-blue\" />";
-                                    echo "<input type=\"submit\" name=\"edit\" value=\"Ubah\" class=\"btn btn-green\" />";
-                                    echo "<input type=\"submit\" name=\"delete\" value=\"Hapus\" class=\"btn btn-red\" />";
+//                                    echo "<td>";
+//                                    echo "<form action=\"controller/Role.php\" method=\"POST\" enctype=\"multipart/form-data\">";
+//                                    echo "<input type=\"hidden\" name=\"idrole\" value=".$val['idrole'][$i]." class=\"btn btn-blue\" />";
+//                                    echo "<input type=\"submit\" name=\"edit\" value=\"Ubah\" class=\"btn btn-green\" />";
+//                                    echo "<input type=\"submit\" name=\"delete\" value=\"Hapus\" class=\"btn btn-red\" />";
                                     echo "</form>";
                                     echo "</td>";
                                     echo "</tr>";

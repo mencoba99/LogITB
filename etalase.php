@@ -72,7 +72,15 @@ include 'controller/User.php';
                                 ?>
                                 <div class="col-lg-3">
                                     <button class = "btn btn-default etalaseButton" type="submit" name="Admin" value="Admin"><img src="img/icon etalase/Admin Icon.png" alt="Mountain View" style="width:150px;height:150px;"></button>
-                                    <h4 class="text-center" style="margin-top:20px;">Admin</h4>
+                                    <h4 class="text-center" style="margin-top:20px;">Admin Sistem</h4>
+                                </div>
+                                <?php
+                                    }
+                                    if(in_array("TU_Akademik", $_SESSION['role'])){
+                                ?>
+                                <div class="col-lg-3">
+                                    <button class = "btn btn-default  etalaseButton" type="submit" name="TU_Akademik" value="TU_Akademik"><img src="img/icon etalase/TU Akademik Icon.png "alt="Mountain View" style="width:150px;height:150px;"></button>
+                                     <h4 class="text-center" style="margin-top:20px;">TU Akademik</h4>
                                 </div>
                                 <?php
                                     }
@@ -88,19 +96,74 @@ include 'controller/User.php';
                                 ?>
                                 <div class="col-lg-3">
                                     <button class =  "btn btn-default etalaseButton" type="submit" name="Pembimbing_TA" value="Pembimbing_TA"><img src="img/icon etalase/Pembimbing Icon.png" alt="Mountain View" style="width:150px;height:150px;"></button>
-                                     <h4 class="text-center" style="margin-top:20px;">Pembimbing</h4>
+                                     <h4 class="text-center" style="margin-top:20px;">Pembimbing Tugas Akhir</h4>
                                 </div>
                                 <?php
                                     }
-                                    if(in_array("TU_Akademik", $_SESSION['role'])){
+                                    if(in_array("Penguji_TA", $_SESSION['role'])){
                                 ?>
                                 <div class="col-lg-3">
-                                    <button class = "btn btn-default  etalaseButton" type="submit" name="TU_Akademik" value="TU_Akademik"><img src="img/icon etalase/TU Akademik Icon.png "alt="Mountain View" style="width:150px;height:150px;"></button>
-                                     <h4 class="text-center" style="margin-top:20px;">TU Akademik</h4>
+                                    <button class = "btn btn-default  etalaseButton" type="submit" name="Penguji_TA" value="Penguji_TA"><img src="img/icon etalase/penguji Icon.png"alt="Mountain View" style="width:150px;height:150px;"></button>
+                                     <h4 class="text-center" style="margin-top:20px;">Penguji Tugas Akhir</h4>
+                                </div>
+                                 <?php
+                                    }
+                                    if(in_array("Pembimbing_KP", $_SESSION['role'])){
+                                ?>
+                                <div class="col-lg-3">
+                                    <button class = "btn btn-default  etalaseButton" type="submit" name="Pembimbing_KP" value="Pembimbing_KP"><img src="img/icon etalase/Pembimbing Icon.png"alt="Mountain View" style="width:150px;height:150px;"></button>
+                                     <h4 class="text-center" style="margin-top:20px;">Pembimbing Kerja Praktek</h4>
+                                </div>
+                                 <?php
+                                    }
+                                    if(in_array("Penguji_KP", $_SESSION['role'])){
+                                ?>
+                                <div class="col-lg-3">
+                                    <button class = "btn btn-default  etalaseButton" type="submit" name="Penguji_KP" value="Penguji_KP"><img src="img/icon etalase/penguji Icon.png"alt="Mountain View" style="width:150px;height:150px;"></button>
+                                     <h4 class="text-center" style="margin-top:20px;">Penguji Kerja Praktek</h4>
+                                </div>
+                                 <?php
+                                    }
+                                    if(in_array("Tim_TA", $_SESSION['role'])){
+                                ?>
+                                <div class="col-lg-3">
+                                    <button class = "btn btn-default  etalaseButton" type="submit" name="Tim_TA" value="Tim_TA"><img src="img/icon etalase/team-icon.png "alt="Mountain View" style="width:150px;height:150px;"></button>
+                                     <h4 class="text-center" style="margin-top:20px;">Tim Tugas Akhir</h4>
                                 </div>
                                 <?php
                                     }
-                                    
+                                    if(in_array("Tim_KP", $_SESSION['role'])){
+                                ?>
+                                <div class="col-lg-3">
+                                    <button class = "btn btn-default  etalaseButton" type="submit" name="Tim_KP" value="Tim_KP"><img src="img/icon etalase/team-icon.png"alt="Mountain View" style="width:150px;height:150px;"></button>
+                                     <h4 class="text-center" style="margin-top:20px;">Tim Kerja Praktek</h4>
+                                </div>
+                                <?php
+                                    }
+                                    if(in_array("Tim_Kemahasiswaan", $_SESSION['role'])){
+                                ?>
+                                <div class="col-lg-3">
+                                    <button class = "btn btn-default  etalaseButton" type="submit" name="Tim_Kemahasiswaan" value="Tim_Kemahasiswaan"><img src="img/icon etalase/team-icon.png"alt="Mountain View" style="width:150px;height:150px;"></button>
+                                     <h4 class="text-center" style="margin-top:20px;">Tim Kemahasiswaan</h4>
+                                </div>
+                                <?php
+                                    }
+                                    if(in_array("Wali", $_SESSION['role'])){
+                                ?>
+                                <div class="col-lg-3">
+                                    <button class = "btn btn-default  etalaseButton" type="submit" name="Wali" value="Wali"><img src="img/icon etalase/TU Akademik Icon.png "alt="Mountain View" style="width:150px;height:150px;"></button>
+                                     <h4 class="text-center" style="margin-top:20px;">Dosen Wali</h4>
+                                </div>
+                                <?php
+                                    }
+                                    if(in_array("Kaprodi", $_SESSION['role'])){
+                                ?>
+                                <div class="col-lg-3">
+                                    <button class = "btn btn-default  etalaseButton" type="submit" name="Kaprodi" value="Kaprodi"><img src="img/icon etalase/TU Akademik Icon.png "alt="Mountain View" style="width:150px;height:150px;"></button>
+                                     <h4 class="text-center" style="margin-top:20px;">Kapordi</h4>
+                                </div>
+                                <?php
+                                    }
                                 ?>
                             </form>
                         </div>
