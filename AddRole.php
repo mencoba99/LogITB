@@ -45,7 +45,7 @@ if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['used
                         <ul class="breadcrumb">
                             <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
                             <li><a href="DBAdmin.php">Admin</a></li>
-                            <li class="active">Add Data Role</li>
+                            <li class="active">Tambah Peran Pengguna</li>
                         </ul>
                     </div>
                 </div>
@@ -56,16 +56,16 @@ if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['used
 		<div class="row">
                     <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
                     <div class="col-lg-10">
-                        <h3>Add Data Role</h3>
+                        <h3>Add Data Peran Pengguna</h3>
                         <div class="alert-success"><?php if(isset($_SESSION['success'])){echo $_SESSION['success'];unset($_SESSION['success']);}?></div>
                         <form action="./controller/Role.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="idrole">Role</label>
-                                <input type="text" name="idrole" id="idrole" class="form-control" placeholder="Role" value="">
+                                <label for="idrole">Peran Pengguna</label>
+                                <input type="text" name="idrole" id="idrole" class="form-control" placeholder="Peran Pengguna" value="">
                             </div>
                             <div class="form-group">
                                 <label for="deskripsi">Deskripsi</label>
-                                <input type="text" name="deskripsi" id="nama" class="form-control" placeholder="Deskripsi Role" value="">
+                                <input type="text" name="deskripsi" id="nama" class="form-control" placeholder="Deskripsi Peran Pengguna" value="">
                             </div>
                             
                             <input type="submit" name="add" value="Add" class="btn btn-blue" />

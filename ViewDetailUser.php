@@ -45,8 +45,8 @@ session_start();
                         <ul class="breadcrumb">
                              <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
                             <li><a href="DBAdmin.php">Admin</a></li>
-                            <li><a href="ViewUser.php">View Data User</a></li>
-                            <li class="active">View Detail Data User</li>
+                            <li><a href="ViewUser.php">Lihat Pengguna</a></li>
+                            <li class="active">Lihat Detail Pengguna</li>
                         </ul>
                     </div>
                 </div>
@@ -57,7 +57,7 @@ session_start();
 		<div class="row">
                     <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
                     <div class="col-lg-10">
-                        <h3>Detail Data User</h3>
+                        <h3>Data Detail Pengguna</h3>
                         <div class="form-group">
                             <label for="username">Username</label>
                             <input type="text" name="username" id="username"  class="form-control" readonly value="<?php echo $_SESSION['datadetail']['username'];?>">

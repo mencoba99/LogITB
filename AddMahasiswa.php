@@ -45,7 +45,7 @@ if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['used
                         <ul class="breadcrumb">
                             <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
                             <li><a href="DBAdmin.php">Admin</a></li>
-                            <li class="active">Add Data Mahasiswa</li>
+                            <li class="active">Tambah Mahasiswa</li>
                         </ul>
                     </div>
                 </div>

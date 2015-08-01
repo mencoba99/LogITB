@@ -45,8 +45,8 @@ session_start();
                         <ul class="breadcrumb">
                             <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
                             <li><a href="DBAdmin.php">Admin</a></li>
-                            <li><a href="ViewUser.php">View Data User</a></li>
-                            <li class="active">Manage Role User</li>
+                            <li><a href="ViewUser.php">Lihat Pengguna</a></li>
+                            <li class="active">Atur Peran Pengguna</li>
                         </ul>
                     </div>
                 </div>
@@ -57,7 +57,7 @@ session_start();
 		<div class="row">
                     <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
                     <div class="col-lg-10">
-                        <h3>Manage Role User</h3>
+                        <h3>Manage Peran Pengguna</h3>
                         <form action="./controller/User.php" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="username">Username</label>
@@ -68,7 +68,7 @@ session_start();
                             <table class="table table-bordered">
                                 <tr>
                                     <th>Check</th>
-                                    <th>Role</th>
+                                    <th>Peran Pengguna</th>
                                     <th>Penjelasan</th>
                                 </tr>
                                      <?php

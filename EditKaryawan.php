@@ -45,8 +45,8 @@ session_start();
                         <ul class="breadcrumb">
                             <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
                             <li><a href="DBAdmin.php">Admin</a></li>
-                            <li><a href="ViewKaryawan.php">View Data Karyawan</a></li>
-                            <li class="active">Edit Data Karyawan</li>
+                            <li><a href="ViewKaryawan.php">Lihat Karyawan</a></li>
+                            <li class="active">Ubah Karyawan</li>
                         </ul>
                     </div>
                 </div>

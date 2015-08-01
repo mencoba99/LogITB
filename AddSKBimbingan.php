@@ -47,7 +47,7 @@ include 'controller/SK.php';
                         <ul class="breadcrumb">
                             <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
                             <li><a href="DBTU.php">Tata Usaha Akademik</a></li>
-                            <li class="active">Add Data SK Bimbingan</li>
+                            <li class="active">Tambah SK Bimbingan</li>
                         </ul>
                     </div>
                 </div>

@@ -55,7 +55,7 @@
                 </li> 
             </ul>
         </li>
-        <li class="has-sub"><a href='#'><span>SK Bimbingan</span></a>
+        <li class="has-sub"><a href='ViewSKBimbingan.php'><span>SK Bimbingan</span></a>
             <ul>
                 <li>
                     <a href="AddSKBimbingan.php">Add SK Bimbingan</a>

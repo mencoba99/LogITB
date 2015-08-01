@@ -47,7 +47,7 @@ include 'controller/Role.php';
                         <ul class="breadcrumb">
                            <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
                             <li><a href="DBAdmin.php">Admin</a></li>
-                            <li class="active">View Data Role</li>
+                            <li class="active">Lihat Peran Pengguna</li>
                         </ul>
                     </div>
                 </div>
@@ -58,11 +58,11 @@ include 'controller/Role.php';
 		<div class="row">
                     <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
                     <div class="col-lg-10">
-                        <h3>Tabel Data Role</h3>
+                        <h3>Data Peran Pengguna</h3>
                         <table class="table table-bordered">
                             <tr>
-                                <th>Role</th>
-                                <th>Deskripsi Role</th>
+                                <th>Peran Pengguna</th>
+                                <th>Deskripsi Peran Pengguna</th>
                                 <th>Aksi</th>
                             </tr>
                             <?php

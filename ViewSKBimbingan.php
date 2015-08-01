@@ -47,7 +47,7 @@ include 'controller/SK.php';
                         <ul class="breadcrumb">
                             <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
                             <li><a href="DBTU.php">Tata Usaha Akademik</a></li>
-                            <li class="active">Tabel Data SK Bimbingan Tugas Akhir</li>
+                            <li class="active">Data SK Bimbingan Tugas Akhir</li>
                         </ul>
                     </div>
                 </div>
@@ -58,7 +58,7 @@ include 'controller/SK.php';
 		<div class="row">
                     <div class="col-lg-2"><?php include 'TUMenu.php';?></div>
                     <div class="col-lg-10">
-                        <h3>Tabel Surat Keputusan Bimbingan Tugas Akhir</h3>
+                        <h3>Data Surat Keputusan Bimbingan Tugas Akhir</h3>
                         <table class="table table-bordered">
                             <tr>
                                 <th>ID</th>

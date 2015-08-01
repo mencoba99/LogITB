@@ -56,7 +56,7 @@ include 'controller/User.php';
                     <div class="jumbotron">
                         <h1>Selamat Datang</h1>
                        <p>Anda telah memasuki 
-                            <strong>Sistem Tugas Akhir, Kerja Praktek, dan SKPI online</strong> fakultasi Informasi Teknologi ITB
+                            <strong>Sistem Tugas Akhir, Kerja Praktek, dan SKPI online</strong> fakultas Teknologi Informasi ITB
                         .
                         </p>
                         <p>

@@ -45,8 +45,8 @@ session_start();
                         <ul class="breadcrumb">
                             <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
                             <li><a href="DBAdmin.php">Admin</a></li>
-                            <li><a href="ViewUser.php">View Data User</a></li>
-                            <li class="active">Edit Data User</li>
+                            <li><a href="ViewUser.php">Lihat Pengguna</a></li>
+                            <li class="active">Ubah Pengguna</li>
                         </ul>
                     </div>
                 </div>
@@ -57,10 +57,10 @@ session_start();
 		<div class="row">
                     <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
                     <div class="col-lg-10">
-                        <h3>Edit Data User</h3>
+                        <h3>Edit Data Pengguna</h3>
                         <form action="./controller/User.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="username">User</label>
+                                <label for="username">Username</label>
                                 <input type="text" name="username" id="idrole"  class="form-control" placeholder="Username" value="<?php echo $_SESSION['data']['username'];?>">
                             </div>
                             <div class="form-group">

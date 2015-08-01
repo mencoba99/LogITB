@@ -59,7 +59,7 @@
                         <?php include 'AdminMenu.php';?>
                     </div>            
                     <div class="col-lg-10">
-                        <h3>Admin Sistem</h3>
+                        <h3>Dashboard Admin Sistem</h3>
                         <div class="panel panel-default">
                             <div class="panel-heading">Data Sistem</div>
                             <div class="panel-body">
