@@ -57,7 +57,7 @@ session_start();
 		<div class="row">
                     <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
                     <div class="col-lg-10">
-                        <h3>Edit Data Peran Pengguna</h3>
+                        <h3>Ubah Data Peran Pengguna</h3>
                         <form action="./controller/Role.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="idrole">Role</label>

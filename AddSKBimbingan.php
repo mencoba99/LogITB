@@ -58,7 +58,7 @@ include 'controller/SK.php';
 		<div class="row">
                     <div class="col-lg-2"><?php include 'TUMenu.php';?></div>
                     <div class="col-lg-10">
-                        <h3>Add Data Surat Keputusan Bimbingan Tugas Akhir</h3>
+                        <h3>Tambah Data Surat Keputusan Bimbingan Tugas Akhir</h3>
                         <div class="alert-success"><?php if(isset($_SESSION['success'])){echo $_SESSION['success'];unset($_SESSION['success']);}?></div>
                         <div class="alert-danger"><?php if(isset($_SESSION['fail'])){echo $_SESSION['fail'];unset($_SESSION['fail']);}?></div>
                         <form action="./controller/SK.php" method="POST" enctype="multipart/form-data">

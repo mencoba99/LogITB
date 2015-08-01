@@ -90,7 +90,7 @@ include 'controller/SK.php';
                                     }else{
                                         echo "<input type=\"submit\" name=\"aktif\" value=\"Activate\" class=\"btn btn-green\" />";
                                     }
-                                    echo "<input type=\"submit\" name=\"delete\" value=\"Delete\" class=\"btn btn-red\" />";
+                                    echo "<input type=\"submit\" name=\"delete\" value=\"Hapus\" class=\"btn btn-red\" />";
                                     echo "</form>";
                                     echo "</td>";
                                     echo "</tr>";

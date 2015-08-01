@@ -56,7 +56,8 @@ session_start();
             <div class="container">
 		<div class="row">
                     <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
-                    <div class="col-lg-8">
+                    <div class="col-lg-10">
+                        <h3>Ubah Data Dosen</h3>
                         <form action="./controller/Dosen.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="nip">NIP</label>
