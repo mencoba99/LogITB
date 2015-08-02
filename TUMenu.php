@@ -80,6 +80,61 @@
         </li>
     </ul>
 </div>
+<h4>Kerja Praktek</h4>
+<div id="cssmenu">
+    <ul>
+        <li class="has-sub"><a href="ViewKelompokKP.php"><span >Kelompok KP</span></a>
+            <ul>
+                <li>
+                    <a href="AddKelompokKP.php">Tambah Kelompok KP</a>
+                </li>
+                <li>
+                    <a href="ViewKelompokKP.php">Lihat Kelompok KP</a>
+                </li>
+            </ul>
+        </li>
+        <li class="has-sub"><a href="ViewSuratPengantarKP.php"><span >Surat Pengantar KP</span></a>
+            <ul>
+                <li>
+                    <a href="AddSuratPengantarKP.php">Tambah Surat Pengantar KP</a>
+                </li>
+                <li>
+                    <a href="ViewSuratPengantarKP.php">Lihat Surat Pengantar KP</a>
+                </li>
+            </ul>
+        </li>
+        <li class="has-sub"><a href="ViewSKBimbinganKP.php"><span >SK Bimbingan KP</span></a>
+            <ul>
+                <li>
+                    <a href="AddSKBimbinganKP.php">Tambah SK Bimbingan KP</a>
+                </li>
+                <li>
+                    <a href="ViewSKBimbinganKP.php">Lihat SK Bimbingan KP</a>
+                </li>
+            </ul>
+        </li>
+        <li class="has-sub"><a href="ViewSeminarKP.php"><span >Seminar KP</span></a>
+            <ul>
+                <li>
+                    <a href="AddSeminarKP.php">Tambah Seminar KP</a>
+                </li>
+                <li>
+                    <a href="ViewSeminarKP.php">Lihat Seminar KP</a>
+                </li>
+            </ul>
+        </li>
+        <li class="has-sub"><a href="ViewNilaiDetailKP.php"><span >Nilai Detail KP</span></a>
+            <ul>
+                <li>
+                    <a href="AddNilaiDetailKP.php">Tambah Nilai Detail KP</a>
+                </li>
+                <li>
+                    <a href="ViewNilaiDetailKP.php">Lihat Nilai Detail KP</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
 <h4>Tugas Akhir</h4>
 <div id="cssmenu">
     <ul>
@@ -187,61 +242,7 @@
         
     </ul>
 </div>
-<h4>Kerja Praktek</h4>
-<div id="cssmenu">
-    <ul>
-        <li class="has-sub"><a href="ViewKelompokKP.php"><span >Kelompok KP</span></a>
-            <ul>
-                <li>
-                    <a href="AddKelompokKP.php">Tambah Kelompok KP</a>
-                </li>
-                <li>
-                    <a href="ViewKelompokKP.php">Lihat Kelompok KP</a>
-                </li>
-            </ul>
-        </li>
-        <li class="has-sub"><a href="ViewSuratPengantarKP.php"><span >Surat Pengantar KP</span></a>
-            <ul>
-                <li>
-                    <a href="AddSuratPengantarKP.php">Tambah Surat Pengantar KP</a>
-                </li>
-                <li>
-                    <a href="ViewSuratPengantarKP.php">Lihat Surat Pengantar KP</a>
-                </li>
-            </ul>
-        </li>
-        <li class="has-sub"><a href="ViewSKBimbinganKP.php"><span >SK Bimbingan KP</span></a>
-            <ul>
-                <li>
-                    <a href="AddSKBimbinganKP.php">Tambah SK Bimbingan KP</a>
-                </li>
-                <li>
-                    <a href="ViewSKBimbinganKP.php">Lihat SK Bimbingan KP</a>
-                </li>
-            </ul>
-        </li>
-        <li class="has-sub"><a href="ViewSeminarKP.php"><span >Seminar KP</span></a>
-            <ul>
-                <li>
-                    <a href="AddSeminarKP.php">Tambah Seminar KP</a>
-                </li>
-                <li>
-                    <a href="ViewSeminarKP.php">Lihat Seminar KP</a>
-                </li>
-            </ul>
-        </li>
-        <li class="has-sub"><a href="ViewNilaiDetailKP.php"><span >Nilai Detail KP</span></a>
-            <ul>
-                <li>
-                    <a href="AddNilaiDetailKP.php">Tambah Nilai Detail KP</a>
-                </li>
-                <li>
-                    <a href="ViewNilaiDetailKP.php">Lihat Nilai Detail KP</a>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</div>
+
 <h4>SKPI</h4>
 <div id="cssmenu">
     <ul>
