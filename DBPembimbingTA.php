@@ -3,8 +3,8 @@
     if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Pembimbing_TA")){
         header("Location: index.php");
     }
-    $_SESSION['status']="viewMhs";
-include 'controller/Approve.php';
+//    $_SESSION['status']="viewMhs";
+//include 'controller/Approve.php';
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +57,7 @@ include 'controller/Approve.php';
             <div class="container">
 		<div class="row">
                     <div class="col-lg-2">
-                        <?php include 'PBMenu.php';?>
+                        <?php include 'PembimbingTAMenu.php';?>
                     </div>
                 
             

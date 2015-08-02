@@ -31,12 +31,12 @@
         }
         
         if(isset($_POST['Pembimbing_KP'])){
-            $_SESSION['usedrole']="PembimbingKP";
+            $_SESSION['usedrole']="Pembimbing_KP";
             header('Location: DBPembimbingKP.php');
         }
         
         if(isset($_POST['Penguji_KP'])){
-            $_SESSION['usedrole']="PengujiKP";
+            $_SESSION['usedrole']="Penguji_KP";
             header('Location: DBPengujiKP.php');
         }
         
