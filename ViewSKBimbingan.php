@@ -1,8 +1,10 @@
 <?php
 session_start();
-    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="TU_Akademik")){
+if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="TU_Akademik")){
+    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Tim_TA")){
         header("Location: index.php");
     }
+}
 $_SESSION['status']="view";
 include 'controller/SK.php';
 ?>
@@ -56,7 +58,7 @@ include 'controller/SK.php';
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"><?php include 'TUMenu.php';?></div>
+                    <div class="col-lg-2"><?php include './SideMenuManager.php';?></div>
                     <div class="col-lg-10">
                         <h3>Data Surat Keputusan Bimbingan Tugas Akhir</h3>
                         <table class="table table-bordered">
@@ -68,7 +70,13 @@ include 'controller/SK.php';
                                 <th>Judul</th>
                                 <th>Status</th>
                                 <th>File</th>
+                                <?php
+                                if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']=="TU_Akademik")){
+                                ?>
                                 <th>Aksi</th>
+                                <?php
+                                }
+                                ?>
                             </tr>
                             <?php
                                 $val = $_SESSION['value'];
@@ -82,17 +90,18 @@ include 'controller/SK.php';
                                     echo "<td>".$val['judulta'][$i]."</td>";
                                     echo "<td>".$val['status'][$i]."</td>";
                                     echo "<td><a href=\"SK/".$val['file'][$i]."\" target=\"_blank\">".$val['file'][$i]."</a></td>";
-                                    echo "<td>";
-                                    echo "<form action=\"controller/SK.php\" method=\"POST\" enctype=\"multipart/form-data\">";
-                                    echo "<input type=\"hidden\" name=\"sk\" value=".$val['nosk'][$i]." />";
-                                    if($val['status'][$i]=="Aktif"){
-                                        echo "<input type=\"submit\" name=\"aktif\" value=\"Deaktivate\" class=\"btn btn-orange\" />";
-                                    }else{
-                                        echo "<input type=\"submit\" name=\"aktif\" value=\"Activate\" class=\"btn btn-green\" />";
-                                    }
-                                    echo "<input type=\"submit\" name=\"delete\" value=\"Hapus\" class=\"btn btn-red\" />";
-                                    echo "</form>";
-                                    echo "</td>";
+                                    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']=="TU_Akademik")){
+                                        echo "<td>";
+                                        echo "<form action=\"controller/SK.php\" method=\"POST\" enctype=\"multipart/form-data\">";
+                                        echo "<input type=\"hidden\" name=\"sk\" value=".$val['nosk'][$i]." />";
+                                        if($val['status'][$i]=="Aktif"){
+                                            echo "<input type=\"submit\" name=\"aktif\" value=\"Deaktivate\" class=\"btn btn-orange\" />";
+                                        }else{
+                                            echo "<input type=\"submit\" name=\"aktif\" value=\"Activate\" class=\"btn btn-green\" />";
+                                        }
+                                        echo "<input type=\"submit\" name=\"delete\" value=\"Hapus\" class=\"btn btn-red\" />";
+                                        echo "</form>";
+                                        echo "</td>";}
                                     echo "</tr>";
                                 }
                             ?>

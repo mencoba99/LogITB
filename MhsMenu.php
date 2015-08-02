@@ -22,18 +22,18 @@
             <a href="ViewKelompokKPMahasiswa.php">Kelompok KP</a>
         </li>
         <li>
-            <a href="ViewSuratPengantarKP.php">Surat Pengantar KP</a>
+            <a href="ViewSuratPengantarKPMahasiswa.php">Surat Pengantar KP</a>
         </li>
         <li>
-            <a href="ViewSKBimbinganKP.php">SK Bimbingan KP</a>
+            <a href="ViewSKBimbinganKPMahasiswa.php">SK Bimbingan KP</a>
         </li>
-        <li class="has-sub"><a href='ViewBimbinganKP.php'><span>Bimbingan KP</span></a>
+        <li class="has-sub"><a href='ViewBimbinganKPMahasiswa.php'><span>Bimbingan KP</span></a>
             <ul>
                 <li>
-                    <a href="AddBimbinganKP.php">Tambah Laporan Bimbingan KP </a>
+                    <a href="AddBimbinganKPMahasiswa.php">Tambah Laporan Bimbingan KP </a>
                 </li>
                  <li>
-                    <a href="ViewBimbinganKP.php">Lihat Laporan Bimbingan KP</a>
+                    <a href="ViewBimbinganKPMahasiswa.php">Lihat Laporan Bimbingan KP</a>
                 </li>
             </ul>
         </li>
@@ -51,13 +51,13 @@
         <li>
             <a href="ViewSKBimbinganTAMahasiswa.php">SK Bimbingan TA</a>
         </li>
-        <li class="has-sub"><a href='#'><span>Bimbingan TA</span></a>
+        <li class="has-sub"><a href='ViewBimbinganTAMahasiswa.php'><span>Bimbingan TA</span></a>
             <ul>
                 <li>
-                    <a href="Laporan.php">Tambah Laporan Bimbingan TA </a>
+                    <a href="AddBimbinganTAMahasiswa.php">Tambah Laporan Bimbingan TA </a>
                 </li>
                  <li>
-                    <a href="ViewLaporan.php">Lihat Laporan Bimbingan TA</a>
+                    <a href="ViewBimbinganTAMahasiswa.php">Lihat Laporan Bimbingan TA</a>
                 </li>
             </ul>
         </li>

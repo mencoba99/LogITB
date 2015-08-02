@@ -53,7 +53,7 @@ session_start();
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"><?php include 'TUMenu.php';?></div>
+                    <div class="col-lg-2"><?php include './SideMenuManager.php';?></div>
                     <div class="col-lg-8">
                         <form action="./controller/TA.php" method="POST" enctype="multipart/form-data">
                             <input type="hidden" name="id" value="<?php echo $_SESSION['data']['id'];?>" />

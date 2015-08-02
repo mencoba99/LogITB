@@ -55,7 +55,7 @@ include 'controller/Laporan.php';
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"><?php include 'MhsMenu.php';?></div>
+                    <div class="col-lg-2"><?php include './SideMenuManager.php';?></div>
                     <div class="col-lg-8">
                         <table class="table table-bordered">
                             <tr>

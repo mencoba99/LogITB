@@ -59,7 +59,7 @@ include 'controller/Approve.php';
             <div class="container">
 		<div class="row">
                     <div class="col-lg-2">
-                        <?php include 'PBMenu.php';?>
+                        <?php include './SideMenuManager.php';?>
                     </div>
                 
             

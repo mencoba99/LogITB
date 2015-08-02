@@ -55,7 +55,7 @@ session_start();
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"><?php include 'AdminMenu.php';?></div>
+                    <div class="col-lg-2"><?php include './SideMenuManager.php';?></div>
                     <div class="col-lg-10">
                         <h3>Ubah Data Mahasiswa</h3>
                         <form action="./controller/Mahasiswa.php" method="POST" enctype="multipart/form-data">

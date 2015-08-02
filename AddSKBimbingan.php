@@ -1,9 +1,11 @@
 <?php
 session_start();
 if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="TU_Akademik")){
+    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Tim_TA")){
         header("Location: index.php");
     }
-    $_SESSION['status']="collect";
+}
+$_SESSION['status']="collect";
 include 'controller/SK.php';
 ?>
 <!DOCTYPE html>
@@ -56,7 +58,8 @@ include 'controller/SK.php';
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"><?php include 'TUMenu.php';?></div>
+                    <div class="col-lg-2">
+                        <?php include './SideMenuManager.php';?></div>
                     <div class="col-lg-10">
                         <h3>Tambah Data Surat Keputusan Bimbingan Tugas Akhir</h3>
                         <div class="alert-success"><?php if(isset($_SESSION['success'])){echo $_SESSION['success'];unset($_SESSION['success']);}?></div>

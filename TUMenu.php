@@ -199,16 +199,6 @@
                 </li> 
             </ul>
         </li>
-        <li class="has-sub"><a href="ViewSKSidangTA.php"><span>SK Sidang TA</span></a>
-            <ul>
-                <li>
-                    <a href="AddSKSidangTA.php">Tambah SK Sidang TA</a>
-                </li>
-                <li>
-                    <a href="ViewSKSidangTA.php">Lihat SK Sidang TA</a>
-                </li> 
-            </ul>
-        </li>
         <li class="has-sub"><a href="ViewSeminarTA2.php"><span>Seminar TA 2</span></a>
             <ul>
                 <li>
@@ -216,6 +206,16 @@
                 </li>
                 <li>
                     <a href="ViewSeminarTA2.php">Lihat Seminar TA 2</a>
+                </li> 
+            </ul>
+        </li>
+        <li class="has-sub"><a href="ViewSKSidangTA.php"><span>SK Sidang TA</span></a>
+            <ul>
+                <li>
+                    <a href="AddSKSidangTA.php">Tambah SK Sidang TA</a>
+                </li>
+                <li>
+                    <a href="ViewSKSidangTA.php">Lihat SK Sidang TA</a>
                 </li> 
             </ul>
         </li>
