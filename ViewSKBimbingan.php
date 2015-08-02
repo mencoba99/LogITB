@@ -2,7 +2,9 @@
 session_start();
 if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="TU_Akademik")){
     if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Tim_TA")){
-        header("Location: index.php");
+        if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Kaprodi")){
+            header("Location: index.php");
+        }
     }
 }
 $_SESSION['status']="view";
