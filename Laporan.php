@@ -68,7 +68,7 @@ if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['used
                             </div>
                             <div class="form-group">
                                 <label for="lapor">Catatan Bimbingan</label>
-                                <textarea name="lapor" id="lapor" cols="90" rows="6"></textarea>
+                                <textarea name="lapor" id="lapor" class="form-control" rows="6"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="tgl2">Tanggal Rencana Bimbingan</label>
@@ -76,7 +76,7 @@ if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['used
                             </div>
                             <div class="form-group">
                                 <label for="lapor2">Rencana Bimbingan Selanjutnya</label>
-                                <textarea name="lapor2" id="lapor2" cols="90" rows="6"></textarea>
+                                <textarea name="lapor2" id="lapor2" class="form-control" rows="6"></textarea>
                             </div>
                             <input type="submit" name="add" value="Add" class="btn btn-blue" />
                         </form>

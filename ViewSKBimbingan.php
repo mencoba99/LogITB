@@ -50,7 +50,19 @@ include 'controller/SK.php';
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
                             <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li><a href="DBTU.php">Tata Usaha Akademik</a></li>
+                            <?php
+                            if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']=="TU_Akademik")){
+                                ?><li><a href="DBTU.php">Tata Usaha Akademik</a></li>
+                            <?php
+                            }
+                            else if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']=="Tim_TA")){
+                                ?><li><a href="DBTimTA.php">Tim Tugas Akhir</a></li>
+                            <?php
+                            }        
+                            else if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']=="Kaprodi")){
+                                ?><li><a href="DBKaprodi.php">Ketua Program Studi</a></li>
+                            <?Php
+                            } ?>
                             <li class="active">Data SK Bimbingan Tugas Akhir</li>
                         </ul>
                     </div>
