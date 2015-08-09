@@ -6,7 +6,7 @@ if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['used
     }
 }
 $_SESSION['status']="collect";
-include 'controller/SK.php';
+include 'controller/SeminarTA1.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +22,7 @@ include 'controller/SK.php';
 <link href="css/jcarousel.css" rel="stylesheet" />
 <link href="css/flexslider.css" rel="stylesheet" />
 <link href="css/style.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/>
 
 
 <!-- Theme skin -->
@@ -64,11 +65,7 @@ include 'controller/SK.php';
                         <h3>Tambah Data Surat Keputusan Bimbingan Tugas Akhir</h3>
                         <div class="alert-success"><?php if(isset($_SESSION['success'])){echo $_SESSION['success'];unset($_SESSION['success']);}?></div>
                         <div class="alert-danger"><?php if(isset($_SESSION['fail'])){echo $_SESSION['fail'];unset($_SESSION['fail']);}?></div>
-                        <form action="./controller/SK.php" method="POST" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label for="judul">No. SK</label>
-                                <input type="text" name="sk" id="judul" class="form-control" placeholder="Nomor SK Bimbingan" value="">
-                            </div>
+                        <form action="./controller/SeminarTA1.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="nim">NIM</label>
                                 <input type="text" list="dataNIM" name="nim" id="nim" class="form-control" placeholder="NIM" value="" autocomplete="off">
@@ -83,12 +80,20 @@ include 'controller/SK.php';
                                 </datalist>
                             </div>
                             <div class="form-group">
-                                <label for="p1">Pembimbing 1</label>
-                                <input type="text" list="dataDosen" name="p1" id="p1" class="form-control" placeholder="Pembimbing 1" value="" autocomplete="off"> 
+                                <label for="tgl">Tanggal</label>
+                                <input type="text" name="tgl" id="datetimepicker2" class="form-control" placeholder="Tanggal Diadakan Seminar" value="" autocomplete="off">
                             </div>
                             <div class="form-group">
-                                <label for="p2">Pembimbing 2</label>
-                                <input type="text" list="dataDosen" name="p2" id="p2" class="form-control" placeholder="Pembimbing 2" value="" autocomplete="off">
+                                <label for="jam">Jam</label>
+                                <input type="text" name="jam" id="jam" class="form-control" placeholder="Jam Diadakan Seminar" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="tempat">Tempat</label>
+                                <input type="text" name="tempat" id="bimbi" class="form-control" placeholder="Tempat Diadakan Seminar" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="penguji">Penguji</label>
+                                <input type="text" list="dataDosen" name="penguji" id="penguji" class="form-control" placeholder="Penguji Seminar" value="" autocomplete="off">
                             </div>
                             <datalist id="dataDosen">
                                     <?php
@@ -100,19 +105,17 @@ include 'controller/SK.php';
                                     ?>
                             </datalist>
                             <div class="form-group">
-                                <label for="judul">Judul</label>
-                                <input type="text" name="judul" id="judul" class="form-control" placeholder="Judul Tugas Akhir" value="">
+                                <label for="judul">judul TA</label>
+                                <input type="text" name="judul" id="judul" class="form-control" placeholder="Tempat Diadakan Seminar" value="">
                             </div>
                             <div class="form-group">
-                                <label for="status">Status</label>
-                                <input type="radio" class="radio radio-inline" id="status" name="status" value="Aktif" checked>Aktif
-                                <input type="radio" class="radio radio-inline" id="status" name="status" value="Tidak Aktif" >Tidak Aktif
+                                <label for="catatan">Catatan Seminar</label>
+                                <textarea name="catatan" id="catatan" class="form-control" rows="6"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="upload">Upload SK</label>
-                                <input type="file" name="upload" id="upload">
+                                <label for="ket">Keterangan</label>
+                                <textarea name="ket" id="ket" class="form-control" rows="6"></textarea>
                             </div>
-                            
                             <input type="submit" name="add" value="Add" class="btn btn-blue" />
                         </form>
                     </div>
@@ -190,5 +193,16 @@ include 'controller/SK.php';
 <script src="js/jquery.flexslider.js"></script>
 <script src="js/animate.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/jquery.datetimepicker.js"></script>
+<script>
+$('#datetimepicker2').datetimepicker({
+	lang:'id',
+	timepicker:false,
+	format:'Y-m-d',
+	formatDate:'Y-m-d',
+        minDate: '<?php echo $_SESSION['date']['min'];?>',
+        maxDate: '<?php echo $_SESSION['date']['max'];?>' 
+});
+</script>
 </body>
 </html>
