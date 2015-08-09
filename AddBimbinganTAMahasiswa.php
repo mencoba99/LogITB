@@ -1,12 +1,10 @@
 <?php
 session_start();
-if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="TU_Akademik")){
-    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Tim_TA")){
+if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Mahasiswa")){
         header("Location: index.php");
     }
-}
-$_SESSION['status']="collect";
-include 'controller/SyaratSeminarTA1.php';
+    $_SESSION['status']="collect";
+    include 'controller/Laporan.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +20,7 @@ include 'controller/SyaratSeminarTA1.php';
 <link href="css/jcarousel.css" rel="stylesheet" />
 <link href="css/flexslider.css" rel="stylesheet" />
 <link href="css/style.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/>
 
 
 <!-- Theme skin -->
@@ -47,9 +46,8 @@ include 'controller/SyaratSeminarTA1.php';
                 <div class="row">
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
-                            <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li><a href="DBTU.php">Tata Usaha Akademik</a></li>
-                            <li class="active">Tambah SK Bimbingan</li>
+                            <li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                            <li class="active">Form Laporan</li>
                         </ul>
                     </div>
                 </div>
@@ -58,61 +56,28 @@ include 'controller/SyaratSeminarTA1.php';
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2">
-                        <?php include './SideMenuManager.php';?></div>
-                    <div class="col-lg-10">
-                        <h3>Tambah Data Surat Keputusan Bimbingan Tugas Akhir</h3>
+                    <div class="col-lg-2"><?php include './SideMenuManager.php';?></div>
+                    <div class="col-lg-8">
                         <div class="alert-success"><?php if(isset($_SESSION['success'])){echo $_SESSION['success'];unset($_SESSION['success']);}?></div>
-                        <div class="alert-danger"><?php if(isset($_SESSION['fail'])){echo $_SESSION['fail'];unset($_SESSION['fail']);}?></div>
-                        <form action="./controller/SK.php" method="POST" enctype="multipart/form-data">
+                        <form action="./controller/Laporan.php" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="nim" value="<?php echo $_SESSION['username'];?>"/>
+                            <input type="hidden" name="sk" value="<?php echo $_SESSION['nosk'];?>"/>
                             <div class="form-group">
-                                <label for="judul">No. SK</label>
-                                <input type="text" name="sk" id="judul" class="form-control" placeholder="Nomor SK Bimbingan" value="">
+                                <label for="tgl">Tanggal Bimbingan</label>
+                                <input type="text" name="tgl" id="datetimepicker2" class="form-control" placeholder="Tanggal Bimbingan" value="" autocomplete="off">
                             </div>
                             <div class="form-group">
-                                <label for="nim">NIM</label>
-                                <input type="text" list="dataNIM" name="nim" id="nim" class="form-control" placeholder="NIM" value="" autocomplete="off">
-                                <datalist id="dataNIM">
-                                    <?php
-                                        $nim = $_SESSION['mhs']['nim'];
-                                        $x=  count($nim);
-                                        for($i=0;$i<$x;$i++){
-                                            echo "<option value=".$nim[$i].">";
-                                        }
-                                    ?>
-                                </datalist>
+                                <label for="lapor">Catatan Bimbingan</label>
+                                <textarea name="lapor" id="lapor" class="form-control" rows="6"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="p1">Pembimbing 1</label>
-                                <input type="text" list="dataDosen" name="p1" id="p1" class="form-control" placeholder="Pembimbing 1" value="" autocomplete="off"> 
+                                <label for="tgl2">Tanggal Rencana Bimbingan</label>
+                                <input type="text" name="tgl2" id="datetimepicker3" class="form-control" placeholder="Tanggal Rencana Bimbingan" value="" autocomplete="off">
                             </div>
                             <div class="form-group">
-                                <label for="p2">Pembimbing 2</label>
-                                <input type="text" list="dataDosen" name="p2" id="p2" class="form-control" placeholder="Pembimbing 2" value="" autocomplete="off">
+                                <label for="lapor2">Rencana Bimbingan Selanjutnya</label>
+                                <textarea name="lapor2" id="lapor2" class="form-control" rows="6"></textarea>
                             </div>
-                            <datalist id="dataDosen">
-                                    <?php
-                                        $dosen = $_SESSION['dosen'];
-                                        $y=  count($dosen['nama']);
-                                        for($j=0;$j<$y;$j++){
-                                            echo "<option value=\"".$dosen['nip'][$j]."-".$dosen['nama'][$j]."\">";
-                                        }
-                                    ?>
-                            </datalist>
-                            <div class="form-group">
-                                <label for="judul">Judul</label>
-                                <input type="text" name="judul" id="judul" class="form-control" placeholder="Judul Tugas Akhir" value="">
-                            </div>
-                            <div class="form-group">
-                                <label for="status">Status</label>
-                                <input type="radio" class="radio radio-inline" id="status" name="status" value="Aktif" checked>Aktif
-                                <input type="radio" class="radio radio-inline" id="status" name="status" value="Tidak Aktif" >Tidak Aktif
-                            </div>
-                            <div class="form-group">
-                                <label for="upload">Upload SK</label>
-                                <input type="file" name="upload" id="upload">
-                            </div>
-                            
                             <input type="submit" name="add" value="Add" class="btn btn-blue" />
                         </form>
                     </div>
@@ -190,5 +155,20 @@ include 'controller/SyaratSeminarTA1.php';
 <script src="js/jquery.flexslider.js"></script>
 <script src="js/animate.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/jquery.datetimepicker.js"></script>
+<script>
+$('#datetimepicker2').datetimepicker({
+	lang:'id',
+	timepicker:false,
+	format:'Y-m-d',
+	formatDate:'Y-m-d'
+});
+$('#datetimepicker3').datetimepicker({
+	lang:'id',
+	timepicker:false,
+	format:'Y-m-d',
+	formatDate:'Y-m-d'
+});
+</script>
 </body>
 </html>

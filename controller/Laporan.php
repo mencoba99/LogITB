@@ -8,7 +8,7 @@
         if($r){
             session_start();
             $_SESSION['success']="Berhasil tambah TA.. :)";
-            header('Location: ../Laporan.php');
+            header('Location: ../AddBimbinganTAMahasiswa.php');
         }
     }else{
         

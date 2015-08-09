@@ -3,8 +3,9 @@
     if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Pembimbing_TA")){
         header("Location: index.php");
     }
-//    $_SESSION['status']="viewMhs";
-//include 'controller/Approve.php';
+    $_SESSION['status']="viewMhs";
+include 'controller/Approve.php';
+    
 ?>
 
 <!DOCTYPE html>
@@ -83,6 +84,9 @@
                                     echo "<form action=\"controller/Approve.php\" method=\"POST\" enctype=\"multipart/form-data\">";
                                     echo "<input type=\"hidden\" name=\"sk\" value=".$val['sk'][$i]." />";
                                     echo "<input type=\"submit\" name=\"view\" value=\"View\" class=\"btn btn-blue\" />";
+                                    if($val['seminar'][$i]==1){
+                                        echo "<input type=\"submit\" name=\"sseminar\" value=\"Syarat Seminar\" class=\"btn btn-purple\" />";
+                                    }
                                     echo "</form>";
                                     echo "</td>";
                                     echo "</tr>";
