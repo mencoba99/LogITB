@@ -1,8 +1,9 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Tim_Kemahasiswaan")){
-        header("Location: index.php");
-    }
+//    session_start();
+//    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Tim_Kemahasiswaan")){
+//        header("Location: index.php");
+//    }
+header( 'Location: ../LogITB/UnderConstructionPage.php' ) ;
 ?>
 
 <!DOCTYPE html>

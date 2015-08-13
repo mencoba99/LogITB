@@ -1,11 +1,3 @@
-<?php
-//    session_start();
-//    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Pembimbing_KP")){
-//        header("Location: index.php");
-//    }
-header( 'Location: ../LogITB/UnderConstructionPage.php' ) ;
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,36 +27,19 @@ header( 'Location: ../LogITB/UnderConstructionPage.php' ) ;
 <div id="wrapper">
 	<!-- start header -->
 	<header>
-         <?php
-            include($_SERVER['DOCUMENT_ROOT'] . "/LogITB/Menu.php");
-        ?>
 	</header>
 	<!-- end header -->
 	<section id="inner-headline">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <ul class="breadcrumb">
-                            <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li><a href="DBPembimbingKP.php">Pembimbing KP</a></li>
-                            <li class="active">Dashboard Pembimbing KP</li>
-                        </ul>
-                    </div>
-                </div>
+                
             </div>
 	</section>
 	<section id="content">
             <div class="container">
-		<div class="row">
-                    <div class="col-lg-2">
-                        <?php include './SideMenuManager.php';?>
-                    </div>
-                    <div class="col-lg-10">
-                        <h3>Dashboard Pembimbing KP dengan NIP : xxxxxxxx</h3>
-                        
-                    </div>
-                    <div class="col-lg-2"></div>
-		</div>
+                <div class="col-lg-12">
+                    <a href="index.php"><img src="img/This Page_under_construction.png" alt="" /></a>
+                </div>
+		
             </div>
 	</section>
 	<footer>
