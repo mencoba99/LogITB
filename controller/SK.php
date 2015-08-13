@@ -1,4 +1,4 @@
-<!--TA Controller-->
+<!--SK Controller-->
 <?php
     include $_SERVER['DOCUMENT_ROOT'].'/LogITB/model/SK.php';
     if(isset($_POST['add'])){

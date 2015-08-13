@@ -1,13 +1,13 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Pembimbing_TA")){
+session_start();
+if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="TU_Akademik")){
+    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Tim_TA")){
         header("Location: index.php");
     }
-    $_SESSION['status']="viewMhs";
-include 'controller/Approve.php';
-    
+}
+$_SESSION['status']="collect";
+include 'controller/SeminarTA1.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +22,7 @@ include 'controller/Approve.php';
 <link href="css/jcarousel.css" rel="stylesheet" />
 <link href="css/flexslider.css" rel="stylesheet" />
 <link href="css/style.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/>
 
 
 <!-- Theme skin -->
@@ -47,8 +48,9 @@ include 'controller/Approve.php';
                 <div class="row">
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
-                            <li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li class="active">Home</li>
+                            <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                            <li><a href="DBTU.php">Tata Usaha Akademik</a></li>
+                            <li class="active">Tambah SK Bimbingan</li>
                         </ul>
                     </div>
                 </div>
@@ -58,41 +60,64 @@ include 'controller/Approve.php';
             <div class="container">
 		<div class="row">
                     <div class="col-lg-2">
-                        <?php include './SideMenuManager.php';?>
-                    </div>
-                
-            
-                    <div class="col-lg-8">
-                        <table class="table table-bordered">
-                            <tr>
-                                <th>NIM</th>
-                                <th>Judul TA</th>
-                                <th>Status</th>
-                                <th>SK</th>
-                                <th>Histori</th>
-                            </tr>
-                            <?php
-                                $val = $_SESSION['value'];
-                                $x = count($val['nim']);
-                                for($i=0;$i<$x;$i++){
-                                    echo "<tr>";
-                                    echo "<td>".$val['nim'][$i]."</td>";
-                                    echo "<td>".$val['judul'][$i]."</td>";
-                                    echo "<td>".$val['status'][$i]."</td>";
-                                    echo "<td><a href=\"SK/".$val['file'][$i]."\" target=\"_blank\">".$val['file'][$i]."</a></td>";
-                                    echo "<td>";
-                                    echo "<form action=\"controller/Approve.php\" method=\"POST\" enctype=\"multipart/form-data\">";
-                                    echo "<input type=\"hidden\" name=\"sk\" value=".$val['sk'][$i]." />";
-                                    echo "<input type=\"submit\" name=\"view\" value=\"View\" class=\"btn btn-blue\" />";
-                                    if($val['seminar'][$i]==1){
-                                        echo "<input type=\"submit\" name=\"sseminar\" value=\"Syarat Seminar\" class=\"btn btn-purple\" />";
-                                    }
-                                    echo "</form>";
-                                    echo "</td>";
-                                    echo "</tr>";
-                                }
-                            ?>
-                        </table>
+                        <?php include './SideMenuManager.php';?></div>
+                    <div class="col-lg-10">
+                        <h3>Tambah Data Surat Keputusan Bimbingan Tugas Akhir</h3>
+                        <div class="alert-success"><?php if(isset($_SESSION['success'])){echo $_SESSION['success'];unset($_SESSION['success']);}?></div>
+                        <div class="alert-danger"><?php if(isset($_SESSION['fail'])){echo $_SESSION['fail'];unset($_SESSION['fail']);}?></div>
+                        <form action="./controller/SeminarTA1.php" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="nim">NIM</label>
+                                <input type="text" list="dataNIM" name="nim" id="nim" class="form-control" placeholder="NIM" value="" autocomplete="off">
+                                <datalist id="dataNIM">
+                                    <?php
+                                        $nim = $_SESSION['mhs']['nim'];
+                                        $x=  count($nim);
+                                        for($i=0;$i<$x;$i++){
+                                            echo "<option value=".$nim[$i].">";
+                                        }
+                                    ?>
+                                </datalist>
+                            </div>
+                            <div class="form-group">
+                                <label for="tgl">Tanggal</label>
+                                <input type="text" name="tgl" id="datetimepicker2" class="form-control" placeholder="Tanggal Diadakan Seminar" value="" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="jam">Jam</label>
+                                <input type="text" name="jam" id="jam" class="form-control" placeholder="Jam Diadakan Seminar" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="tempat">Tempat</label>
+                                <input type="text" name="tempat" id="bimbi" class="form-control" placeholder="Tempat Diadakan Seminar" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="penguji">Penguji</label>
+                                <input type="text" list="dataDosen" name="penguji" id="penguji" class="form-control" placeholder="Penguji Seminar" value="" autocomplete="off">
+                            </div>
+                            <datalist id="dataDosen">
+                                    <?php
+                                        $dosen = $_SESSION['dosen'];
+                                        $y=  count($dosen['nama']);
+                                        for($j=0;$j<$y;$j++){
+                                            echo "<option value=\"".$dosen['nip'][$j]."-".$dosen['nama'][$j]."\">";
+                                        }
+                                    ?>
+                            </datalist>
+                            <div class="form-group">
+                                <label for="judul">judul TA</label>
+                                <input type="text" name="judul" id="judul" class="form-control" placeholder="Tempat Diadakan Seminar" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="catatan">Catatan Seminar</label>
+                                <textarea name="catatan" id="catatan" class="form-control" rows="6"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="ket">Keterangan</label>
+                                <textarea name="ket" id="ket" class="form-control" rows="6"></textarea>
+                            </div>
+                            <input type="submit" name="add" value="Add" class="btn btn-blue" />
+                        </form>
                     </div>
                     <div class="col-lg-2"></div>
 		</div>
@@ -168,5 +193,16 @@ include 'controller/Approve.php';
 <script src="js/jquery.flexslider.js"></script>
 <script src="js/animate.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/jquery.datetimepicker.js"></script>
+<script>
+$('#datetimepicker2').datetimepicker({
+	lang:'id',
+	timepicker:false,
+	format:'Y-m-d',
+	formatDate:'Y-m-d',
+        minDate: '<?php echo $_SESSION['date']['min'];?>',
+        maxDate: '<?php echo $_SESSION['date']['max'];?>' 
+});
+</script>
 </body>
 </html>

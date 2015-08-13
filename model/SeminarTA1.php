@@ -1,25 +1,17 @@
-<!--SK Model-->
+<!--SeminarTA1 Model-->
 <?php
     
-    function insert ($sk,$nim,$p1,$p2,$judul,$status,$file){
+    function insert ($nim,$tgl,$jam,$tempat,$penguji,$judul,$catatan,$ket){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        list($nip1,$nama1)=  explode("-", $p1);
-        if($p2!=""){
-            list($nip2,$nama2)=  explode("-", $p2);
+        $nosk="";
+        $sql = "SELECT nosk FROM skbimbinganta WHERE peserta='".$nim."' AND status='Aktif'";
+        $res = mysqli_query($link, $sql);
+        if($r = mysqli_fetch_assoc($res)){
+            $nosk=$r['nosk'];
         }
-//        $sql = "SELECT nip FROM dosen where inisial='".$inisial1."'";
-//        $row = mysqli_query($link, $sql);
-//        $r = mysqli_fetch_assoc($row);
-//        $nip1 = $r['nip'];
-//        if($p2!=""){
-//            $sql = "SELECT nip FROM dosen where inisial='".$inisial2."'";
-//            $row = mysqli_query($link, $sql);
-//            $r = mysqli_fetch_assoc($row);
-//            $nip2 = $r['nip'];
-//        }else{
-//            $nip2="";
-//        }
-        $sql = "INSERT INTO skbimbinganta (nosk,peserta,pembimbing1,pembimbing2,judulta,status,file) VALUES ('".$sk."','".$nim."','".$nip1."','".$nip2."','".$judul."','".$status."','".$file."')";
+        $kodeperiode=  getPeriode(1)['kode'];
+        $sql = "INSERT INTO seminarta1 VALUES ("
+                .$kodeperiode.",'".$nim."','".$nosk."','".$tgl."','".$jam."','".$tempat."','".$penguji."','".$judul."','".$catatan."','".$ket."')";
         return mysqli_query($link,$sql);
     }
     function view(){
@@ -93,15 +85,16 @@
     
     function viewMhs(){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT * FROM mahasiswa";
+        $value="";
+        $sql = "SELECT peserta FROM syaratseminarta1 where tspersetujuanpembimbing1 IS NOT NULL OR tspersetujuanpembimbing2 IS NOT NULL";
         $res = mysqli_query($link, $sql);
         $i=0;
         while($r = mysqli_fetch_assoc($res)){
-            $value['nim'][$i]=$r['nim'];
-            $value['nama'][$i]=$r['nama'];
-            $value['email'][$i]=$r['email'];
-            $value['alamat'][$i]=$r['alamat'];
-            $value['telp'][$i]=$r['noTelp'];
+            $value['nim'][$i]=$r['peserta'];
+//            $value['nama'][$i]=$r['nama'];
+//            $value['email'][$i]=$r['email'];
+//            $value['alamat'][$i]=$r['alamat'];
+//            $value['telp'][$i]=$r['noTelp'];
             $i++;
         }
         return $value;
@@ -119,5 +112,18 @@
             $value="";
         }
         return $value;
+    }
+    
+    function getPeriode($jenis){
+        include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
+        $result="";
+        $sql = "SELECT kodeperiode,tglmulai,tglselesai FROM periodeta WHERE jenis=".$jenis." ORDER BY kodeperiode DESC";
+        $res = mysqli_query($link, $sql);
+        if($r = mysqli_fetch_assoc($res)){
+            $result['kode']=$r['kodeperiode'];
+            $result['min']=$r['tglmulai'];
+            $result['max']=$r['tglselesai'];
+        }
+        return $result;
     }
 ?>

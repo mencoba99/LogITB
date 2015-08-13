@@ -1,13 +1,11 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Pembimbing_TA")){
+session_start();
+if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="TU_Akademik")){
         header("Location: index.php");
     }
-    $_SESSION['status']="viewMhs";
-include 'controller/Approve.php';
-    
+    $_SESSION['status']="collect";
+    include 'controller/Periode.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,6 +20,7 @@ include 'controller/Approve.php';
 <link href="css/jcarousel.css" rel="stylesheet" />
 <link href="css/flexslider.css" rel="stylesheet" />
 <link href="css/style.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/ >
 
 
 <!-- Theme skin -->
@@ -48,7 +47,7 @@ include 'controller/Approve.php';
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
                             <li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li class="active">Home</li>
+                            <li class="active">Form Laporan</li>
                         </ul>
                     </div>
                 </div>
@@ -57,42 +56,40 @@ include 'controller/Approve.php';
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2">
-                        <?php include './SideMenuManager.php';?>
-                    </div>
-                
-            
+                    <div class="col-lg-2"><?php include './SideMenuManager.php';?></div>
                     <div class="col-lg-8">
-                        <table class="table table-bordered">
-                            <tr>
-                                <th>NIM</th>
-                                <th>Judul TA</th>
-                                <th>Status</th>
-                                <th>SK</th>
-                                <th>Histori</th>
-                            </tr>
-                            <?php
-                                $val = $_SESSION['value'];
-                                $x = count($val['nim']);
-                                for($i=0;$i<$x;$i++){
-                                    echo "<tr>";
-                                    echo "<td>".$val['nim'][$i]."</td>";
-                                    echo "<td>".$val['judul'][$i]."</td>";
-                                    echo "<td>".$val['status'][$i]."</td>";
-                                    echo "<td><a href=\"SK/".$val['file'][$i]."\" target=\"_blank\">".$val['file'][$i]."</a></td>";
-                                    echo "<td>";
-                                    echo "<form action=\"controller/Approve.php\" method=\"POST\" enctype=\"multipart/form-data\">";
-                                    echo "<input type=\"hidden\" name=\"sk\" value=".$val['sk'][$i]." />";
-                                    echo "<input type=\"submit\" name=\"view\" value=\"View\" class=\"btn btn-blue\" />";
-                                    if($val['seminar'][$i]==1){
-                                        echo "<input type=\"submit\" name=\"sseminar\" value=\"Syarat Seminar\" class=\"btn btn-purple\" />";
-                                    }
-                                    echo "</form>";
-                                    echo "</td>";
-                                    echo "</tr>";
-                                }
-                            ?>
-                        </table>
+                        <div class="alert-success"><?php if(isset($_SESSION['success'])){echo $_SESSION['success'];unset($_SESSION['success']);}?></div>
+                        <form action="./controller/Periode.php" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="jenis">Jenis Periode</label>
+                                <select name="jenis" class="form-control">
+                                    <option value="1">Seminar TA 1</option>
+                                    <option value="2">Seminar TA 2</option>
+                                    <option value="3">Sidang TA</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="tgl">Tanggal Mulai</label>
+                                <input type="text" name="tgl" id="datetimepicker2" class="form-control" placeholder="Tanggal Mulai Periode" value="" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="tgl2">Tanggal Selesai</label>
+                                <input type="text" name="tgl2" id="datetimepicker3" class="form-control" placeholder="Tanggal Akhir Periode" value="" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="smt">Semester</label>
+                                <select name="smt" class="form-control">
+                                    <option value="1">Ganjil</option>
+                                    <option value="2">Genap</option>
+                                    <option value="3">Pendek</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="tahun">Tahun</label>
+                                <input type="text" id="tahun" name="tahun" class="form-control" placeholder="Tahun Akademik" />
+                            </div>
+                            <input type="submit" name="add" value="Add" class="btn btn-blue" />
+                        </form>
                     </div>
                     <div class="col-lg-2"></div>
 		</div>
@@ -168,5 +165,20 @@ include 'controller/Approve.php';
 <script src="js/jquery.flexslider.js"></script>
 <script src="js/animate.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/jquery.datetimepicker.js"></script>
+<script>
+$('#datetimepicker2').datetimepicker({
+	lang:'id',
+	timepicker:false,
+	format:'Y-m-d',
+	formatDate:'Y-m-d'
+});
+$('#datetimepicker3').datetimepicker({
+	lang:'id',
+	timepicker:false,
+	format:'Y-m-d',
+	formatDate:'Y-m-d'
+});
+</script>
 </body>
 </html>

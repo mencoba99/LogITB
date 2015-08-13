@@ -25,7 +25,7 @@
         echo $_POST['sk'];
         session_start();
         $_SESSION['value2']=view($_POST['sk']);
-        header("Location: ../Approval.php");
+        header("Location: ../ViewBimbinganTA.php");
     }
     
     if(isset($_POST['detail'])){
@@ -35,10 +35,24 @@
         header("Location: ../DetailBimbingan.php");
     }
     
+    if(isset($_POST['sseminar'])){
+        echo $_POST['sk'];
+        session_start();
+        $_SESSION['data']=getDetailSS($_POST['sk']);
+        header("Location: ../ApproveSyaratSeminarTA1.php");
+    }
+    
     if(isset($_POST['approve'])){
         session_start();
         echo $_SESSION['username']."-".$_POST['no']."-".$_POST['sk'];
         approve($_SESSION['username'],$_POST['no'],$_POST['sk']);
-        header("Location: ../DBPembimbing.php");
+        header("Location: ../DBPembimbingTA.php");
+    }
+    
+    if(isset($_POST['approvess'])){
+        session_start();
+        echo $_SESSION['username']."-".$_POST['sk'];
+        approvess($_SESSION['username'],$_POST['sk']);
+        header("Location: ../DBPembimbingTA.php");
     }
 ?>
