@@ -5,7 +5,7 @@
 <div id="cssmenu">
     <ul>
         <li><a href='DBPembimbingTA.php'><span>Dashboard Pembimbing TA</span></a></li>
-        <li><a href='ViewSKBimbinganTA.php'><span>SK Bimbingan TA</span></a></li>
+        <li><a href='ViewSKBimbingan.php'><span>SK Bimbingan TA</span></a></li>
         <li><a href='ViewBimbinganTA.php'><span>Bimbingan TA</span></a></li>
         <li><a href='ViewSyaratSeminarTA1.php'><span>Syarat Seminar TA 1</span></a></li>
         <li><a href='ViewSeminarTA1.php'><span>Seminar TA</span></a></li>
