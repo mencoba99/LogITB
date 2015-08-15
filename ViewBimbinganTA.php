@@ -1,12 +1,14 @@
 <?php
     session_start();
     if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Pembimbing_TA")){
-        header("Location: index.php");
+        if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Tim_TA")){
+            header("Location: index.php");
+        }
     }
-    if(!isset($_SESSION['value2'])){
-        header("Location: DBPembimbing.php");
-    }
-include 'controller/Approve.php';
+//    if(!isset($_SESSION['value2'])){
+//        header("Location: DBPembimbing.php");
+//    }
+//include 'controller/Approve.php';
 ?>
 
 <!DOCTYPE html>
