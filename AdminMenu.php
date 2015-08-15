@@ -4,7 +4,16 @@
 <h3>Menu</h3>
 <div id="cssmenu">
     <ul>
-        <li><a href= "DBAdmin.php"><span>Dashboard Admin</span></a>
+        <li><a href= "DBAdmin.php"><span>Dashboard Admin</span></a></li>
+        <li class="has-sub"><a href="ViewProfil.php"><span >Kelola Akun</span></a>
+            <ul>
+                <li>
+                    <a href="EditProfi.php">Ubah Data Diri</a>
+                </li>
+                <li>
+                    <a href="EditPassword.php">Ubah Password</a>
+                </li>
+            </ul>
         </li>
         <li class="has-sub"><a href= "ViewMahasiswa.php"><span>Mahasiswa</span></a>
             <ul>

@@ -6,6 +6,16 @@
 <div id="cssmenu">
     <ul>
         <li><a href='DBTimTA.php'><span>Dashboard Tim Tugas Akhir</span></a></li>
+        <li class="has-sub"><a href="ViewProfil.php"><span >Kelola Akun</span></a>
+            <ul>
+                <li>
+                    <a href="EditProfi.php">Ubah Data Diri</a>
+                </li>
+                <li>
+                    <a href="EditPassword.php">Ubah Password</a>
+                </li>
+            </ul>
+        </li>
         <li><a href="ViewPengambilanMataKuliah.php"><span>Pengambilan Mata Kuliah TA</span></a></li>
         <li class="has-sub"><a href="ViewPengumuman.php"><span >Pengumuman</span></a>
             <ul>

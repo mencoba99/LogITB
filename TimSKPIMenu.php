@@ -5,6 +5,16 @@
 <div id="cssmenu">
     <ul>
         <li><a href='DBTimSKPI.php'><span>Dashboard Tim Kemahasiswaan</span></a></li>
+        <li class="has-sub"><a href="ViewProfil.php"><span >Kelola Akun</span></a>
+            <ul>
+                <li>
+                    <a href="EditProfi.php">Ubah Data Diri</a>
+                </li>
+                <li>
+                    <a href="EditPassword.php">Ubah Password</a>
+                </li>
+            </ul>
+        </li>
         <li class="has-sub"><a href="ViewKegiatanSKPI.php"><span >Kegiatan</span></a>
             <ul>
                 <li>

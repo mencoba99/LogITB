@@ -7,6 +7,16 @@
     <ul>
         <li><a href='DBTU.php'><span>Dashboard TU Akademik</span></a>
         </li>
+        <li class="has-sub"><a href="ViewProfil.php"><span >Kelola Akun</span></a>
+            <ul>
+                <li>
+                    <a href="EditProfi.php">Ubah Data Diri</a>
+                </li>
+                <li>
+                    <a href="EditPassword.php">Ubah Password</a>
+                </li>
+            </ul>
+        </li>
         <li class="has-sub"><a href="ViewMataKuliah.php"><span>Mata Kuliah</span></a>
             <ul>
                 <li>

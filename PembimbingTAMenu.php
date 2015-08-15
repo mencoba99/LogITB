@@ -1,10 +1,27 @@
+
 <?php
 
 ?>
 <h3>Menu</h3>
+<h4>Umum</h4>
 <div id="cssmenu">
     <ul>
         <li><a href='DBPembimbingTA.php'><span>Dashboard Pembimbing TA</span></a></li>
+        <li class="has-sub"><a href="ViewProfil.php"><span >Kelola Akun</span></a>
+            <ul>
+                <li>
+                    <a href="EditProfi.php">Ubah Data Diri</a>
+                </li>
+                <li>
+                    <a href="EditPassword.php">Ubah Password</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<h4>Tugas Akhir</h4>
+<div id="cssmenu">
+    <ul>
         <li><a href='ViewSKBimbingan.php'><span>SK Bimbingan TA</span></a></li>
         <li><a href='ViewBimbinganTA.php'><span>Bimbingan TA</span></a></li>
         <li><a href='ViewSyaratSeminarTA1.php'><span>Syarat Seminar TA 1</span></a></li>
