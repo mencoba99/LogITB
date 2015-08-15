@@ -1,8 +1,8 @@
 <?php
 session_start();
-    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
-        header("Location: index.php");
-    }
+//    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
+//        header("Location: index.php");
+//    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

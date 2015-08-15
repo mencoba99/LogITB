@@ -2,6 +2,7 @@
 
 ?>
 <h3>Menu</h3>
+<h4>Umum</h4>
 <div id="cssmenu">
     <ul>
         <li><a href= "DBAdmin.php"><span>Dashboard Admin</span></a></li>
@@ -11,10 +12,15 @@
                     <a href="EditProfi.php">Ubah Data Diri</a>
                 </li>
                 <li>
-                    <a href="EditPassword.php">Ubah Password</a>
+                    <a href="EditUser.php">Ubah Password</a>
                 </li>
             </ul>
         </li>
+    </ul>
+</div>    
+<h4>Admin</h4>
+<div id="cssmenu">
+    <ul>
         <li class="has-sub"><a href= "ViewMahasiswa.php"><span>Mahasiswa</span></a>
             <ul>
                 <li>

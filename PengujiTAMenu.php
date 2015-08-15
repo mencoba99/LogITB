@@ -7,10 +7,10 @@
         <li class="has-sub"><a href="ViewProfil.php"><span >Kelola Akun</span></a>
             <ul>
                 <li>
-                    <a href="EditProfi.php">Ubah Data Diri</a>
+                    <a href="EditDosen.php">Ubah Data Diri</a>
                 </li>
                 <li>
-                    <a href="EditPassword.php">Ubah Password</a>
+                    <a href="EditUser.php">Ubah Password</a>
                 </li>
             </ul>
         </li>
