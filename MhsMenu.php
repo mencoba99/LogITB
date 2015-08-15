@@ -15,7 +15,7 @@
         </li>
     </ul>
 </div>
-<h4>Kerja Praktek</h4>
+<!--<h4>Kerja Praktek</h4>
 <div id="cssmenu">
     <ul>
         <li>
@@ -44,7 +44,7 @@
             <a href="ViewNilaiDetailKPMahasiswa.php">Nilai Detail KP</a>
         </li>
     </ul>
-</div>
+</div>-->
 <h4>Tugas Akhir</h4>
 <div id="cssmenu">
     <ul>
@@ -87,7 +87,7 @@
         </li>
     </ul>
 </div>
-<h4>SKPI</h4>
+<!--<h4>SKPI</h4>
 <div id="cssmenu">
     <ul>
         <li>
@@ -97,5 +97,5 @@
             <a href="ViewSKPIMahasiswa.php">SKPI</a>
         </li>
     </ul>
-</div>
+</div>-->
 

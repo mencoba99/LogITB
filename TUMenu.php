@@ -80,7 +80,7 @@
         </li>
     </ul>
 </div>
-<h4>Kerja Praktek</h4>
+<!--<h4>Kerja Praktek</h4>
 <div id="cssmenu">
     <ul>
         <li class="has-sub"><a href="ViewKelompokKP.php"><span >Kelompok KP</span></a>
@@ -134,7 +134,7 @@
             </ul>
         </li>
     </ul>
-</div>
+</div>-->
 <h4>Tugas Akhir</h4>
 <div id="cssmenu">
     <ul>
@@ -243,7 +243,7 @@
     </ul>
 </div>
 
-<h4>SKPI</h4>
+<!--<h4>SKPI</h4>
 <div id="cssmenu">
     <ul>
         <li class="has-sub"><a href="ViewKegiatanSKPI.php"><span >Kegiatan</span></a>
@@ -278,4 +278,4 @@
         </li>
         
     </ul>
-</div>
+</div>-->

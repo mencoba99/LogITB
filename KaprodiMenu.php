@@ -19,7 +19,7 @@
         </li>
     </ul>
 </div>
-<h4>Kerja Praktek</h4>
+<!--<h4>Kerja Praktek</h4>
 <div id="cssmenu">
     <ul>
         <li><a href="ViewSKBimbinganKP.php">SK Bimbingan KP</a></li>
@@ -27,7 +27,7 @@
         <li><a href="ViewSeminarKP.php">Seminar KP</a></li>
         <li><a href="ViewNilaiDetailKP.php">Nilai Detail KP</a></li>
     </ul>
-</div>
+</div>-->
 <h4>Tugas Akhir</h4>
 <div id="cssmenu">
     <ul>
