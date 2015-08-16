@@ -1,7 +1,9 @@
 <?php
 session_start();
     if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
-        header("Location: index.php");
+        if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Wali")){
+            header("Location: index.php");    
+        } 
     }
 $_SESSION['status']="view";
 include 'controller/Mahasiswa.php';
@@ -66,7 +68,12 @@ include 'controller/Mahasiswa.php';
                                 <th>Email</th>
                                 <th>Alamat</th>
                                 <th>No. Telp</th>
-                                <th>Aksi</th>
+                                <?php
+                                    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']=="Admin")){
+                                    ?><th>Aksi</th>
+                                <?php
+                                } ?>
+                                
                             </tr>
                             <?php
                                 $val = $_SESSION['value'];
@@ -78,13 +85,15 @@ include 'controller/Mahasiswa.php';
                                     echo "<td>".$val['email'][$i]."</td>";
                                     echo "<td>".$val['alamat'][$i]."</td>";
                                     echo "<td>".$val['telp'][$i]."</td>";
-                                    echo "<td>";
-                                    echo "<form action=\"controller/Mahasiswa.php\" method=\"POST\" enctype=\"multipart/form-data\">";
-                                    echo "<input type=\"hidden\" name=\"nim\" value=".$val['nim'][$i]." class=\"btn btn-blue\" />";
-                                    echo "<input type=\"submit\" name=\"edit\" value=\"Ubah\" class=\"btn btn-green\" />";
-                                    echo "<input type=\"submit\" name=\"delete\" value=\"Hapus\" class=\"btn btn-red\" />";
-                                    echo "</form>";
-                                    echo "</td>";
+                                    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']=="Admin")){
+                                        echo "<td>";
+                                        echo "<form action=\"controller/Mahasiswa.php\" method=\"POST\" enctype=\"multipart/form-data\">";
+                                        echo "<input type=\"hidden\" name=\"nim\" value=".$val['nim'][$i]." class=\"btn btn-blue\" />";
+                                        echo "<input type=\"submit\" name=\"edit\" value=\"Ubah\" class=\"btn btn-green\" />";
+                                        echo "<input type=\"submit\" name=\"delete\" value=\"Hapus\" class=\"btn btn-red\" />";
+                                        echo "</form>";
+                                        echo "</td>";
+                                    }
                                     echo "</tr>";
                                 }
                             ?>
