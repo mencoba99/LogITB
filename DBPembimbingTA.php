@@ -3,9 +3,10 @@
     if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Pembimbing_TA")){
         header("Location: index.php");
     }
+
     $_SESSION['status']="viewMhs";
     include 'controller/Approve.php';
-    
+   
 ?>
 
 <!DOCTYPE html>
@@ -60,39 +61,51 @@
                     <div class="col-lg-2">
                         <?php include './SideMenuManager.php';?>
                     </div>
-                
-            
-                    <div class="col-lg-8">
-                        <table class="table table-bordered">
-                            <tr>
-                                <th>NIM</th>
-                                <th>Judul TA</th>
-                                <th>Status</th>
-                                <th>SK</th>
-                                <th>Histori</th>
-                            </tr>
-                            <?php
-                                $val = $_SESSION['value'];
-                                $x = count($val['nim']);
-                                for($i=0;$i<$x;$i++){
-                                    echo "<tr>";
-                                    echo "<td>".$val['nim'][$i]."</td>";
-                                    echo "<td>".$val['judul'][$i]."</td>";
-                                    echo "<td>".$val['status'][$i]."</td>";
-                                    echo "<td><a href=\"SK/".$val['file'][$i]."\" target=\"_blank\">".$val['file'][$i]."</a></td>";
-                                    echo "<td>";
-                                    echo "<form action=\"controller/Approve.php\" method=\"POST\" enctype=\"multipart/form-data\">";
-                                    echo "<input type=\"hidden\" name=\"sk\" value=".$val['sk'][$i]." />";
-                                    echo "<input type=\"submit\" name=\"view\" value=\"View\" class=\"btn btn-blue\" />";
-                                    if($val['seminar'][$i]==1){
-                                        echo "<input type=\"submit\" name=\"sseminar\" value=\"Syarat Seminar\" class=\"btn btn-purple\" />";
-                                    }
-                                    echo "</form>";
-                                    echo "</td>";
-                                    echo "</tr>";
-                                }
-                            ?>
-                        </table>
+                    <div class="col-lg-10">
+                        <h3>Dashboard Pembimbing TA</h3>
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><strong>Data Pembimbing TA</strong></div>
+                            <div class="panel-body">
+                                Nama : Nama Pembimbing <br/>
+                                NIP  : NIP Pembimbing
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><strong>Mahasiswa Bimbingan Tugas Akhir</strong></div>
+                            <div class="panel-body">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>NIM</th>
+                                        <th>Nama</th>
+                                        <th>Judul TA</th>
+                                        <th>Status</th>
+                                        <th>Histori</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                    <?php
+//                                        $val = $_SESSION['value'];
+//                                        $x = count($val['nim']);
+//                                        for($i=0;$i<$x;$i++){
+//                                            echo "<tr>";
+//                                            echo "<td>".$val['nim'][$i]."</td>";
+//                                            echo "<td>".$val['judul'][$i]."</td>";
+//                                            echo "<td>".$val['status'][$i]."</td>";
+//                                            echo "<td><a href=\"SK/".$val['file'][$i]."\" target=\"_blank\">".$val['file'][$i]."</a></td>";
+//                                            echo "<td>";
+//                                            echo "<form action=\"controller/Approve.php\" method=\"POST\" enctype=\"multipart/form-data\">";
+//                                            echo "<input type=\"hidden\" name=\"sk\" value=".$val['sk'][$i]." />";
+//                                            echo "<input type=\"submit\" name=\"view\" value=\"View\" class=\"btn btn-blue\" />";
+//                                            if($val['seminar'][$i]==1){
+//                                                echo "<input type=\"submit\" name=\"sseminar\" value=\"Syarat Seminar\" class=\"btn btn-purple\" />";
+//                                            }
+//                                            echo "</form>";
+//                                            echo "</td>";
+//                                            echo "</tr>";
+//                                        }
+                                    ?>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-lg-2"></div>
 		</div>
