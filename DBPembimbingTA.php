@@ -4,7 +4,7 @@
         header("Location: index.php");
     }
     $_SESSION['status']="viewMhs";
-include 'controller/Approve.php';
+    include 'controller/Approve.php';
     
 ?>
 

@@ -41,17 +41,22 @@
         $sql = "SELECT skbimbinganta.nosk as nosk,skbimbinganta.status as stts,syaratseminarta1.nosk as noskt from skbimbinganta,syaratseminarta1 "
                 . "WHERE skbimbinganta.nosk=syaratseminarta1.nosk AND skbimbinganta.status='Aktif' ";
         $res = mysqli_query($link, $sql);
-        $i=0;
+        $s=0;
         while($r = mysqli_fetch_assoc($res)){
-            $syarat[$i]=$r['nosk'];
+            $syarat[$s]=$r['nosk'];
+            $s++;
         }
         $sql = "SELECT * FROM skbimbinganta WHERE pembimbing1='".$nip."' OR pembimbing2='".$nip."'";
         $res = mysqli_query($link, $sql);
         $i=0;
         while($r = mysqli_fetch_assoc($res)){
             $value['sk'][$i]=$r['nosk'];
-            if(in_array($r['nosk'], $syarat)){
-                $value['seminar'][$i]=1;
+            if($s>0){
+                if(in_array($r['nosk'], $syarat)){
+                    $value['seminar'][$i]=1;
+                }else{
+                    $value['seminar'][$i]=0;
+                }
             }else{
                 $value['seminar'][$i]=0;
             }

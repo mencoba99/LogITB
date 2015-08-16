@@ -3,6 +3,8 @@
     if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Mahasiswa")){
         header("Location: index.php");
     }
+    $_SESSION['status']='viewMhs';
+    include $_SERVER['DOCUMENT_ROOT'].'/LogITB/controller/Dashboard.php';
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +61,7 @@
                         <?php include './SideMenuManager.php';?>
                     </div>
                     <div class="col-lg-10">
-                        <h3>Dashboard Mahasiwa dengan NIM : xxxxxxxx</h3>
+                        <h3>Dashboard Mahasiwa dengan NIM : <?php echo $_SESSION['username']; ?></h3>
                         
                     </div>
                     <div class="col-lg-2"></div>

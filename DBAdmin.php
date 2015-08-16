@@ -3,6 +3,8 @@
     if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
         header("Location: index.php");
     }
+    $_SESSION['status']='viewAdmin';
+    include $_SERVER['DOCUMENT_ROOT'].'/LogITB/controller/Dashboard.php';
 ?>
 
 <!DOCTYPE html>
@@ -63,10 +65,10 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">Data Sistem</div>
                             <div class="panel-body">
-                                Jumlah data user dalam sistem adalah xx
+                                Jumlah data user dalam sistem adalah <?php echo $_SESSION['userCount'];unset($_SESSION['userCount']); ?>
                             </div>
                             <div class="panel-body">
-                                Jumlah data role dalam sistem adalah xx
+                                Jumlah data role dalam sistem adalah <?php echo $_SESSION['roleCount'];unset($_SESSION['roleCount']); ?>
                             </div>
                         </div>
                         <div class="panel panel-default">

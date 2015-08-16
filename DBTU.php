@@ -3,6 +3,8 @@
     if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="TU_Akademik")){
         header("Location: index.php");
     }
+    $_SESSION['status']='viewTU';
+    include $_SERVER['DOCUMENT_ROOT'].'/LogITB/controller/Dashboard.php';
 ?>
 
 <!DOCTYPE html>
@@ -63,7 +65,7 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">Dashboard Tugas Akhir</div>
                             <div class="panel-body">
-                                Jumlah data Tugas Akhir dalam sistem adalah xx
+                                Jumlah data Tugas Akhir dalam sistem adalah <?php echo $_SESSION['TACount']." (".$_SESSION['TAACount']." Aktif)";unset($_SESSION['TACount']);unset($_SESSION['TAACount']); ?>
                             </div>
                         </div>
                         <div class="panel panel-default">
