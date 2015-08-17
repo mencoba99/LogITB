@@ -170,13 +170,15 @@ include 'controller/User.php';
                         <div class="well">
                             <h4 class="judulpengumuman">1. Judul pengumuman 1</h4>
                             <p class="subjudulpenguman"><strong>oleh (Nama Dosen) pada tanggal (Tanggal Posting)</strong></p>
-                            <p>Ini adalah isi pengumuman 1, jika pengumuman 1 terlalu panjang maka....</p>
+                            <p>Ini adalah isi pengumuman 1, jika pengumuman 1 terlalu panjang maka isi dari pengumuman dipotong.
+                                kira-kira isi pengumuman ini  seratus karakter saja....</p>
                             <p><a href="#">Lihat Selengkapnya...</a></p>
                         </div>
                         <div class="well">
                             <h4 class="judulpengumuman">2. Judul pengumuman 2</h4>
                             <p class="subjudulpenguman"><strong>oleh (Nama Dosen) pada tanggal (Tanggal Posting)</strong></p>
-                            <p>Ini adalah isi pengumuman 1, jika pengumuman 1 terlalu panjang maka....</p>
+                            <p>Ini adalah isi pengumuman 1, jika pengumuman 1 terlalu panjang maka isi dari pengumuman dipotong.
+                                kira-kira isi pengumuman ini  seratus karakter saja....</p>
                             <p><a href="#">Lihat Selengkapnya...</a></p>
                         </div>
                         </div>
