@@ -436,6 +436,8 @@ dd {
   -webkit-border-radius: 2px;
      -moz-border-radius: 2px;
           border-radius: 2px;
+          //background-color: #add8e6;
+  border-left: 5px solid #30d91a;
 }
 
 .well-large {
@@ -1370,7 +1372,11 @@ font-weight:600;
           padding:30px;
           margin-bottom:30px;
           color:inherit;
-          background-color:#eee}
+          background-color:#80B2FF;
+          border-left: 20px solid #6666E0;
+          color: #FFFFFF;
+          }
+
 
 .jumbotron h1,.jumbotron .h1{
             color:inherit}
@@ -1378,7 +1384,7 @@ font-weight:600;
 .jumbotron p{
             margin-bottom:15px;
             font-size:21px;
-            font-weight:200}
+            font-weight:500}
 
 .container .jumbotron{
             border-radius:6px}
