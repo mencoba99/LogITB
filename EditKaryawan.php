@@ -3,6 +3,10 @@ session_start();
 //    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
 //        header("Location: index.php");
 //    }
+if($_SESSION['usedrole']!="Admin"){
+    $_SESSION['status']="viewKaryawan";
+    include 'controller/Dosen.php';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,23 +65,23 @@ session_start();
                         <form action="./controller/Karyawan.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="nip">NIP</label>
-                                <input type="text" name="nip" id="nim"  class="form-control" placeholder="NIP" value="<?php echo $_SESSION['data']['nip'];?>">
+                                <input type="text" name="nip" id="nim"  class="form-control" placeholder="NIP" value="<?php echo $_SESSION['data']['nip']; if($_SESSION['usedrole']!="Admin"){echo "\" readonly=\"true";}?>" />
                             </div>
                             <div class="form-group">
                                 <label for="nama">Nama</label>
-                                <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama Lengkap" value="<?php echo $_SESSION['data']['nama'];?>">
+                                <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama Lengkap" value="<?php echo $_SESSION['data']['nama']; if($_SESSION['usedrole']!="Admin"){echo "\" readonly=\"true";}?>" />
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="text" name="email" id="email" class="form-control" placeholder="Email" value="<?php echo $_SESSION['data']['email'];?>">
+                                <input type="text" name="email" id="email" class="form-control" placeholder="Email" value="<?php echo $_SESSION['data']['email'];?>" />
                             </div>
                             <div class="form-group">
                                 <label for="alamat">Alamat</label>
-                                <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Alamat" value="<?php echo $_SESSION['data']['alamat'];?>">
+                                <input type="text" name="alamat" id="alamat" class="form-control" placeholder="Alamat" value="<?php echo $_SESSION['data']['alamat'];?>" />
                             </div>
                             <div class="form-group">
                                 <label for="telp">No. Telepon</label>
-                                <input type="text" name="telp" id="telp" class="form-control" placeholder="Nomor Telepon/Handphone" value="<?php echo $_SESSION['data']['telp'];?>">
+                                <input type="text" name="telp" id="telp" class="form-control" placeholder="Nomor Telepon/Handphone" value="<?php echo $_SESSION['data']['telp'];?>" />
                             </div>
                             
                             <input type="submit" name="update" value="Update" class="btn btn-blue" />

@@ -26,7 +26,12 @@
     }
     
     if(isset($_SESSION['status'])){
-        $_SESSION['value'] = view();
+        if($_SESSION['status']=="view"){
+            $_SESSION['value'] = view();
+        }
+        if($_SESSION['status']=="viewUser"){
+            $_SESSION['data'] = viewByUsername($_SESSION['username']);
+        }
     }
     
     if(isset($_POST['edit'])){
@@ -38,9 +43,16 @@
     }
     
     if(isset($_POST['update'])){
-        $r = update($_POST['username'], $_POST['password']);
-        if($r){
-            header('Location: ../ViewUser.php');
+        if(checkPassword($_POST['username'], $_POST['password'])&&  matchPassword($_POST['passwordbaru'], $_POST['passwordbaru2'])){
+            $r = update($_POST['username'], $_POST['passwordbaru']);
+            session_start();
+            if($r){
+                $_SESSION['success']="Berhasil Ubah Data User";
+                header('Location: ../EditUser.php');
+            }
+        }else{
+            $_SESSION['fail']="Gagal Ubah Data User";
+            header('Location: ../EditUser.php');
         }
     }
     

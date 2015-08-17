@@ -15,7 +15,12 @@
     }
     
     if(isset($_SESSION['status'])){
-        $_SESSION['value'] = view();
+        if($_SESSION['status']=="view"){
+            $_SESSION['value'] = view();
+        }
+        if($_SESSION['status']=="viewKaryawan"){
+            $_SESSION['data'] = viewByNip($_SESSION['username']);
+        }
     }
     
     if(isset($_POST['edit'])){

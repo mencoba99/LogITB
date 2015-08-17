@@ -15,7 +15,12 @@
     }
     
     if(isset($_SESSION['status'])){
-        $_SESSION['value'] = view();
+        if($_SESSION['status']=="view"){
+            $_SESSION['value'] = view();
+        }
+        if($_SESSION['status']=="viewDosen"){
+            $_SESSION['data'] = viewByNip($_SESSION['username']);
+        }
     }
     
     if(isset($_POST['edit'])){
@@ -29,7 +34,13 @@
     if(isset($_POST['update'])){
         $r = update($_POST['nip'], $_POST['nama'], $_POST['inisial'], $_POST['email'], $_POST['alamat'], $_POST['telp']);
         if($r){
-            header('Location: ../ViewDosen.php');
+            if($_SESSION['usedrole']=="Admin"){
+                header('Location: ../ViewDosen.php');
+            }else{
+                header('Location: ../etalase.php');
+            }
+        }else{
+            echo "error".$r;
         }
     }
     
