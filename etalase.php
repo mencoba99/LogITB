@@ -55,22 +55,20 @@ include 'controller/User.php';
 		<div class="row">
                     <div class="jumbotron">
                         <h1>Selamat Datang</h1>
-                       <p>Anda telah memasuki 
-                            <strong>Sistem Tugas Akhir, Kerja Praktek, dan SKPI online</strong> fakultas Teknologi Informasi ITB
-                        .
-                        </p>
                         <p>
                         Hak akses anda telah ditetapkan oleh sistem, jika anda merasa hak akses tidak sesuai dengan peran anda silahkan hubungi
                         <strong>Tata Usaha Akademik</strong>
                         </p>
                     </div>
                     <div class="col-lg-12">
-                        <div id="images_hz" style="padding-top:20px;">
+                        <div id="images_hz" class="col-lg-3">
+                            <h3>Hak Akses</h3>  
                             <form action="checker.php" method="POST" enctype="multipart/form-data">
+
                                 <?php
                                     if(in_array("Admin", $_SESSION['role'])){
                                 ?>
-                                <div class="col-lg-3">
+                                <div>
                                     <button class = "btn btn-default etalaseButton" type="submit" name="Admin" value="Admin"><img src="img/icon etalase/Admin Icon.png" alt="Mountain View" style="width:150px;height:150px;"></button>
                                     <h4 class="text-center" style="margin-top:20px;">Admin Sistem</h4>
                                 </div>
@@ -78,7 +76,7 @@ include 'controller/User.php';
                                     }
                                     if(in_array("TU_Akademik", $_SESSION['role'])){
                                 ?>
-                                <div class="col-lg-3">
+                                <div>
                                     <button class = "btn btn-default  etalaseButton" type="submit" name="TU_Akademik" value="TU_Akademik"><img src="img/icon etalase/TU Akademik Icon.png "alt="Mountain View" style="width:150px;height:150px;"></button>
                                      <h4 class="text-center" style="margin-top:20px;">TU Akademik</h4>
                                 </div>
@@ -86,7 +84,7 @@ include 'controller/User.php';
                                     }
                                     if(in_array("Mahasiswa", $_SESSION['role'])){
                                 ?>
-                                <div class="col-lg-3">
+                                <div>
                                     <button class = "btn btn-default  etalaseButton" type="submit" name="Mahasiswa" value="Mahasiswa"><img src="img/icon etalase/Mahasiswa Icon 2.png" alt="Mountain View" style="width:150px;height:150px;"></button>
                                      <h4 class="text-center" style="margin-top:20px;">Mahasiswa</h4>
                                 </div>
@@ -94,7 +92,7 @@ include 'controller/User.php';
                                     }
                                     if(in_array("Pembimbing_TA", $_SESSION['role'])){
                                 ?>
-                                <div class="col-lg-3">
+                                <div>
                                     <button class =  "btn btn-default etalaseButton" type="submit" name="Pembimbing_TA" value="Pembimbing_TA"><img src="img/icon etalase/Pembimbing Icon.png" alt="Mountain View" style="width:150px;height:150px;"></button>
                                      <h4 class="text-center" style="margin-top:20px;">Pembimbing Tugas Akhir</h4>
                                 </div>
@@ -102,7 +100,7 @@ include 'controller/User.php';
                                     }
                                     if(in_array("Penguji_TA", $_SESSION['role'])){
                                 ?>
-                                <div class="col-lg-3">
+                                <div>
                                     <button class = "btn btn-default  etalaseButton" type="submit" name="Penguji_TA" value="Penguji_TA"><img src="img/icon etalase/penguji Icon.png"alt="Mountain View" style="width:150px;height:150px;"></button>
                                      <h4 class="text-center" style="margin-top:20px;">Penguji Tugas Akhir</h4>
                                 </div>
@@ -110,7 +108,7 @@ include 'controller/User.php';
                                     }
                                     if(in_array("Pembimbing_KP", $_SESSION['role'])){
                                 ?>
-                                <div class="col-lg-3">
+                                <div>
                                     <button class = "btn btn-default  etalaseButton" type="submit" name="Pembimbing_KP" value="Pembimbing_KP"><img src="img/icon etalase/Pembimbing Icon.png"alt="Mountain View" style="width:150px;height:150px;"></button>
                                      <h4 class="text-center" style="margin-top:20px;">Pembimbing Kerja Praktek</h4>
                                 </div>
@@ -118,7 +116,7 @@ include 'controller/User.php';
                                     }
                                     if(in_array("Penguji_KP", $_SESSION['role'])){
                                 ?>
-                                <div class="col-lg-3">
+                                <div>
                                     <button class = "btn btn-default  etalaseButton" type="submit" name="Penguji_KP" value="Penguji_KP"><img src="img/icon etalase/penguji Icon.png"alt="Mountain View" style="width:150px;height:150px;"></button>
                                      <h4 class="text-center" style="margin-top:20px;">Penguji Kerja Praktek</h4>
                                 </div>
@@ -126,7 +124,7 @@ include 'controller/User.php';
                                     }
                                     if(in_array("Tim_TA", $_SESSION['role'])){
                                 ?>
-                                <div class="col-lg-3">
+                                <div>
                                     <button class = "btn btn-default  etalaseButton" type="submit" name="Tim_TA" value="Tim_TA"><img src="img/icon etalase/team-icon.png "alt="Mountain View" style="width:150px;height:150px;"></button>
                                      <h4 class="text-center" style="margin-top:20px;">Tim Tugas Akhir</h4>
                                 </div>
@@ -134,7 +132,7 @@ include 'controller/User.php';
                                     }
                                     if(in_array("Tim_KP", $_SESSION['role'])){
                                 ?>
-                                <div class="col-lg-3">
+                                <div>
                                     <button class = "btn btn-default  etalaseButton" type="submit" name="Tim_KP" value="Tim_KP"><img src="img/icon etalase/team-icon.png"alt="Mountain View" style="width:150px;height:150px;"></button>
                                      <h4 class="text-center" style="margin-top:20px;">Tim Kerja Praktek</h4>
                                 </div>
@@ -142,7 +140,7 @@ include 'controller/User.php';
                                     }
                                     if(in_array("Tim_Kemahasiswaan", $_SESSION['role'])){
                                 ?>
-                                <div class="col-lg-3">
+                                <div>
                                     <button class = "btn btn-default  etalaseButton" type="submit" name="Tim_Kemahasiswaan" value="Tim_Kemahasiswaan"><img src="img/icon etalase/team-icon.png"alt="Mountain View" style="width:150px;height:150px;"></button>
                                      <h4 class="text-center" style="margin-top:20px;">Tim Kemahasiswaan</h4>
                                 </div>
@@ -150,7 +148,7 @@ include 'controller/User.php';
                                     }
                                     if(in_array("Wali", $_SESSION['role'])){
                                 ?>
-                                <div class="col-lg-3">
+                                <div>
                                     <button class = "btn btn-default  etalaseButton" type="submit" name="Wali" value="Wali"><img src="img/icon etalase/Wali Icon.png"alt="Mountain View" style="width:150px;height:150px;"></button>
                                      <h4 class="text-center" style="margin-top:20px;">Dosen Wali</h4>
                                 </div>
@@ -158,7 +156,7 @@ include 'controller/User.php';
                                     }
                                     if(in_array("Kaprodi", $_SESSION['role'])){
                                 ?>
-                                <div class="col-lg-3">
+                                <div>
                                     <button class = "btn btn-default  etalaseButton" type="submit" name="Kaprodi" value="Kaprodi"><img src="img/icon etalase/Kaprodi Icon.png"alt="Mountain View" style="width:150px;height:150px;"></button>
                                      <h4 class="text-center" style="margin-top:20px;">Kapordi</h4>
                                 </div>
@@ -166,6 +164,23 @@ include 'controller/User.php';
                                     }
                                 ?>
                             </form>
+                        </div>
+                        <div class="col-lg-9">
+                        <h3>Pengumuman</h3>
+                        <div class="well">
+                            <h4 class="judulpengumuman">1. Judul pengumuman 1</h4>
+                            <p class="subjudulpenguman"><strong>oleh (Nama Dosen) pada tanggal (Tanggal Posting)</strong></p>
+                            <p>Ini adalah isi pengumuman 1, jika pengumuman 1 terlalu panjang maka isi dari pengumuman dipotong.
+                                kira-kira isi pengumuman ini  seratus karakter saja....</p>
+                            <p><a href="#">Lihat Selengkapnya...</a></p>
+                        </div>
+                        <div class="well">
+                            <h4 class="judulpengumuman">2. Judul pengumuman 2</h4>
+                            <p class="subjudulpenguman"><strong>oleh (Nama Dosen) pada tanggal (Tanggal Posting)</strong></p>
+                            <p>Ini adalah isi pengumuman 1, jika pengumuman 1 terlalu panjang maka isi dari pengumuman dipotong.
+                                kira-kira isi pengumuman ini  seratus karakter saja....</p>
+                            <p><a href="#">Lihat Selengkapnya...</a></p>
+                        </div>
                         </div>
                     </div>
 		</div>

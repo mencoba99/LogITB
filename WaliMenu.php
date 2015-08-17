@@ -17,7 +17,7 @@
             </ul>
         </li>
         <li><a href="ViewPengambilanMK.php">Pengambilan Mata Kuliah</a></li>
-         <li><a href="ViewMahasiswaWali.php">Daftar Mahasiswa</a></li>
+         <li><a href="ViewMahasiswa.php">Daftar Mahasiswa</a></li>
     </ul>
 </div>
 <!--<h4>SKPI</h4>

@@ -1,10 +1,15 @@
 <?php
 session_start();
-    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
-        header("Location: index.php");
+    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="TU_Akademik")){
+        if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Tim_TA")){
+            if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Tim_KP")){
+                if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Kaprodi")){
+                  header("Location: index.php");          
+                }
+            }
+        }
     }
 $_SESSION['status']="view";
-include 'controller/Karyawan.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,8 +51,8 @@ include 'controller/Karyawan.php';
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
                             <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li><a href="DBAdmin.php">Admin</a></li>
-                            <li class="active">Lihat Karyawan</li>
+<!--                            <li><a href="DBAdmin.php">Admin</a></li>
+                            <li class="active">Lihat Dosen</li>-->
                         </ul>
                     </div>
                 </div>
@@ -58,42 +63,49 @@ include 'controller/Karyawan.php';
 		<div class="row">
                     <div class="col-lg-2"><?php include './SideMenuManager.php';?></div>
                     <div class="col-lg-10">
-                        <h3>Data Karyawan</h3>
+                        <h3>Daftar Pengumuman</h3>
                         <table class="table table-bordered">
                             <tr>
-                                <th>NIP</th>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>Alamat</th>
-                                <th>No. Telp</th>
+                                <th>No.Urut</th>
+                                <th>Judul</th>
+                                <th>Tanggal Posting</th>
+                                <th>Tanggal Berakhir</th>
+                                <th>Cuplikan Isi</th>
+                                <th>File</th>
                                 <th>Aksi</th>
                             </tr>
-                            <?php
-                                $val = $_SESSION['value'];
-                                $x = count($val['nip']);
-                                for($i=0;$i<$x;$i++){
-                                    echo "<tr>";
-                                    echo "<td>".$val['nip'][$i]."</td>";
-                                    echo "<td>".$val['nama'][$i]."</td>";
-                                    echo "<td>".$val['email'][$i]."</td>";
-                                    echo "<td>".$val['alamat'][$i]."</td>";
-                                    echo "<td>".$val['telp'][$i]."</td>";
-                                    echo "<td class=\"middle\">";
-                                    echo "<form action=\"controller/Karyawan.php\" method=\"POST\" enctype=\"multipart/form-data\">";
-                                    echo "<div class=\"btn-group-vertical\">";
-                                    echo "<input type=\"hidden\" name=\"nip\" value=".$val['nip'][$i]." class=\"btn btn-blue\" />";
-                                    echo "<input type=\"submit\" name=\"edit\" value=\"Ubah\" class=\"btn btn-green\" />";
-                                    echo "<input type=\"submit\" name=\"delete\" value=\"Hapus\" class=\"btn btn-red\" />";
-                                    echo "</div>";
-                                    echo "</form>";
-                                    echo "</td>";
-                                    echo "</tr>";
-                                }
-                            ?>
+                            <tr>
+                                <td>1</td>
+                                <td>Belum Ada di Basisdata</td>
+                                <td>17/08/2015</td>
+                                <td>18/08/2015</td>
+                                <td>Btw kenapa judul pengumuman ga ada di tabelnya ya, masa pengumumannya ga ada judulnya</td>
+                                <td>belumtau</td>
+                                <td>
+                                    <div class="btn-group-vertical">
+                                        <button type="submit" class="btn btn-blue">Detail</button>
+                                        <button type="submit" class="btn btn-green">Ubah</button>
+                                        <button type="submit" class="btn btn-red">Hapus</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Kira kira sama</td>
+                                <td>15/08/2015</td>
+                                <td>18/08/2015</td>
+                                <td>Btw kenapa judul pengumuman ga ada di tabelnya ya, masa pengumumannya ga ada judulnya</td>
+                                <td>belumtau</td>
+                                <td>
+                                    <div class="btn-group-vertical">
+                                        <button type="submit" class="btn btn-blue">Detail</button>
+                                        <button type="submit" class="btn btn-green">Ubah</button>
+                                        <button type="submit" class="btn btn-red">Hapus</button>
+                                    </div>
+                                </td>
+                            </tr>
                         </table>
                     </div>
-                    <div class="col-lg-2"></div>
-		</div>
             </div>
 	</section>
 	<footer>

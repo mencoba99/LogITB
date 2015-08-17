@@ -18,10 +18,10 @@
 
 body {
 	font-family:'Open Sans', Arial, sans-serif;
-	font-size:16px;
-	font-weight:300;
+	font-size:14px;
+	font-weight:400;
 	line-height:1.6em;
-	color:#656565;
+	color:#000000;
 }
 
 .tgl{
@@ -46,12 +46,25 @@ a:active {
 	clear:both;
 }
 
-h1,h2, h3, h4, h5, h6 {
+h1,h2, h3 {
 	font-family:'Open Sans', Arial, sans-serif;
 	font-weight:700;
 	line-height:1.1em;
-	color:#333;
-	margin-bottom: 10px;
+	color:#4C4C4C;
+	margin-bottom: 20px;
+        margin-top: 10px;
+        border-bottom-color: rgb(204, 204, 204);
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+}
+
+    h4, h5, h6 {
+	font-family:'Open Sans', Arial, sans-serif;
+	font-weight:700;
+	line-height:1.1em;
+	color:#4C4C4C;
+        margin-top: 10px;
+        margin-bottom: 10px;
         border-bottom-color: rgb(204, 204, 204);
         border-bottom-style: solid;
         border-bottom-width: 1px;
@@ -226,7 +239,7 @@ header .nav .caret {
 }	
 	
 
-.dropdown-menu  {
+/*.dropdown-menu  {
     box-shadow: none;
     border-radius: 0;
 	border: none;
@@ -235,7 +248,7 @@ header .nav .caret {
 .dropdown-menu li:last-child  {
 	padding-bottom: 0 !important;
 	margin-bottom: 0;
-}
+}*/
 
 header .nav li .dropdown-menu  {
    padding: 0;
@@ -379,7 +392,7 @@ section.callaction {
 #content {
 	position:relative;
 	background:#fff;
-	padding:50px 0 40px 0;
+	padding:20px 0 40px 0;
 }
 
 #content img {
@@ -2240,4 +2253,13 @@ article img.pull-right, article .align-right{
     .etalaseButton{
         display: block; 
         margin: 0 auto;
+    }
+    
+    .judulpengumuman {
+        margin-bottom: 0px;
+    }
+    
+    .subjudulpenguman {
+        font-family:'Open Sans', Courier New , monospace;
+        font-size: 12px;
     }

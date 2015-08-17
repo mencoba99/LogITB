@@ -59,8 +59,39 @@
                         <?php include './SideMenuManager.php';?>
                     </div>
                     <div class="col-lg-10">
-                        <h3>Dashboard Dosen Wali</h3>
-                        
+                        <h3>Dashboard Dosen Wali Mahasiswa</h3>
+                        <div class="panel panel-default">
+                        <div class="panel-heading"><strong>Data Dosen Wali</strong></div>
+                            <div class="panel-body">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td>NIP</td>
+                                        <td>197109302008121002</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Nama</td>
+                                        <td>Achmad Munir</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Inisial</td>
+                                        <td>AM</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>No.Tlp</td>
+                                        <td>08767679698</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>sesuatu@gmail.com</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Alamat</td>
+                                        <td>Jl. Katalina 1 No.1 Cibeureum</td> 
+                                    </tr>
+                                </table>
+                                <input type="submit" name="edit" value="Ubah Data" class="btn btn-blue"/>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-lg-2"></div>
 		</div>
