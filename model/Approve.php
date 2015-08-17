@@ -6,7 +6,7 @@
         return mysqli_query($link,$sql);
     }
     
-    function view($sk){
+    function view($sk,$pb){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
         $sql = "SELECT * FROM bimbinganta WHERE nosk='".$sk."'";
         $res = mysqli_query($link, $sql);
@@ -17,6 +17,20 @@
             $value['kode'][$i]=$r['kodeta'];
             $value['nim'][$i]=$r['peserta'];
             $value['tgl'][$i]=$r['tanggal'];
+            if($pb=="Pembimbing 1"){
+                if($r['tspersetujuanpembimbing1']!=NULL){
+                    $value['approve'][$i]=1;
+                }else{
+                    $value['approve'][$i]=0;
+                }
+            }
+            if($pb=="Pembimbing 2"){
+                if($r['tspersetujuanpembimbing2']!=NULL){
+                    $value['approve'][$i]=1;
+                }else{
+                    $value['approve'][$i]=0;
+                }
+            }
             $i++;
         }
         return $value;
@@ -94,6 +108,16 @@
             $value['lapor']=$r['catatanbimbingan'];
             $value['tgl2']=$r['tglbimbinganyad'];
             $value['lapor2']=$r['rencanabimbinganyad'];
+            if($r['tspersetujuanpembimbing1']==NULL){
+                $value['p'][1]=0;
+            }else{
+                $value['p'][1]=1;
+            }
+            if($r['tspersetujuanpembimbing2']==NULL){
+                $value['p'][2]=0;
+            }else{
+                $value['p'][2]=1;
+            }
             $i++;
         }
         return $value;

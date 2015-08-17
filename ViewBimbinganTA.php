@@ -72,6 +72,7 @@
                                 <th>No</th>
                                 <th>Kode</th>
                                 <th>Tanggal</th>
+                                <th>Status</th>
                                 <th>Detail</th>
                             </tr>
                             <?php
@@ -82,11 +83,16 @@
                                     echo "<td>".$val['no'][$i]."</td>";
                                     echo "<td>".$val['kode'][$i]."</td>";
                                     echo "<td>".$val['tgl'][$i]."</td>";
+                                    if($val['approve'][$i]==1){
+                                        echo "<td>Sudah Disetujui</td>";
+                                    }else{
+                                        echo "<td>Belum Disetujui</td>";
+                                    }
                                     echo "<td>";
                                     echo "<form action=\"controller/Approve.php\" method=\"POST\" enctype=\"multipart/form-data\">";
                                     echo "<input type=\"hidden\" name=\"no\" value=".$val['no'][$i]." />";
                                     echo "<input type=\"hidden\" name=\"sk\" value=".$val['sk'][$i]." />";
-                                    echo "<input type=\"submit\" name=\"detail\" value=\"View\" class=\"btn btn-blue\" />";
+                                    echo "<input type=\"submit\" name=\"detail\" value=\"Lihat\" class=\"btn btn-blue\" />";
                                     echo "</form>";
                                     echo "</td>";
                                     echo "</tr>";

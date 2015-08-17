@@ -25,7 +25,8 @@
     if(isset($_POST['view'])){
         echo $_POST['sk'];
         session_start();
-        $_SESSION['value2']=view($_POST['sk']);
+        $_SESSION['value2']=view($_POST['sk'],$_POST['pb']);
+        $_SESSION['pb']=$_POST['pb'];
         header("Location: ../ViewBimbinganTA.php");
     }
     

@@ -99,10 +99,34 @@ include 'controller/Approve.php';
                                 <td><?php echo $val['ket']; ?></td>
                             </tr>
                         </table>
+                        <?php
+                            if($_SESSION['pb']=="Pembimbing 1"){
+                                if($val['p1']==NULL){
+                                    $stat=0;
+                                }else{
+                                    $stat=1;
+                                }
+                            }
+                            if($_SESSION['pb']=="Pembimbing 2"){
+                                if($val['p2']==NULL){
+                                    $stat=0;
+                                }else{
+                                    $stat=1;
+                                }
+                            }
+                            if($stat==0){
+                        ?>
                         <form action="controller/Approve.php" method="POST" enctype="multipart/form-data">
                             <input type="hidden" name="sk" value="<?php echo $val['sk'] ?>" />
-                            <input type="submit" name="approvess" value="Approve" class="btn btn-green"/>
+                            <input type="submit" name="approvess" value="Setujui" class="btn btn-green"/>
                         </form>
+                        <?php
+                            }else{
+                        ?>
+                        <input type="button" value="Sudah Disetujui" disabled="true" class="btn btn-green"/>
+                        <?php
+                            }
+                        ?>
                     </div>
                     <div class="col-lg-2"></div>
 		</div>

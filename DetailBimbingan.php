@@ -6,7 +6,8 @@
     if(!isset($_SESSION['data'])){
         header("Location: DBPembimbing.php");
     }
-include 'controller/Approve.php';
+    $_SESSION['status']="detail";
+    include 'controller/Approve.php';
 ?>
 
 <!DOCTYPE html>
@@ -94,11 +95,27 @@ include 'controller/Approve.php';
                                 <td><?php echo $val['lapor2']; ?></td>
                             </tr>
                         </table>
+                        <?php
+                            if($_SESSION['pb']=="Pembimbing 1"){
+                                $pb=1;
+                            }
+                            if($_SESSION['pb']=="Pembimbing 2"){
+                                $pb=2;
+                            }
+                            if($val['p'][$pb]==0){
+                        ?>
                         <form action="controller/Approve.php" method="POST" enctype="multipart/form-data">
                             <input type="hidden" name="no" value="<?php echo $val['no'] ?>" />
                             <input type="hidden" name="sk" value="<?php echo $val['sk'] ?>" />
-                            <input type="submit" name="approve" value="Approve" class="btn btn-green"/>
+                            <input type="submit" name="approve" value="Setujui" class="btn btn-green"/>
                         </form>
+                        <?php
+                            }else{
+                        ?>
+                        <input type="button" value="Sudah Disetujui" disabled="true" class="btn btn-green"/>
+                        <?php
+                            }
+                        ?>
                     </div>
                     <div class="col-lg-2"></div>
 		</div>

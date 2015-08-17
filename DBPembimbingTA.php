@@ -131,7 +131,8 @@
 //                                            echo "<td><a href=\"SK/".$val['file'][$i]."\" target=\"_blank\">".$val['file'][$i]."</a></td>";
                                             echo "<td>";
                                             echo "<form action=\"controller/Approve.php\" method=\"POST\" enctype=\"multipart/form-data\">";
-                                            echo "<input type=\"hidden\" name=\"sk\" value=".$val['sk'][$i]." />";
+                                            echo "<input type=\"hidden\" name=\"sk\" value=\"".$val['sk'][$i]."\" />";
+                                            echo "<input type=\"hidden\" name=\"pb\" value=\"".$val['status'][$i]."\" />";
                                             echo "<input type=\"submit\" name=\"view\" value=\"View\" class=\"btn btn-blue\" />";
                                             if($val['seminar'][$i]==1){
                                                 echo "<input type=\"submit\" name=\"sseminar\" value=\"Syarat Seminar\" class=\"btn btn-purple\" />";

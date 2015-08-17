@@ -3,8 +3,10 @@ session_start();
     if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Mahasiswa")){
         header("Location: index.php");
     }
-$_SESSION['status']="view";
-include 'controller/Laporan.php';
+$_SESSION['status']="viewMhs";
+include 'controller/Mahasiswa.php';
+unset($_SESSION['mhs']);
+unset($_SESSION['sk']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,26 +60,35 @@ include 'controller/Laporan.php';
                     <div class="col-lg-2"><?php include './SideMenuManager.php';?></div>
                     <div class="col-lg-8">
                         <table class="table table-bordered">
+                                    
                             <tr>
-                                <th>No</th>
-                                <th>Tanggal</th>
-                                <th>Catatan</th>
-                                <th>Pembimbing 1</th>
-                                <th>Pembimbing 2</th>
+                                <th>No.</th>
+                                <th>Tanggal</th> 
+                                <th>Catatan Bimbingan</th>
+                                <th>Persetujuan Pembimbing 1</th>
+                                <th>Persetujuan Pembimbing 2</th>
+                                <th>Aksi</th>
                             </tr>
-                            <?php
-                                $val = $_SESSION['value'];
-                                $x = count($val['nourut']);
-                                for($i=0;$i<$x;$i++){
-                                    echo "<tr>";
-                                    echo "<td>".$val['nourut'][$i]."</td>";
-                                    echo "<td>".$val['tgl'][$i]."</td>";
-                                    echo "<td>".$val['lapor'][$i]."</td>";
-                                    echo "<td>".$val['p1'][$i]."</td>";
-                                    echo "<td>".$val['p2'][$i]."</td>";
-                                    echo "</tr>";
+                            <?php 
+                                if(isset($_SESSION['lapor'])){
+                                    $x=$_SESSION['lapor']['count'];
+                                    for($i=0;$i<$x;$i++){
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $_SESSION['lapor']['nourut'][$i]; ?></td>
+                                                <td><?php echo $_SESSION['lapor']['tgl'][$i]; ?></td>
+                                                <td><?php echo substr($_SESSION['lapor']['lapor'][$i],0,15)." ..."; ?></td>
+                                                <td><?php echo $_SESSION['lapor']['p1'][$i]; ?></td>
+                                                <td><?php echo $_SESSION['lapor']['p2'][$i]; ?></td>
+                                                <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal<?php echo $i; ?>">Detail</button></td>
+
+                                                <!--<td><input type="submit" name="detail" value="Detail" class="btn btn-blue"/></td>-->
+                                            </tr>
+                                        <?php
+                                    }
                                 }
                             ?>
+
                         </table>
                     </div>
                     <div class="col-lg-2"></div>
@@ -139,6 +150,76 @@ include 'controller/Laporan.php';
             </div>
 	</footer>
 </div>
+<?php 
+    if(isset($_SESSION['lapor'])){
+        $x=$_SESSION['lapor']['count'];
+        for($i=0;$i<$x;$i++){
+            ?>
+                <div id="myModal<?php echo $i; ?>" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Detail Bimbingan</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                <table class="table table-bordered">
+                                    <thead></thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>No</td>
+                                        <td>:</td>
+                                        <td><?php echo $_SESSION['lapor']['nourut'][$i]; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tanggal</td>
+                                        <td>:</td>
+                                        <td><?php echo $_SESSION['lapor']['tgl'][$i]; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Catatan</td>
+                                        <td>:</td>
+                                        <td><?php echo $_SESSION['lapor']['lapor'][$i]; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tanggal Selanjutnya</td>
+                                        <td>:</td>
+                                        <td><?php echo $_SESSION['lapor']['tglnext'][$i]; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rencana Bimbingan</td>
+                                        <td>:</td>
+                                        <td><?php echo $_SESSION['lapor']['lapornext'][$i]; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pembimbing 1</td>
+                                        <td>:</td>
+                                        <td><?php echo $_SESSION['lapor']['p1'][$i]; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pembimbing 2</td>
+                                        <td>:</td>
+                                        <td><?php echo $_SESSION['lapor']['p2'][$i]; ?></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </p>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                        </div>
+                      </div>
+
+                    </div>
+                </div>
+            <?php
+        }
+    }
+?>
 <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 <!-- javascript
     ================================================== -->

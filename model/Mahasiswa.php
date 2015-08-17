@@ -77,9 +77,7 @@
                 $value['p2'][$i]="Setuju";
             }
             $i++;
-            if($i==3){
-                break;
-            }
+            
             
         }
         $value['count']=$i;
