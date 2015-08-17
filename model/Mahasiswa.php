@@ -64,6 +64,8 @@
             $value['nourut'][$i]=$r['nourut'];
             $value['tgl'][$i]=$r['tanggal'];
             $value['lapor'][$i]=$r['catatanbimbingan'];
+            $value['tglnext'][$i]=$r['tglbimbinganyad'];
+            $value['lapornext'][$i]=$r['rencanabimbinganyad'];
             if($r['tspersetujuanpembimbing1']==NULL){
                 $value['p1'][$i]="Belum Setuju";
             }else{
