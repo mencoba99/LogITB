@@ -239,7 +239,7 @@ header .nav .caret {
 }	
 	
 
-.dropdown-menu  {
+/*.dropdown-menu  {
     box-shadow: none;
     border-radius: 0;
 	border: none;
@@ -248,7 +248,7 @@ header .nav .caret {
 .dropdown-menu li:last-child  {
 	padding-bottom: 0 !important;
 	margin-bottom: 0;
-}
+}*/
 
 header .nav li .dropdown-menu  {
    padding: 0;

@@ -615,13 +615,13 @@ font-size: 10px;
 }
 
 
-.btn-primary {
+/*.btn-primary {
 	outline:0;
   background: #1C0113;
 }
 .btn-primary:hover {
   background: #170110;
-}
+}*/
 
 .btn-info {
   background: #5E9FA3;
@@ -1392,7 +1392,10 @@ font-weight:600;
 .jumbotron .container{
             max-width:100%}
 
-
+th{
+    vertical-align: middle;
+    text-align: center;
+}
 
 
 
