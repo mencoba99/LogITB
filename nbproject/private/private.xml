@@ -3,7 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/LogITB/ViewDosen.php</file>
+            <file>file:/var/www/html/LogITB/model/Dashboard.php</file>
+            <file>file:/var/www/html/LogITB/tes.php</file>
+            <file>file:/var/www/html/LogITB/controller/Laporan.php</file>
+            <file>file:/var/www/html/LogITB/model/Laporan.php</file>
+            <file>file:/var/www/html/LogITB/controller/Mahasiswa.php</file>
+            <file>file:/var/www/html/LogITB/DBAdmin.php</file>
+            <file>file:/var/www/html/LogITB/controller/Dashboard.php</file>
+            <file>file:/var/www/html/LogITB/DBMhs.php</file>
         </group>
     </open-files>
 </project-private>

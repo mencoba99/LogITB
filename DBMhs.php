@@ -4,7 +4,7 @@
         header("Location: index.php");
     }
     $_SESSION['status']='viewMhs';
-    include $_SERVER['DOCUMENT_ROOT'].'/LogITB/controller/Dashboard.php';
+    include 'controller/Mahasiswa.php';
 ?>
 
 <!DOCTYPE html>
@@ -58,11 +58,125 @@
             <div class="container">
 		<div class="row">
                     <div class="col-lg-2">
-                        <?php include './SideMenuManager.php';?>
+                        <?php 
+                            include './SideMenuManager.php';
+                            $mhs = $_SESSION['mhs'];
+                            unset($_SESSION['mhs']);
+                            $sk = $_SESSION['sk'];
+                            unset($_SESSION['sk']);
+                        ?>
                     </div>
                     <div class="col-lg-10">
-                        <h3>Dashboard Mahasiwa dengan NIM : <?php echo $_SESSION['username']; ?></h3>
-                        
+                        <h3>Dashboard Mahasiswa</h3>
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><strong>Data Mahasiswa</strong></div>
+                            <div class="panel-body">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td>NIM</td>
+                                        <td><?php echo $mhs['nim']; ?></td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Nama</td>
+                                        <td><?php echo $mhs['nama']; ?></td> 
+                                    </tr>
+                                    <tr>
+                                        <td>No.Tlp</td>
+                                        <td><?php echo $mhs['telp']; ?></td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td><?php echo $mhs['email']; ?></td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Alamat</td>
+                                        <td><?php echo $mhs['alamat']; ?></td> 
+                                    </tr>
+                                </table>
+                                <input type="submit" name="detail" value="Ubah Data" class="btn btn-blue"/>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><strong>Data Tugas Akhir Mahasiswa</strong></div>
+                            <div class="panel-body">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td>SK Bimbingan</td>
+                                        <td><?php echo $sk['nosk']; ?></td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Judul</td>
+                                        <td><?php echo $sk['judul']; ?></td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Status</td>
+                                        <td><?php echo $sk['status']; ?></td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Pembimbing 1</td>
+                                        <td><?php echo $sk['p1']; ?></td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Pembimbing 2</td>
+                                        <td><?php echo $sk['p2']; ?></td> 
+                                    </tr>
+                                </table>
+                                <h5>History Tiga Bimbingan Mahasiswa Terakhir</h5>
+                                <table class="table table-bordered">
+                                    
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>Tanggal</th> 
+                                        <th>Catatan Bimbingan</th>
+                                        <th>Persetujuan Pembimbing 1</th>
+                                        <th>Persetujuan Pembimbing 2</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                    <?php 
+                                        if(isset($_SESSION['lapor'])){
+                                            if(isset($_SESSION['lapor']['nourut'][0])){
+                                                ?>
+                                                    <tr>
+                                                        <td><?php echo $_SESSION['lapor']['nourut'][0]; ?></td>
+                                                        <td><?php echo $_SESSION['lapor']['tgl'][0]; ?></td>
+                                                        <td><?php echo $_SESSION['lapor']['lapor'][0]; ?></td>
+                                                        <td><?php echo $_SESSION['lapor']['p1'][0]; ?></td>
+                                                        <td><?php echo $_SESSION['lapor']['p2'][0]; ?></td>
+                                                        <td><input type="submit" name="detail" value="Detail" class="btn btn-blue"/></td>
+                                                    </tr>
+                                                <?php
+                                            }
+                                            if(isset($_SESSION['lapor']['nourut'][1])){
+                                                ?>
+                                                    <tr>
+                                                        <td><?php echo $_SESSION['lapor']['nourut'][1]; ?></td>
+                                                        <td><?php echo $_SESSION['lapor']['tgl'][1]; ?></td>
+                                                        <td><?php echo $_SESSION['lapor']['lapor'][1]; ?></td>
+                                                        <td><?php echo $_SESSION['lapor']['p1'][1]; ?></td>
+                                                        <td><?php echo $_SESSION['lapor']['p2'][1]; ?></td>
+                                                        <td><input type="submit" name="detail" value="Detail" class="btn btn-blue"/></td>
+                                                    </tr>
+                                                <?php
+                                            }
+                                            if(isset($_SESSION['lapor']['nourut'][2])){
+                                                ?>
+                                                    <tr>
+                                                        <td><?php echo $_SESSION['lapor']['nourut'][2]; ?></td>
+                                                        <td><?php echo $_SESSION['lapor']['tgl'][2]; ?></td>
+                                                        <td><?php echo $_SESSION['lapor']['lapor'][2]; ?></td>
+                                                        <td><?php echo $_SESSION['lapor']['p1'][2]; ?></td>
+                                                        <td><?php echo $_SESSION['lapor']['p2'][2]; ?></td>
+                                                        <td><input type="submit" name="detail" value="Detail" class="btn btn-blue"/></td>
+                                                    </tr>
+                                                <?php
+                                            }
+                                        }
+                                    ?>
+                                    
+                                </table>
+                                <a href="ViewBimbinganTAMahasiswa.php">Lihat Selengkapnya...</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-lg-2"></div>
 		</div>

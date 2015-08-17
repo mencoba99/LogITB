@@ -60,6 +60,7 @@
             $_SESSION['mhs']=viewMhs();
             $_SESSION['dosen']=viewDosen();
         }
+        
     }
     
     if(isset($_POST['edit'])){

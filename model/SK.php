@@ -55,6 +55,24 @@
         }
         return $value;
     }
+    
+    function viewByNim($nim){
+        include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
+        $sql = "SELECT * FROM tugasakhir WHERE peserta='".$nim."' AND status='Aktif'";
+        $res = mysqli_query($link, $sql);
+        $i=0;
+        if($r = mysqli_fetch_assoc($res)){
+            $value['id']=$r['id'];
+            $value['nim']=$r['nim'];
+            $value['judul']=$r['judul'];
+            $value['topik']=$r['topik'];
+            $value['p1']=getNamaDosenByNip($r['pembimbing1']);
+            $value['p2']=getNamaDosenByNip($r['pembimbing2']);
+            $i++;
+        }
+        return $value;
+    }
+    
     function update ($sk,$status){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
         $stat="";

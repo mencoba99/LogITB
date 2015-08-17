@@ -16,6 +16,7 @@
         if($_SESSION['status']=="viewMhs"){
             
             $_SESSION['value']=viewMhs($_SESSION['username']);
+            $_SESSION['dosen']=getDataDosen($_SESSION['username']);
         }
         
         
