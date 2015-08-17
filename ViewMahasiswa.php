@@ -86,11 +86,13 @@ include 'controller/Mahasiswa.php';
                                     echo "<td>".$val['alamat'][$i]."</td>";
                                     echo "<td>".$val['telp'][$i]."</td>";
                                     if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']=="Admin")){
-                                        echo "<td>";
+                                        echo "<td class=\"middle\">";
                                         echo "<form action=\"controller/Mahasiswa.php\" method=\"POST\" enctype=\"multipart/form-data\">";
+                                        echo "<div class=\"btn-group-vertical\">";
                                         echo "<input type=\"hidden\" name=\"nim\" value=".$val['nim'][$i]." class=\"btn btn-blue\" />";
                                         echo "<input type=\"submit\" name=\"edit\" value=\"Ubah\" class=\"btn btn-green\" />";
                                         echo "<input type=\"submit\" name=\"delete\" value=\"Hapus\" class=\"btn btn-red\" />";
+                                        echo "</div>";
                                         echo "</form>";
                                         echo "</td>";
                                     }
