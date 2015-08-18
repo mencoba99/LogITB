@@ -7,10 +7,10 @@
     <ul>
         <li><a href='DBTU.php'><span>Dashboard TU Akademik</span></a>
         </li>
-        <li class="has-sub"><a href="ViewProfil.php"><span >Kelola Akun</span></a>
+        <li class="has-sub"><a href="EditKaryawan.php"><span >Kelola Akun</span></a>
             <ul>
                 <li>
-                    <a href="EditDosen.php">Ubah Data Diri</a>
+                    <a href="EditKaryawan.php">Ubah Data Diri</a>
                 </li>
                 <li>
                     <a href="EditUser.php">Ubah Password</a>
