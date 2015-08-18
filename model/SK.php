@@ -51,6 +51,7 @@
             $value['topik']=$r['topik'];
             $value['p1']=getNamaDosenByNip($r['pembimbing1']);
             $value['p2']=getNamaDosenByNip($r['pembimbing2']);
+            $value['file']=$r['file'];
             $i++;
         }
         return $value;
@@ -68,6 +69,7 @@
             $value['topik']=$r['topik'];
             $value['p1']=getNamaDosenByNip($r['pembimbing1']);
             $value['p2']=getNamaDosenByNip($r['pembimbing2']);
+            $value['file']=$r['file'];
             $i++;
         }
         return $value;

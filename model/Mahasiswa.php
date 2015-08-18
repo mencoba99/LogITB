@@ -49,6 +49,7 @@
             $value['p2']=getNamaDosenByNip($r['pembimbing2']);
             $value['judul']=$r['judulta'];
             $value['status']=$r['status'];
+            $value['file']=$r['file'];
             $i++;
         }
         return $value;
