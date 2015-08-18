@@ -67,7 +67,7 @@
                     </div>
                     <div class="col-lg-10">
                         <h3>Dashboard Pembimbing TA</h3>
-                        <div class="panel panel-default">
+                        <div class="panel panel-primary">
                             <div class="panel-heading"><strong>Data Pembimbing TA</strong></div>
                             <div class="panel-body">
                                 <table class="table table-bordered">
@@ -99,7 +99,7 @@
                                 <input type="submit" name="edit" value="Ubah Data" class="btn btn-blue"/>
                             </div>
                         </div>
-                        <div class="panel panel-default">
+                        <div class="panel panel-primary">
                             <div class="panel-heading"><strong>Mahasiswa Bimbingan Tugas Akhir</strong></div>
                             <div class="panel-body">
                                 <table class="table table-bordered">

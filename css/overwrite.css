@@ -1395,6 +1395,7 @@ font-weight:600;
 th{
     vertical-align: middle;
     text-align: center;
+    font-size: 15px;
 }
 
 .middle{
@@ -1409,9 +1410,11 @@ th{
 {
     background-color: #68A4C4;
     border-color: #68A4C4;
-    //
 }
 
+td{
+    font-size: 14px;
+}
 
 
 
