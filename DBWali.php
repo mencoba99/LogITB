@@ -60,7 +60,7 @@
                     </div>
                     <div class="col-lg-10">
                         <h3>Dashboard Dosen Wali Mahasiswa</h3>
-                        <div class="panel panel-default">
+                        <div class="panel panel-primary">
                         <div class="panel-heading"><strong>Data Dosen Wali</strong></div>
                             <div class="panel-body">
                                 <table class="table table-bordered">

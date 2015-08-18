@@ -100,8 +100,9 @@ include 'controller/SK.php';
                                     echo "<td>".$val['judulta'][$i]."</td>";
                                     echo "<td>".$val['status'][$i]."</td>";
                                     echo "<td><a href=\"SK/".$val['file'][$i]."\" target=\"_blank\">".$val['file'][$i]."</a></td>";
-                                    echo "<td>";
+                                    echo "<td class=\"middle\">";
                                     echo "<form action=\"controller/SK.php\" method=\"POST\" enctype=\"multipart/form-data\">";
+                                    echo "<div class=\"btn-group-vertical\">";
                                     echo "<input type=\"hidden\" name=\"sk\" value=".$val['nosk'][$i]." />";
                                     echo "<input type=\"submit\" name=\"detail\" value=\"Detail\" class=\"btn btn-blue\" />";
                                         if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']=="TU_Akademik")){
@@ -111,6 +112,7 @@ include 'controller/SK.php';
                                             echo "<input type=\"submit\" name=\"aktif\" value=\"Activate\" class=\"btn btn-green\" />";
                                         }
                                         echo "<input type=\"submit\" name=\"delete\" value=\"Hapus\" class=\"btn btn-red\" />";}
+                                    echo "</div>";
                                     echo "</form>";
                                     echo "</td>";
                                     echo "</tr>";

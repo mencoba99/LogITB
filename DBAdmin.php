@@ -62,7 +62,39 @@
                     </div>            
                     <div class="col-lg-10">
                         <h3>Dashboard Admin Sistem</h3>
-                        <div class="panel panel-default">
+                        <div class="panel panel-primary">
+                        <div class="panel-heading"><strong>Data Admin</strong></div>
+                            <div class="panel-body">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <td>NIP</td>
+                                        <td>197109302008121002</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Nama</td>
+                                        <td>Achmad Munir</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Inisial</td>
+                                        <td>AM</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>No.Tlp</td>
+                                        <td>08767679698</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>sesuatu@gmail.com</td> 
+                                    </tr>
+                                    <tr>
+                                        <td>Alamat</td>
+                                        <td>Jl. Katalina 1 No.1 Cibeureum</td> 
+                                    </tr>
+                                </table>
+                                <input type="submit" name="edit" value="Ubah Data" class="btn btn-blue"/>
+                            </div>
+                        </div>
+                        <div class="panel panel-primary">
                             <div class="panel-heading">Data Sistem</div>
                             <div class="panel-body">
                                 Jumlah data user dalam sistem adalah <?php echo $_SESSION['userCount'];unset($_SESSION['userCount']); ?>
@@ -71,7 +103,7 @@
                                 Jumlah data role dalam sistem adalah <?php echo $_SESSION['roleCount'];unset($_SESSION['roleCount']); ?>
                             </div>
                         </div>
-                        <div class="panel panel-default">
+                        <div class="panel panel-primary">
                             <div class="panel-heading">Log Sistem</div>
                             <div class="panel-body">
                                 *Berisi log sistem.
