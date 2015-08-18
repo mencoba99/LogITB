@@ -3,6 +3,10 @@ session_start();
 //    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
 //        header("Location: index.php");
 //    }
+if($_SESSION['usedrole']!="Admin"){
+    $_SESSION['status']="viewMahasiswa";
+    include 'controller/Mahasiswa.php';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,11 +65,11 @@ session_start();
                         <form action="./controller/Mahasiswa.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="nim">NIM</label>
-                                <input type="text" name="nim" id="nim"  class="form-control" placeholder="NIM" value="<?php echo $_SESSION['data']['nim'];?>">
+                                <input type="text" name="nim" id="nim"  class="form-control" placeholder="NIM" value="<?php echo $_SESSION['data']['nim']; if($_SESSION['usedrole']!="Admin"){echo "\" readonly=\"true";}?>">
                             </div>
                             <div class="form-group">
                                 <label for="nama">Nama</label>
-                                <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama Lengkap" value="<?php echo $_SESSION['data']['nama'];?>">
+                                <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama Lengkap" value="<?php echo $_SESSION['data']['nama']; if($_SESSION['usedrole']!="Admin"){echo "\" readonly=\"true";}?>">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>

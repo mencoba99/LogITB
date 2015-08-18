@@ -3,6 +3,10 @@ session_start();
 //    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
 //        header("Location: index.php");
 //    }
+if($_SESSION['usedrole']!="Admin"){
+    $_SESSION['status']="viewUser";
+    include 'controller/User.php';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,10 +62,12 @@ session_start();
                     <div class="col-lg-2"><?php include './SideMenuManager.php';?></div>
                     <div class="col-lg-10">
                         <h3>Ubah Data Pengguna</h3>
+                        <div class="alert-success"><?php if(isset($_SESSION['success'])){echo $_SESSION['success'];unset($_SESSION['success']);}?></div>
+                        <div class="alert-danger"><?php if(isset($_SESSION['fail'])){echo $_SESSION['fail'];unset($_SESSION['fail']);}?></div>
                         <form action="./controller/User.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="username">Username</label>
-                                <input type="text" name="username" id="idrole"  class="form-control" placeholder="Username" value="<?php echo $_SESSION['data']['username'];?>">
+                                <input type="text" name="username" id="idrole"  class="form-control" placeholder="Username" value="<?php echo $_SESSION['data']['username']; if($_SESSION['usedrole']!="Admin"){echo "\" readonly=\"true";}?>">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password Sebelumnya</label>

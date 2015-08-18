@@ -3,6 +3,10 @@ session_start();
 //    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
 //        header("Location: index.php");
 //    }
+if($_SESSION['usedrole']!="Admin"){
+    $_SESSION['status']="viewDosen";
+    include 'controller/Dosen.php';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,21 +59,25 @@ session_start();
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"><?php include './SideMenuManager.php';?></div>
+                    <div class="col-lg-2">
+                        <?php 
+                            include './SideMenuManager.php';
+                            
+                        ?></div>
                     <div class="col-lg-10">
                         <h3>Ubah Data Dosen</h3>
                         <form action="./controller/Dosen.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="nip">NIP</label>
-                                <input type="text" name="nip" id="nip"  class="form-control" placeholder="NIP" value="<?php echo $_SESSION['data']['nip'];?>">
+                                <input type="text" name="nip" id="nip"  class="form-control" placeholder="NIP" value="<?php echo $_SESSION['data']['nip']; if($_SESSION['usedrole']!="Admin"){echo "\" readonly=\"true";}?>" />
                             </div>
                             <div class="form-group">
                                 <label for="nama">Nama</label>
-                                <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama Lengkap" value="<?php echo $_SESSION['data']['nama'];?>">
+                                <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama Lengkap" value="<?php echo $_SESSION['data']['nama']; if($_SESSION['usedrole']!="Admin"){echo "\" readonly=\"true";}?>" />
                             </div>
                             <div class="form-group">
                                 <label for="nama">Inisial</label>
-                                <input type="text" name="inisial" id="inisial" class="form-control" placeholder="Inisial" value="<?php echo $_SESSION['data']['inisial'];?>">
+                                <input type="text" name="inisial" id="inisial" class="form-control" placeholder="Inisial" value="<?php echo $_SESSION['data']['inisial']; if($_SESSION['usedrole']!="Admin"){echo "\" readonly=\"true";}?>" />
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>

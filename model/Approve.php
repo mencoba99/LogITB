@@ -6,7 +6,7 @@
         return mysqli_query($link,$sql);
     }
     
-    function view($sk){
+    function view($sk,$pb){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
         $sql = "SELECT * FROM bimbinganta WHERE nosk='".$sk."'";
         $res = mysqli_query($link, $sql);
@@ -17,6 +17,20 @@
             $value['kode'][$i]=$r['kodeta'];
             $value['nim'][$i]=$r['peserta'];
             $value['tgl'][$i]=$r['tanggal'];
+            if($pb=="Pembimbing 1"){
+                if($r['tspersetujuanpembimbing1']!=NULL){
+                    $value['approve'][$i]=1;
+                }else{
+                    $value['approve'][$i]=0;
+                }
+            }
+            if($pb=="Pembimbing 2"){
+                if($r['tspersetujuanpembimbing2']!=NULL){
+                    $value['approve'][$i]=1;
+                }else{
+                    $value['approve'][$i]=0;
+                }
+            }
             $i++;
         }
         return $value;
@@ -38,21 +52,24 @@
     
     function viewMhs($nip){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT skbimbinganta.nosk as nosk,skbimbinganta.status as stts,syaratseminarta1.nosk as noskt from skbimbinganta,syaratseminarta1 "
-                . "WHERE skbimbinganta.nosk=syaratseminarta1.nosk AND skbimbinganta.status='Aktif' ";
+        $sql = "SELECT skbimbinganta.nosk as nosk,skbimbinganta.status as stts,skbimbinganta.peserta as nim,syaratseminarta1.nosk as noskt, "
+                . "mahasiswa.nim as anim, mahasiswa.nama as nama from skbimbinganta,syaratseminarta1,mahasiswa "
+                . "WHERE skbimbinganta.nosk=syaratseminarta1.nosk AND skbimbinganta.peserta=mahasiswa.nim AND skbimbinganta.status='Aktif'";
         $res = mysqli_query($link, $sql);
         $s=0;
         while($r = mysqli_fetch_assoc($res)){
-            $syarat[$s]=$r['nosk'];
+            $syarat['sk'][$s]=$r['nosk'];
+            $syarat['nim'][$s]=$r['nim'];
+            $syarat['nama'][$s]=$r['nama'];
             $s++;
         }
-        $sql = "SELECT * FROM skbimbinganta WHERE pembimbing1='".$nip."' OR pembimbing2='".$nip."'";
+        $sql = "SELECT * FROM skbimbinganta WHERE (pembimbing1='".$nip."' OR pembimbing2='".$nip."') AND status='Aktif'";
         $res = mysqli_query($link, $sql);
         $i=0;
         while($r = mysqli_fetch_assoc($res)){
             $value['sk'][$i]=$r['nosk'];
             if($s>0){
-                if(in_array($r['nosk'], $syarat)){
+                if(in_array($r['nosk'], $syarat['sk'])){
                     $value['seminar'][$i]=1;
                 }else{
                     $value['seminar'][$i]=0;
@@ -61,6 +78,8 @@
                 $value['seminar'][$i]=0;
             }
             $value['nim'][$i]=$r['peserta'];
+            $n = array_search($r['peserta'], $syarat['nim']);
+            $value['nama'][$i]=$syarat['nama'][$n];
             $value['judul'][$i]=$r['judulta'];
             if($nip==$r['pembimbing1']){
                 $p="Pembimbing 1";
@@ -89,6 +108,16 @@
             $value['lapor']=$r['catatanbimbingan'];
             $value['tgl2']=$r['tglbimbinganyad'];
             $value['lapor2']=$r['rencanabimbinganyad'];
+            if($r['tspersetujuanpembimbing1']==NULL){
+                $value['p'][1]=0;
+            }else{
+                $value['p'][1]=1;
+            }
+            if($r['tspersetujuanpembimbing2']==NULL){
+                $value['p'][2]=0;
+            }else{
+                $value['p'][2]=1;
+            }
             $i++;
         }
         return $value;
@@ -149,5 +178,22 @@
         $sql = "UPDATE syaratseminarta1 SET tspersetujuanpembimbing".$x."=now() WHERE nosk='".$sk."'";
         mysqli_query($link, $sql);
         
+    }
+    
+    function getDataDosen($nip){
+        include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
+        $sql = "SELECT * FROM dosen WHERE nip='".$nip."'";
+        $res = mysqli_query($link, $sql);
+        $i=0;
+        if($r = mysqli_fetch_assoc($res)){
+            $value['nip']=$r['nip'];
+            $value['nama']=$r['nama'];
+            $value['inisial']=$r['inisial'];
+            $value['email']=$r['email'];
+            $value['alamat']=$r['alamat'];
+            $value['telp']=$r['noTelp'];
+            $i++;
+        }
+        return $value;
     }
 ?>

@@ -41,8 +41,8 @@
     }
     function update ($nip,$nama,$inisial,$email,$alamat,$telp){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "UPDATE dosen SET nama='".$nama."',inisial='".$inisial.",email='".$email."',alamat='".$alamat."',noTelp='".$telp."' WHERE nip='".$nip."'";
-        return mysqli_query($link,$sql);
+        $sql = "UPDATE dosen SET nama='".$nama."',inisial='".$inisial."',email='".$email."',alamat='".$alamat."',noTelp='".$telp."' WHERE nip='".$nip."'";
+        return mysqli_query($link,$sql) or die(mysqli_error($link));
     }
     function delete ($nip){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';

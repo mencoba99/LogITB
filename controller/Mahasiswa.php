@@ -13,7 +13,17 @@
         
     }
     if(isset($_SESSION['status'])){
-        $_SESSION['value'] = view();
+        if($_SESSION['status']=="view"){
+            $_SESSION['value'] = view();
+        }
+        if($_SESSION['status']=="viewMhs"){
+            $_SESSION['mhs']=viewByNim($_SESSION['username']);
+            $_SESSION['sk']= viewSKByNim($_SESSION['username']);
+            $_SESSION['lapor']= viewBimbinganDB($_SESSION['sk']['nosk']);
+        }
+        if($_SESSION['status']=="viewMahasiswa"){
+            $_SESSION['data']=viewByNim($_SESSION['username']);
+        }
     }
     
     if(isset($_POST['edit'])){

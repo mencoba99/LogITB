@@ -33,6 +33,7 @@
     }
     function update ($username,$password){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
+        $deskripsi = sha1($password);
         $sql = "UPDATE user SET password='".$deskripsi."' WHERE username='".$username."'";
         return mysqli_query($link,$sql);
     }
@@ -131,6 +132,24 @@
         }else{
            $value="Mahasiswa";}
     return $value;
+    }
+    
+    function checkPassword($username,$password){
+        include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
+        $sql = "SELECT * FROM user WHERE username='".$username."'";
+        $row = mysqli_query($link, $sql);
+        if($r = mysqli_fetch_assoc($row)){
+            $pass = $r['password'];
+        }else{
+            return false;
+        }
+        if(isset($pass)){
+            if($pass==sha1($password)){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
     
     function matchPassword($password,$ulangpassword){

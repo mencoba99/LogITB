@@ -1,12 +1,12 @@
 <?php
     session_start();
-    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Pembimbing_TA")){
+    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Mahasiswa")){
         header("Location: index.php");
     }
     if(!isset($_SESSION['data'])){
-        header("Location: DBPembimbing.php");
+        header("Location: DBMhs.php");
     }
-include 'controller/Approve.php';
+include 'controller/Mahasiswa.php';
 ?>
 
 <!DOCTYPE html>
@@ -74,59 +74,31 @@ include 'controller/Approve.php';
                                 <td><?php echo $val['nim']; ?></td>
                             </tr>    
                             <tr>
-                                <td>Jumlah Hadir Kuliah</td>
-                                <td>:</td>
-                                <td><?php echo $val['hadir']; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Jumlah Bimbingan</td>
-                                <td>:</td>
-                                <td><?php echo $val['bimbi']; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Jumlah Tugas Tambahan</td>
-                                <td>:</td>
-                                <td><?php echo $val['tugas']; ?></td>
-                            </tr>
-                            <tr>
-                                <td>Tanggal Laporan Masuk</td>
+                                <td>Tanggal</td>
                                 <td>:</td>
                                 <td><?php echo $val['tgl']; ?></td>
                             </tr>
                             <tr>
-                                <td>Keterangan</td>
+                                <td>Catatan Bimbingan</td>
                                 <td>:</td>
-                                <td><?php echo $val['ket']; ?></td>
+                                <td><?php echo $val['lapor']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Tanggal Rencana</td>
+                                <td>:</td>
+                                <td><?php echo $val['tgl2']; ?></td>
+                            </tr>
+                            <tr>
+                                <td>Rencana Bimbingan</td>
+                                <td>:</td>
+                                <td><?php echo $val['lapor2']; ?></td>
                             </tr>
                         </table>
-                        <?php
-                            if($_SESSION['pb']=="Pembimbing 1"){
-                                if($val['p1']==NULL){
-                                    $stat=0;
-                                }else{
-                                    $stat=1;
-                                }
-                            }
-                            if($_SESSION['pb']=="Pembimbing 2"){
-                                if($val['p2']==NULL){
-                                    $stat=0;
-                                }else{
-                                    $stat=1;
-                                }
-                            }
-                            if($stat==0){
-                        ?>
-                        <form action="controller/Approve.php" method="POST" enctype="multipart/form-data">
+<!--                        <form action="controller/Approve.php" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="no" value="<?php echo $val['no'] ?>" />
                             <input type="hidden" name="sk" value="<?php echo $val['sk'] ?>" />
-                            <input type="submit" name="approvess" value="Setujui" class="btn btn-green"/>
-                        </form>
-                        <?php
-                            }else{
-                        ?>
-                        <input type="button" value="Sudah Disetujui" disabled="true" class="btn btn-green"/>
-                        <?php
-                            }
-                        ?>
+                            <input type="submit" name="approve" value="Approve" class="btn btn-green"/>
+                        </form>-->
                     </div>
                     <div class="col-lg-2"></div>
 		</div>
