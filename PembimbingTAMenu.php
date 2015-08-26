@@ -32,7 +32,7 @@
         <li><a href='ViewSeminarTA2.php'><span>Seminar TA 2</span></a></li>
         <li><a href='ViewSKSidangTA.php'><span>SK Sidang TA</span></a></li>
         <li><a href='ViewSidangTA2.php'><span>Sidang TA 2</span></a></li>
-        <li><a href='ViewNilaiDetailTA2.php'><span>Nilai Detail TA 2</span></a></li>
+<!--        <li><a href='ViewNilaiDetailTA2.php'><span>Nilai Detail TA 2</span></a></li>-->
     </ul>
 </div>
 

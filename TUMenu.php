@@ -249,7 +249,7 @@
                 </li> 
             </ul>
         </li>
-        <li class="has-sub"><a href="ViewNilaiTA2.php"><span>Nilai TA 2</span></a>
+<!--        <li class="has-sub"><a href="ViewNilaiTA2.php"><span>Nilai TA 2</span></a>
             <ul>
                 <li>
                     <a href="AddNilaiTA2.php">Tambah Nilai TA 2</a>
@@ -258,7 +258,7 @@
                     <a href="ViewNilaiTA2.php">Lihat Nilai TA 2</a>
                 </li> 
             </ul>
-        </li>
+        </li>-->
         
     </ul>
 </div>
