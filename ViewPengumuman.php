@@ -96,7 +96,7 @@ $_SESSION['status']="view";
                                 <td>18/08/2015</td>
                                 <td>Btw kenapa judul pengumuman ga ada di tabelnya ya, masa pengumumannya ga ada judulnya</td>
                                 <td>belumtau</td>
-                                <td>
+                                <td class="middle">
                                     <div class="btn-group-vertical">
                                         <button type="submit" class="btn btn-blue">Detail</button>
                                         <button type="submit" class="btn btn-green">Ubah</button>
