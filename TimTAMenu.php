@@ -65,7 +65,7 @@
                 </li> 
             </ul>
         </li>
-        <li class="has-sub"><a href="ViewNilaiTA1.php"><span>Nilai TA 1</span></a>
+<!--        <li class="has-sub"><a href="ViewNilaiTA1.php"><span>Nilai TA 1</span></a>
             <ul>
                 <li>
                     <a href="AddNilaiTA1.php">Tambah Nilai TA 1</a>
@@ -75,7 +75,7 @@
                 </li> 
             </ul>
         </li>
-        <li><a href="ViewDaftarHadirSeminarTA1.php"><span>Daftar Hadir Seminar TA 1</span></a></li>
+        <li><a href="ViewDaftarHadirSeminarTA1.php"><span>Daftar Hadir Seminar TA 1</span></a></li>-->
         <li class="has-sub"><a href="ViewSeminarTA2.php"><span>Seminar TA 2</span></a>
             <ul>
                 <li>

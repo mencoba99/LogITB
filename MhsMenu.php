@@ -81,7 +81,7 @@
             <a href="ViewDadtarHadirSeminarTA1Mahasiswa.php">Daftar Hadir Seminar TA 1</a>
         </li>
         <li>
-            <a href="ViewNilaiTA1Mahasiswa.php">Nilai TA 1</a>
+            <a href="ViewNilaiTA1.php">Nilai TA 1</a>
         </li>
         <li>
             <a href="ViewSeminarTA2Mahasiswa.php">Seminar TA 2</a>

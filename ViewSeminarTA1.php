@@ -68,6 +68,8 @@ session_start();
                                 <th>Jam</th>
                                 <th>Penguji</th>
                                 <th>Judul TA</th>
+                                <th>Nilai Akhir</th>
+                                <th>Status Lulus</th>
                                 <th>Aksi</th>
                             </tr>
                             <tr class="middle">
@@ -77,9 +79,11 @@ session_start();
                                  <td>(Jam)</td>
                                  <td>(Penguji)</td>
                                  <td>(Judul TA)</td>
+                                 <td>(Nilai Akhir)</td>
+                                 <td>(Status Lulus)</td>
                                  <td>
                                     <div class="btn-group-vertical">
-                                        <button type="submit" class="btn btn-blue">Detail</button>
+                                        <button onclick="location.href = 'http://localhost/LogITB/ViewSeminarTA1Mahasiswa.php';" type="submit" class="btn btn-blue">Detail</button>
                                         <button type="submit" class="btn btn-green">Ubah</button>
                                         <button type="submit" class="btn btn-red">Hapus</button>
                                     </div>
@@ -94,6 +98,8 @@ session_start();
                                  <td>(Jam)</td>
                                  <td>(Penguji)</td>
                                  <td>(Judul TA)</td>
+                                 <td>(Nilai Akhir)</td>
+                                 <td>(Status Lulus)</td>
                                  <td>
                                     <div class="btn-group-vertical">
                                         <button type="submit" class="btn btn-blue">Detail</button>
