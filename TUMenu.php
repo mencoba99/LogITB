@@ -209,6 +209,16 @@
                 </li> 
             </ul>
         </li>-->
+        <li class="has-sub"><a href="ViewSyaratSeminarTA2.php"><span>Syarat Seminar TA 2</span></a>
+            <ul>
+                <li>
+                    <a href="AddSyaratSeminarTA2.php">Tambah Syarat Seminar TA 2</a>
+                </li>
+                <li>
+                    <a href="ViewSyaratSeminarTA2.php">Lihat Syarat Seminar TA 2</a>
+                </li> 
+            </ul>
+        </li>
         <li class="has-sub"><a href="ViewSeminarTA2.php"><span>Seminar TA 2</span></a>
             <ul>
                 <li>
@@ -239,13 +249,13 @@
                 </li> 
             </ul>
         </li>
-        <li class="has-sub"><a href="ViewNilaiDetailTA2.php"><span>Nilai Detail TA 2</span></a>
+        <li class="has-sub"><a href="ViewNilaiTA2.php"><span>Nilai TA 2</span></a>
             <ul>
                 <li>
-                    <a href="AddNilaiDetailTA2.php">Tambah Nilai Detail TA 2</a>
+                    <a href="AddNilaiTA2.php">Tambah Nilai TA 2</a>
                 </li>
                 <li>
-                    <a href="ViewNilaiDetailTA2.php">Lihat Nilai Detail TA 2</a>
+                    <a href="ViewNilaiTA2.php">Lihat Nilai TA 2</a>
                 </li> 
             </ul>
         </li>
