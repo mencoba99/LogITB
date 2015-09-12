@@ -109,6 +109,10 @@
                                         <td>(Judul Tugas Akhir)</td> 
                                     </tr>
                                 </table>
+                                <div class="form-group">
+                                <label for="ket">Catatan Seminar</label>
+                                <textarea name="catatan" id="catatan" class="form-control" rows="6" readonly="readonly"></textarea>
+                                </div>
 <!--                                <button onclick="location.href = 'http://localhost/LogITB/EditSeminarTA1.php';" type="submit" class="btn btn-green">Ubah Data</button>-->
                                 <!--Kalau Rolenya TU maka button diatas muncul, jika tidak tidak muncul-->
                             </div>
