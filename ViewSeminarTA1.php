@@ -178,76 +178,7 @@ session_start();
             </div>
 	</footer>
 </div>
-<?php 
-    if(isset($_SESSION['lapor'])){
-        $x=$_SESSION['lapor']['count'];
-        for($i=0;$i<$x;$i++){
-            ?>
-                <div id="myModal<?php echo $i; ?>" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
 
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title">Detail Bimbingan</h4>
-                        </div>
-                        <div class="modal-body">
-                            <p>
-                                <table class="table table-bordered">
-                                    <thead></thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>No</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['nourut'][$i]; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tanggal</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['tgl'][$i]; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Catatan</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['lapor'][$i]; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tanggal Selanjutnya</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['tglnext'][$i]; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rencana Bimbingan</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['lapornext'][$i]; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Pembimbing 1</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['p1'][$i]; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Pembimbing 2</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['p2'][$i]; ?></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </p>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                        </div>
-                      </div>
-
-                    </div>
-                </div>
-            <?php
-        }
-    }
-?>
 <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 <!-- javascript
     ================================================== -->

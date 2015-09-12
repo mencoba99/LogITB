@@ -109,7 +109,8 @@
                                         <td>(Judul Tugas Akhir)</td> 
                                     </tr>
                                 </table>
-                                <button onclick="location.href = 'http://localhost/LogITB/EditSeminarTA1.php';" type="submit" class="btn btn-green">Ubah Data</button>
+<!--                                <button onclick="location.href = 'http://localhost/LogITB/EditSeminarTA1.php';" type="submit" class="btn btn-green">Ubah Data</button>-->
+                                <!--Kalau Rolenya TU maka button diatas muncul, jika tidak tidak muncul-->
                             </div>
                         </div>
                         <div class="panel panel-primary">
@@ -135,14 +136,17 @@
                                 <label for="ket">Keterangan</label>
                                 <textarea name="ket" id="ket" class="form-control" rows="6" readonly="readonly"></textarea>
                                 </div>
-                                <button onclick="location.href = 'http://localhost/LogITB/AddNilaiTA1.php';" type="submit" class="btn btn-blue">Masukan Nilai</button>
-                                <button onclick="location.href = 'http://localhost/LogITB/EditNilaiTA1.php';" type="submit" class="btn btn-green">Ubah Nilai</button>
+<!--                                <button onclick="location.href = 'http://localhost/LogITB/AddNilaiTA1.php';" type="submit" class="btn btn-blue">Masukan Nilai</button>-->
+                                    <button type="button" class="btn btn-blue " data-toggle="modal" data-target="#modalAddNilai">Masukan Nilai</button>
+<!--                                <button onclick="location.href = 'http://localhost/LogITB/EditNilaiTA1.php';" type="submit" class="btn btn-green">Ubah Nilai</button>-->
+                                    <button type="button" class="btn btn-green " data-toggle="modal" data-target="#modalEditNilai">Ubah Nilai</button>
                             </div>
                         </div>
                         <div class="panel panel-primary">
                             <div class="panel-heading"><strong>Data Daftar Hadir Seminar</strong></div>
                             <div class="panel-body">
-                                <button onclick="location.href = 'http://localhost/LogITB/AddDaftarHadirSeminarTA1.php';" type="submit" class="btn btn-blue">Tambah Data</button>
+<!--                            <button onclick="location.href = 'http://localhost/LogITB/AddDaftarHadirSeminarTA1.php';" type="submit" class="btn btn-blue">Tambah Data</button>-->
+                                <button type="button" class="btn btn-blue " data-toggle="modal" data-target="#modalAddDaftarHadir">Tambah Data</button>
                                 <table class="table table-bordered">                 
                                     <tr>
                                         <th>No.</th>
@@ -156,7 +160,6 @@
                                          <td>(Nama Mahasiswa)</td>
                                          <td>
                                             <div class="btn-group-vertical">
-                                                <button onclick="location.href = 'http://localhost/LogITB/EditDaftarHadirSeminarTA1.php';" type="submit" class="btn btn-green">Ubah</button>
                                                 <button  type="submit" class="btn btn-red">Hapus</button>
                                             </div>
                                          </td>
@@ -167,7 +170,6 @@
                                          <td>(Nama Mahasiswa)</td>
                                          <td>
                                              <div class="btn-group-vertical">
-                                                <button onclick="location.href = 'http://localhost/LogITB/EditDaftarHadirSeminarTA1.php';" type="submit" class="btn btn-green">Ubah</button>
                                                 <button  type="submit" class="btn btn-red">Hapus</button>
                                             </div>
                                          </td>
@@ -178,7 +180,6 @@
                                          <td>(Nama Mahasiswa)</td>
                                          <td>
                                              <div class="btn-group-vertical">
-                                                <button onclick="location.href = 'http://localhost/LogITB/EditDaftarHadirSeminarTA1.php';" type="submit" class="btn btn-green">Ubah</button>
                                                 <button  type="submit" class="btn btn-red">Hapus</button>
                                             </div>
                                          </td>
@@ -189,7 +190,6 @@
                                          <td>(Nama Mahasiswa)</td>
                                          <td>
                                              <div class="btn-group-vertical">
-                                                <button onclick="location.href = 'http://localhost/LogITB/EditDaftarHadirSeminarTA1.php';" type="submit" class="btn btn-green">Ubah</button>
                                                 <button  type="submit" class="btn btn-red">Hapus</button>
                                             </div>
                                          </td>
@@ -256,206 +256,132 @@
                 </div>
             </div>
 	</footer>
-</div>
-<?php
-    if(isset($_SESSION['lapor'])){
-        if(isset($_SESSION['lapor']['nourut'][0])){
-            ?>
-                <div id="myModal0" class="modal fade" role="dialog">
+</div>     
+    <div id="modalAddNilai" class="modal fade" role="dialog">
                     <div class="modal-dialog">
 
                       <!-- Modal content-->
                       <div class="modal-content">
+                        <form action="./controller/Dosen.php" method="POST" enctype="multipart/form-data">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title">Detail Bimbingan</h4>
+                          <h4 class="modal-title">Tambah Nilai Seminar Tugas Akhir 1</h4>
                         </div>
                         <div class="modal-body">
-                            <p>
-                                <table class="table table-bordered">
-                                    <thead></thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>No</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['nourut'][0]; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tanggal</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['tgl'][0]; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Catatan</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['lapor'][0]; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tanggal Selanjutnya</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['tglnext'][0]; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rencana Bimbingan</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['lapornext'][0]; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Pembimbing 1</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['p1'][0]; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Pembimbing 2</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['p2'][0]; ?></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </p>
+                           <div class="form-group">
+                                <label for="nilaipembimbing">Nilai Pembimbing 1</label>
+                                <input type="text" name="nilaipembimbing1" id="nilaipembimbing1" class="form-control" placeholder="Nilai Pembimbing 1" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="nilaipenguji">Nilai Penguji</label>
+                                <input type="text" name="nilaipenguji" id="nilaipenguji" class="form-control" placeholder="Nilai Penguji" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="nilaidosenta">Nilai Dosen TA 1</label>
+                                <input type="text" name="nilaidosenta1" id="nilaidosenta1" class="form-control" placeholder="Nilai Dosen TA 1" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="keterangan">Keterangan Nilai</label>
+                                <textarea name="keterangan" id="keterangan" class="form-control" rows="6"></textarea>
+                            </div>
                             <div class="clear"></div>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                          <button type="button" class="btn btn-blue" data-dismiss="modal">Tambah Data</button>
+                          <button type="button" class="btn btn-red" data-dismiss="modal">Tutup</button>
                         </div>
+                          </form>
                       </div>
 
                     </div>
                 </div>
-            <?php
-        }
-        if(isset($_SESSION['lapor']['nourut'][1])){
-            ?>
-                <div id="myModal1" class="modal fade" role="dialog">
+    
+    <div id="modalEditNilai" class="modal fade" role="dialog">
                     <div class="modal-dialog">
 
                       <!-- Modal content-->
                       <div class="modal-content">
+                        <form action="./controller/Dosen.php" method="POST" enctype="multipart/form-data">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title">Detail Bimbingan</h4>
+                          <h4 class="modal-title">Ubah Nilai Seminar Tugas Akhir 1</h4>
                         </div>
                         <div class="modal-body">
-                            <p>
-                                <table class="table table-bordered">
-                                    <thead></thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>No</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['nourut'][1]; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tanggal</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['tgl'][1]; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Catatan</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['lapor'][1]; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Tanggal Selanjutnya</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['tglnext'][1]; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rencana Bimbingan</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['lapornext'][1]; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Pembimbing 1</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['p1'][1]; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Pembimbing 2</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['p2'][1]; ?></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </p>
+                           <div class="form-group">
+                                <label for="nilaipembimbing">Nilai Pembimbing 1</label>
+                                <input type="text" name="nilaipembimbing1" id="nilaipembimbing1" class="form-control" placeholder="Nilai Pembimbing 1" value="(Nilai Pembimbing 1)">
+                            </div>
+                            <div class="form-group">
+                                <label for="nilaipenguji">Nilai Penguji</label>
+                                <input type="text" name="nilaipenguji" id="nilaipenguji" class="form-control" placeholder="Nilai Penguji" value="(Nilai Penguji 1)">
+                            </div>
+                            <div class="form-group">
+                                <label for="nilaidosenta">Nilai Dosen TA 1</label>
+                                <input type="text" name="nilaidosenta1" id="nilaidosenta1" class="form-control" placeholder="Nilai Dosen TA 1" value="(Nilai Dosen TA 1)">
+                            </div>
+                            <div class="form-group">
+                                <label for="keterangan">Keterangan Nilai</label>
+                                <textarea name="keterangan" id="keterangan" class="form-control" rows="6"> Keterangan sebelumnya</textarea>
+                            </div>
                             <div class="clear"></div>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                          <button type="button" class="btn btn-green" data-dismiss="modal">Ubah Data</button>
+                          <button type="button" class="btn btn-red" data-dismiss="modal">Tutup</button>
                         </div>
+                          </form>
                       </div>
 
                     </div>
                 </div>
-            <?php
-        }
-        if(isset($_SESSION['lapor']['nourut'][2])){
-            ?>
-                <div id="myModal2" class="modal fade" role="dialog">
+    
+    <div id="modalAddDaftarHadir" class="modal fade" role="dialog">
                     <div class="modal-dialog">
-
                       <!-- Modal content-->
                       <div class="modal-content">
+                        <form action="./controller/Dosen.php" method="POST" enctype="multipart/form-data">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title">Detail Bimbingan</h4>
+                          <h4 class="modal-title">Tambah Daftar Hadir Seminar</h4>
                         </div>
                         <div class="modal-body">
-                            <p>
-                                <table class="table table-bordered">
-                                    <thead></thead>
-                                    <tbody>
+                           <table class="table table-bordered">
                                     <tr>
-                                        <td>No</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['nourut'][2]; ?></td>
+                                        <th>No</th>
+                                        <th>NIP Mahasiswa</th>
                                     </tr>
                                     <tr>
-                                        <td>Tanggal</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['tgl'][2]; ?></td>
+                                        <td class="middle">1</td>
+                                        <td><input type="text" name="mahasiswa1" id="mahasiswa1" class="form-control" placeholder="NIP" value=""></td>
                                     </tr>
                                     <tr>
-                                        <td>Catatan</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['lapor'][2]; ?></td>
+                                        <td class="middle">2</td>
+                                        <td><input type="text" name="mahasiswa2" id="mahasiswa2" class="form-control" placeholder="NIP" value=""></td>
                                     </tr>
                                     <tr>
-                                        <td>Tanggal Selanjutnya</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['tglnext'][2]; ?></td>
+                                        <td class="middle">3</td>
+                                        <td><input type="text" name="mahasiswa3" id="mahasiswa3" class="form-control" placeholder="NIP" value=""></td>
                                     </tr>
                                     <tr>
-                                        <td>Rencana Bimbingan</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['lapornext'][2]; ?></td>
+                                       <td class="middle">4</td>
+                                        <td><input type="text" name="mahasiswa4" id="mahasiswa4" class="form-control" placeholder="NIP" value=""></td>
                                     </tr>
                                     <tr>
-                                        <td>Pembimbing 1</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['p1'][2]; ?></td>
+                                        <td class="middle">5</td>
+                                        <td><input type="text" name="mahasiswa5" id="mahasiswa5" class="form-control" placeholder="NIP" value=""></td>
                                     </tr>
-                                    <tr>
-                                        <td>Pembimbing 2</td>
-                                        <td>:</td>
-                                        <td><?php echo $_SESSION['lapor']['p2'][2]; ?></td>
-                                    </tr>
-                                    </tbody>
                                 </table>
-                            </p>
-                            <div class="clear"></div>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                          <button type="button" class="btn btn-blue" data-dismiss="modal">Tambah Data</button>
+                          <button type="button" class="btn btn-red" data-dismiss="modal">Tutup</button>
                         </div>
+                          </form>
                       </div>
 
                     </div>
                 </div>
-            <?php
-        }
-    }
-?>
+            
 
 <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 <!-- javascript
