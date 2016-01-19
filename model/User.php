@@ -45,7 +45,7 @@
     
     function viewByNim($nim){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT * FROM Mahasiswa WHERE nim='".$nim."'";
+        $sql = "SELECT * FROM mahasiswa WHERE nim='".$nim."'";
         $res = mysqli_query($link, $sql);
         $i=0;
         if($r = mysqli_fetch_assoc($res)){
@@ -61,7 +61,7 @@
         
     function viewByNipDosen($nip){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT * FROM Dosen WHERE nip='".$nip."'";
+        $sql = "SELECT * FROM dosen WHERE nip='".$nip."'";
         $res = mysqli_query($link, $sql);
         $i=0;
         if($r = mysqli_fetch_assoc($res)){
@@ -78,7 +78,7 @@
         
     function viewByNipKaryawan($nip){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT * FROM Karyawan WHERE nip='".$nip."'";
+        $sql = "SELECT * FROM karyawan WHERE nip='".$nip."'";
         $res = mysqli_query($link, $sql);
         $i=0;
         if($r = mysqli_fetch_assoc($res)){
