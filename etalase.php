@@ -167,20 +167,18 @@ include 'controller/User.php';
                         </div>
                         <div class="col-lg-9">
                         <h3>Pengumuman</h3>
-                        <div class="well">
-                            <h4 class="judulpengumuman">1. Judul pengumuman 1</h4>
-                            <p class="subjudulpenguman"><strong>oleh (Nama Dosen) pada tanggal (Tanggal Posting)</strong></p>
-                            <p>Ini adalah isi pengumuman 1, jika pengumuman 1 terlalu panjang maka isi dari pengumuman dipotong.
-                                kira-kira isi pengumuman ini  seratus karakter saja....</p>
-                            <p><a href="#">Lihat Selengkapnya...</a></p>
-                        </div>
-                        <div class="well">
-                            <h4 class="judulpengumuman">2. Judul pengumuman 2</h4>
-                            <p class="subjudulpenguman"><strong>oleh (Nama Dosen) pada tanggal (Tanggal Posting)</strong></p>
-                            <p>Ini adalah isi pengumuman 1, jika pengumuman 1 terlalu panjang maka isi dari pengumuman dipotong.
-                                kira-kira isi pengumuman ini  seratus karakter saja....</p>
-                            <p><a href="#">Lihat Selengkapnya...</a></p>
-                        </div>
+                        <?php
+                            $post = $_SESSION['post'];
+                            $x = count($post['id']);
+                            for($i=0;$i<$x;$i++){
+                                echo "<div class=\"well\">";
+                                echo "<h4 class=\"judulpengumuman\">".$post['judul'][$i]."</h4>";
+                                echo "<p class=\"subjudulpenguman\"><strong>oleh ".$post['author'][$i]." pada tanggal ".$post['tgl1'][$i]."</strong></p>";
+                                echo "<p>".$post['isi'][$i]."</p>";
+                                echo "</div>";
+                            }
+                        ?>
+                        
                         </div>
                     </div>
 		</div>

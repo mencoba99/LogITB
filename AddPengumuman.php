@@ -1,10 +1,12 @@
 <?php
 session_start();
 if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="TU_Akademik")){
+    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Tim_TA")){
         header("Location: index.php");
     }
-    $_SESSION['status']="collect";
-    include 'controller/Periode.php';
+}
+$_SESSION['status']="collect";
+include 'controller/Pengumuman.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +22,7 @@ if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['used
 <link href="css/jcarousel.css" rel="stylesheet" />
 <link href="css/flexslider.css" rel="stylesheet" />
 <link href="css/style.css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/ >
+<link rel="stylesheet" type="text/css" href="css/jquery.datetimepicker.css"/>
 
 
 <!-- Theme skin -->
@@ -46,8 +48,9 @@ if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['used
                 <div class="row">
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
-                            <li><a href="#"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li class="active">Form Laporan</li>
+                            <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                            <li><a href="DBTU.php">Tata Usaha Akademik</a></li>
+                            <li class="active">Tambah SK Bimbingan</li>
                         </ul>
                     </div>
                 </div>
@@ -56,37 +59,41 @@ if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['used
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"><?php include './SideMenuManager.php';?></div>
-                    <div class="col-lg-8">
+                    <div class="col-lg-2">
+                        <?php include './SideMenuManager.php';?></div>
+                    <div class="col-lg-10">
+                        <h3>Tambah Pengumuman</h3>
                         <div class="alert-success"><?php if(isset($_SESSION['success'])){echo $_SESSION['success'];unset($_SESSION['success']);}?></div>
-                        <form action="./controller/Periode.php" method="POST" enctype="multipart/form-data">
+                        <div class="alert-danger"><?php if(isset($_SESSION['fail'])){echo $_SESSION['fail'];unset($_SESSION['fail']);}?></div>
+                        <form action="./controller/Pengumuman.php" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="jenis">Jenis Periode</label>
-                                <select name="jenis" class="form-control">
-                                    <option value="1">Seminar TA 1</option>
-                                    <option value="2">Seminar TA 2</option>
-                                    <option value="3">Sidang TA</option>
-                                </select>
+                                <label for="dosen">Dosen</label>
+                                <input type="text" list="dataDosen" name="dosen" id="dosen" class="form-control" placeholder="NIK Dosen" value="" autocomplete="off">
+                                <datalist id="dataDosen">
+                                    <?php
+                                        $dosen = $_SESSION['dosen'];
+                                        $y=  count($dosen['nama']);
+                                        for($j=0;$j<$y;$j++){
+                                            echo "<option value=\"".$dosen['nip'][$j]."-".$dosen['nama'][$j]."\">";
+                                        }
+                                    ?>
+                                </datalist>
                             </div>
                             <div class="form-group">
-                                <label for="tgl">Tanggal Mulai</label>
-                                <input type="text" name="tgl" id="datetimepicker2" class="form-control" placeholder="Tanggal Mulai Periode" value="" autocomplete="off">
+                                <label for="judul">Judul</label>
+                                <input type="text" name="judul" id="judul" class="form-control" placeholder="Jumlah Kehadiran Perkuliahan" value="">
                             </div>
                             <div class="form-group">
-                                <label for="tgl2">Tanggal Selesai</label>
-                                <input type="text" name="tgl2" id="datetimepicker3" class="form-control" placeholder="Tanggal Akhir Periode" value="" autocomplete="off">
+                                <label for="isi">Isi</label>
+                                <textarea name="isi" id="isi" class="form-control" rows="6"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="smt">Semester</label>
-                                <select name="smt" class="form-control">
-                                    <option value="1">Ganjil</option>
-                                    <option value="2">Genap</option>
-                                    <option value="3">Pendek</option>
-                                </select>
+                                <label for="tgl1">Tanggal Awal</label>
+                                <input type="text" name="tgl1" id="datetimepicker2" class="form-control" placeholder="Tanggal Laporan Masuk" value="" autocomplete="off">
                             </div>
                             <div class="form-group">
-                                <label for="tahun">Tahun</label>
-                                <input type="text" id="tahun" name="tahun" class="form-control" placeholder="Tahun Akademik" />
+                                <label for="tgl2">Tanggal Akhir</label>
+                                <input type="text" name="tgl2" id="datetimepicker3" class="form-control" placeholder="Tanggal Laporan Masuk" value="" autocomplete="off">
                             </div>
                             <input type="submit" name="add" value="Add" class="btn btn-blue" />
                         </form>

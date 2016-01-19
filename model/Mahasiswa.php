@@ -3,8 +3,12 @@
     
     function insert ($nim,$nama,$email,$alamat,$telp){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "INSERT INTO mahasiswa VALUES ('".$nim."','".$nama."','".$email."','".$alamat."','".$telp."')";
-        return mysqli_query($link,$sql);
+//        $sql = "INSERT INTO mahasiswa VALUES ('".$nim."','".$nama."','".$email."','".$alamat."','".$telp."')";
+        $stmt = mysqli_prepare($link, "INSERT INTO mahasiswa VALUES (?,?,?,?,?)");
+        $bind = mysqli_stmt_bind_param($stmt, 'sssss' , $nim, $nama, $email, $alamat, $telp);
+        $exec = mysqli_stmt_execute($stmt);
+        return $exec;
+//        return mysqli_query($link,$sql);
     }
     function view(){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
@@ -87,13 +91,21 @@
     
     function update ($nim,$nama,$email,$alamat,$telp){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "UPDATE mahasiswa SET nama='".$nama."',email='".$email."',alamat='".$alamat."',noTelp='".$telp."' WHERE nim='".$nim."'";
-        return mysqli_query($link,$sql);
+        $stmt = mysqli_prepare($link, "UPDATE mahasiswa SET nama=?,email=?,alamat=?,noTelp=? WHERE nim=?");
+        $bind = mysqli_stmt_bind_param($stmt, 'sssss', $nama, $email, $alamat, $telp, $nim);
+        $exec = mysqli_stmt_execute($stmt);
+        return $exec;
+//        $sql = "UPDATE mahasiswa SET nama='".$nama."',email='".$email."',alamat='".$alamat."',noTelp='".$telp."' WHERE nim='".$nim."'";
+//        return mysqli_query($link,$sql);
     }
     function delete ($nim){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "DELETE FROM mahasiswa WHERE nim='".$nim."'";
-        return mysqli_query($link,$sql);
+        $stmt = mysqli_prepare($link, "DELETE FROM mahasiswa WHERE nim=?");
+        $bind = mysqli_stmt_bind_param($stmt, 's', $nim);
+        $exec = mysqli_stmt_execute($stmt);
+        return $exec;
+//        $sql = "DELETE FROM mahasiswa WHERE nim='".$nim."'";
+//        return mysqli_query($link,$sql);
     }
     function getNamaDosenByNip($nip){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';

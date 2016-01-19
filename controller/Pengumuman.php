@@ -1,12 +1,12 @@
-<!--SSTA1 Controller-->
+<!--Pengumuman Controller-->
 <?php
-    include $_SERVER['DOCUMENT_ROOT'].'/LogITB/model/SyaratSeminarTA1.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/LogITB/model/Pengumuman.php';
     if(isset($_POST['add'])){
-        $r = insert($_POST['nim'],$_POST['hadir'],$_POST['bimbi'],$_POST['tugas'],$_POST['tgl'],$_POST['ket']);
+        $r = insert($_POST['dosen'],$_POST['judul'],$_POST['isi'],$_POST['tgl1'],$_POST['tgl2']);
         if($r){
             session_start();
             $_SESSION['success']="Berhasil tambah SK.. :)";
-            header('Location: ../AddSKBimbingan.php');
+            header('Location: ../AddPengumuman.php');
         }else{
 //            session_start();
 //            $_SESSION['fail']=$error;
@@ -20,7 +20,7 @@
             $_SESSION['value'] = view();
         }
         if($_SESSION['status']=="collect"){
-            $_SESSION['mhs']=viewMhs();
+            $_SESSION['dosen']=viewDosen();
         }
     }
     

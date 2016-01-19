@@ -171,5 +171,39 @@
         }
         return $value;
     }
-    
+    function viewPengumuman(){
+        include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
+        
+        $sql = "SELECT * FROM pengumuman";
+        $res = mysqli_query($link, $sql);
+        date_default_timezone_set("Asia/Jakarta");
+        $skrg = strtotime(date('Y-m-d'));
+        $i=0;
+        while($r = mysqli_fetch_assoc($res)){
+            if(strtotime($r['tanggalawal'])<=$skrg && $skrg<=strtotime($r['tanggalakhir'])){
+                $value['id'][$i]=$r['id'];
+                $value['author'][$i]=getNamaDosenByNip($r['author']);
+                $value['judul'][$i]=$r['judul'];
+                $value['isi'][$i]=$r['isi'];
+                $value['tgl1'][$i]=$r['tanggalawal'];
+                $value['tgl2'][$i]=$r['tanggalakhir'];
+                $i++;
+            }
+            
+        }
+        return $value;
+    }
+    function getNamaDosenByNip($nip){
+        include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
+        $sql = "SELECT * FROM dosen WHERE nip='".$nip."'";
+        $res = mysqli_query($link, $sql);
+        $i=0;
+        if($r = mysqli_fetch_assoc($res)){
+            $value=$r['nip']."-".$r['nama'];
+            $i++;
+        }else{
+            $value="";
+        }
+        return $value;
+    }
 ?>

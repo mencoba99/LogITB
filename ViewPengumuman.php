@@ -9,7 +9,9 @@ session_start();
             }
         }
     }
+
 $_SESSION['status']="view";
+include 'controller/Pengumuman.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,46 +66,32 @@ $_SESSION['status']="view";
                     <div class="col-lg-2"><?php include './SideMenuManager.php';?></div>
                     <div class="col-lg-10">
                         <h3>Daftar Pengumuman</h3>
-                        <table class="table table-bordered">
+                        <table class="table table-bordered table-condensed">
                             <tr>
                                 <th>No.Urut</th>
                                 <th>Judul</th>
                                 <th>Tanggal Posting</th>
                                 <th>Tanggal Berakhir</th>
-                                <th>Cuplikan Isi</th>
-                                <th>File</th>
                                 <th>Aksi</th>
                             </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Belum Ada di Basisdata</td>
-                                <td>17/08/2015</td>
-                                <td>18/08/2015</td>
-                                <td>Btw kenapa judul pengumuman ga ada di tabelnya ya, masa pengumumannya ga ada judulnya</td>
-                                <td>belumtau</td>
-                                <td>
-                                    <div class="btn-group-vertical">
-                                        <button type="submit" class="btn btn-blue">Detail</button>
-                                        <button type="submit" class="btn btn-green">Ubah</button>
-                                        <button type="submit" class="btn btn-red">Hapus</button>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Kira kira sama</td>
-                                <td>15/08/2015</td>
-                                <td>18/08/2015</td>
-                                <td>Btw kenapa judul pengumuman ga ada di tabelnya ya, masa pengumumannya ga ada judulnya</td>
-                                <td>belumtau</td>
-                                <td>
-                                    <div class="btn-group-vertical">
-                                        <button type="submit" class="btn btn-blue">Detail</button>
-                                        <button type="submit" class="btn btn-green">Ubah</button>
-                                        <button type="submit" class="btn btn-red">Hapus</button>
-                                    </div>
-                                </td>
-                            </tr>
+                            <?php
+                                $post = $_SESSION['value'];
+                                $x = count($post['id']);
+                                for($i=0;$i<$x;$i++){
+                                    echo "<tr>";
+                                    echo "<td>".($i+1).".</td>";
+                                    echo "<td>".$post['judul'][$i]."</td>";
+                                    echo "<td>".$post['tgl1'][$i]."</td>";
+                                    echo "<td>".$post['tgl2'][$i]."</td><td>";
+                                    echo "<div class=\"btn-group-vertical\">";
+                                    echo "<button type=\"submit\" class=\"btn btn-blue\">Detail</button>";
+                                    echo "<button type=\"submit\" class=\"btn btn-green\">Ubah</button>";
+                                    echo "<button type=\"submit\" class=\"btn btn-red\">Hapus</button>";
+                                    echo "</div>";
+                                    echo "</td></tr>";
+                                }
+                            ?>
+                            
                         </table>
                     </div>
             </div>

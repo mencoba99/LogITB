@@ -28,6 +28,7 @@
     if(isset($_SESSION['status'])){
         if($_SESSION['status']=="view"){
             $_SESSION['value'] = view();
+            $_SESSION['post'] = viewPengumuman();
         }
         if($_SESSION['status']=="viewUser"){
             $_SESSION['data'] = viewByUsername($_SESSION['username']);
