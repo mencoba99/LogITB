@@ -59,12 +59,13 @@ session_start();
 		<div class="row">
                     <div class="col-lg-2"><?php include './SideMenuManager.php';?></div>
                     <div class="col-lg-10">
-                        <h3>Data Syarat Seminar Tugas Akhir 1</h3>
+                        <h3>Data Syarat Seminar Tugas Akhir 2</h3>
                         <table class="table table-bordered">                 
                             <tr>
-                                <th>NIM Peserta</th>
-                                <th>Nama Peserta</th>
-                                <th>Jumlah Hadir Kuliah</th> 
+                                <th>Peserta</th>
+                                <th>Lulus Tugas Akhir 1</th>
+                                <th>Jumah Hadir Seminar TA 1</th>
+                                <th>Jumlah Hadir Kuliah</th>
                                 <th>Jumlah Bimbingan</th>
                                 <th>Jumlah Tugas Tambahan</th>
                                 <th>Persetujuan Pembimbing 1</th>
@@ -73,8 +74,9 @@ session_start();
                                 <th>Aksi</th>
                             </tr>
                             <tr class="middle">
-                                 <td>(NIM Peserta)</td>
-                                 <td>(Nama Peserta)</td>
+                                 <td>(Peserta)</td>
+                                 <td>(Lulus Tugas Akhir 1)</td>
+                                 <td>(Jumah Hadir Seminar TA 1)</td>
                                  <td>(Jumlah Hadir Kuliah)</td>
                                  <td>(Jumlah Bimbingan)</td>
                                  <td>(Jumlah Tugas Tambahan)</td>
@@ -83,7 +85,7 @@ session_start();
                                  <td>(Tgl Laporan Masuk)</td>
                                  <td>
                                     <div class="btn-group-vertical">
-                                        <button type="submit" class="btn btn-blue" data-toggle="modal" data-target="#modalDetailSyaratSeminar">Detail</button>
+                                        <button type="submit" class="btn btn-blue">Detail</button>
                                         <button type="submit" class="btn btn-green">Ubah</button>
                                         <button type="submit" class="btn btn-red">Hapus</button>
                                     </div>
@@ -93,7 +95,8 @@ session_start();
                             
                             <tr class="middle">
                                  <td>(Peserta)</td>
-                                 <td>(Nama Peserta)</td>
+                                 <td>(Lulus Tugas Akhir 1)</td>
+                                 <td>(Jumah Hadir Seminar TA 1)</td>
                                  <td>(Jumlah Hadir Kuliah)</td>
                                  <td>(Jumlah Bimbingan)</td>
                                  <td>(Jumlah Tugas Tambahan)</td>
@@ -170,64 +173,76 @@ session_start();
             </div>
 	</footer>
 </div>
+<?php 
+    if(isset($_SESSION['lapor'])){
+        $x=$_SESSION['lapor']['count'];
+        for($i=0;$i<$x;$i++){
+            ?>
+                <div id="myModal<?php echo $i; ?>" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
 
-    <div id="modalDetailSyaratSeminar" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Detail Syarat Seminar Tugas Akhir 1</h4>
-                </div>
-                <div class="modal-body">
-                   <table class="table table-bordered">
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Detail Bimbingan</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                <table class="table table-bordered">
+                                    <thead></thead>
+                                    <tbody>
                                     <tr>
-                                        <td>NIM Peserta</td>
-                                        <td>(NIM Peserta)</td> 
+                                        <td>No</td>
+                                        <td>:</td>
+                                        <td><?php echo $_SESSION['lapor']['nourut'][$i]; ?></td>
                                     </tr>
                                     <tr>
-                                        <td>Nama Peserta</td>
-                                        <td>(Nama Peserta)</td> 
+                                        <td>Tanggal</td>
+                                        <td>:</td>
+                                        <td><?php echo $_SESSION['lapor']['tgl'][$i]; ?></td>
                                     </tr>
                                     <tr>
-                                        <td>Jumlah Hadir Kuliah</td>
-                                        <td>(Jumlah Hadir Kuliah)</td> 
+                                        <td>Catatan</td>
+                                        <td>:</td>
+                                        <td><?php echo $_SESSION['lapor']['lapor'][$i]; ?></td>
                                     </tr>
                                     <tr>
-                                        <td>Jumlah Bimbingan</td>
-                                        <td>(Jumlah Bimbingan)</td> 
+                                        <td>Tanggal Selanjutnya</td>
+                                        <td>:</td>
+                                        <td><?php echo $_SESSION['lapor']['tglnext'][$i]; ?></td>
                                     </tr>
                                     <tr>
-                                        <td>Jumlah Tugas Tambahan</td>
-                                        <td>(Jumlah Tugas Tambahan)</td> 
+                                        <td>Rencana Bimbingan</td>
+                                        <td>:</td>
+                                        <td><?php echo $_SESSION['lapor']['lapornext'][$i]; ?></td>
                                     </tr>
                                     <tr>
-                                        <td>Persetujuan Pembimbing 1</td>
-                                        <td>(Persetujuan Pembimbing 1)</td> 
+                                        <td>Pembimbing 1</td>
+                                        <td>:</td>
+                                        <td><?php echo $_SESSION['lapor']['p1'][$i]; ?></td>
                                     </tr>
                                     <tr>
-                                        <td>Persetujuan Pembimbing 2</td>
-                                        <td>(Persetujuan Pembimbing 2)</td> 
+                                        <td>Pembimbing 2</td>
+                                        <td>:</td>
+                                        <td><?php echo $_SESSION['lapor']['p2'][$i]; ?></td>
                                     </tr>
-                                    <tr>
-                                        <td>Tgl Laporan Masuk</td>
-                                        <td>(Tgl Laporan Masuk)</td> 
-                                    </tr>
+                                    </tbody>
                                 </table>
-                                <div class="form-group">
-                                <label for="ket">Keterangan Syarat Seminar</label>
-                                <textarea name="keterangan" id="keterangan" class="form-control" rows="6" readonly="readonly"></textarea>
-                                </div>
-                    <div class="clear"></div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                </div>
-              </div>
+                            </p>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                        </div>
+                      </div>
 
-            </div>
-        </div>
-
+                    </div>
+                </div>
+            <?php
+        }
+    }
+?>
 <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 <!-- javascript
     ================================================== -->

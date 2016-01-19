@@ -75,26 +75,29 @@
             <a href="ViewSyaratSeminarTA1Mahasiswa.php">Syarat Seminar TA 1</a>
         </li>
         <li>
-            <a href="ViewSeminarTA1Mahasiswa.php">Semninar TA 1</a>
+            <a href="ViewSeminarTA1.php">Semninar TA 1</a>
         </li>
-        <li>
+<!--        <li>
             <a href="ViewDadtarHadirSeminarTA1Mahasiswa.php">Daftar Hadir Seminar TA 1</a>
         </li>
         <li>
-            <a href="ViewNilaiTA1Mahasiswa.php">Nilai TA 1</a>
+            <a href="ViewNilaiTA1.php">Nilai TA 1</a>
+        </li>-->
+        <li>
+            <a href="ViewSyaratSeminarTA2Mahasiswa.php">Syarat Seminar TA 2</a>
         </li>
         <li>
-            <a href="ViewSeminarTA2Mahasiswa.php">Seminar TA 2</a>
+            <a href="ViewSeminarTA2.php">Seminar TA 2</a>
         </li>
         <li>
             <a href="ViewSKSidangTAMahasiswa.php">SK Sidang TA</a>
         </li>
         <li>
-            <a href="ViewSidangTA2Mahasiswa.php">Sidang TA 2</a>
+            <a href="ViewSidangTA2.php">Sidang TA 2</a>
         </li>
-        <li>
+<!--        <li>
             <a href="ViewNilaiDetailTA2Mahasiswa.php">Nilai Detail TA 2</a>
-        </li>
+        </li>-->
     </ul>
 </div>
 <!--<h4>SKPI</h4>

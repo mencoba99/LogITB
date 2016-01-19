@@ -62,7 +62,7 @@ include 'controller/SeminarTA1.php';
                     <div class="col-lg-2">
                         <?php include './SideMenuManager.php';?></div>
                     <div class="col-lg-10">
-                        <h3>Tambah Data Surat Keputusan Bimbingan Tugas Akhir</h3>
+                        <h3>Tambah Data Seminar Tugas Akhir 1   </h3>
                         <div class="alert-success"><?php if(isset($_SESSION['success'])){echo $_SESSION['success'];unset($_SESSION['success']);}?></div>
                         <div class="alert-danger"><?php if(isset($_SESSION['fail'])){echo $_SESSION['fail'];unset($_SESSION['fail']);}?></div>
                         <form action="./controller/SeminarTA1.php" method="POST" enctype="multipart/form-data">
@@ -105,8 +105,8 @@ include 'controller/SeminarTA1.php';
                                     ?>
                             </datalist>
                             <div class="form-group">
-                                <label for="judul">judul TA</label>
-                                <input type="text" name="judul" id="judul" class="form-control" placeholder="Tempat Diadakan Seminar" value="">
+                                <label for="judul">Judul TA</label>
+                                <input type="text" name="judul" id="judul" class="form-control" placeholder="Judul Tugas Akhir" value="">
                             </div>
                             <div class="form-group">
                                 <label for="catatan">Catatan Seminar</label>

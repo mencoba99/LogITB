@@ -189,7 +189,7 @@
                 </li> 
             </ul>
         </li>
-        <li class="has-sub"><a href="ViewNilaiTA1.php"><span>Nilai TA 1</span></a>
+<!--        <li class="has-sub"><a href="ViewNilaiTA1.php"><span>Nilai TA 1</span></a>
             <ul>
                 <li>
                     <a href="AddNilaiTA1.php">Tambah Nilai TA 1</a>
@@ -206,6 +206,16 @@
                 </li>
                 <li>
                     <a href="ViewDaftarHadirSeminarTA1.php">Lihat Daftar Hadir Seminar TA 1</a>
+                </li> 
+            </ul>
+        </li>-->
+        <li class="has-sub"><a href="ViewSyaratSeminarTA2.php"><span>Syarat Seminar TA 2</span></a>
+            <ul>
+                <li>
+                    <a href="AddSyaratSeminarTA2.php">Tambah Syarat Seminar TA 2</a>
+                </li>
+                <li>
+                    <a href="ViewSyaratSeminarTA2.php">Lihat Syarat Seminar TA 2</a>
                 </li> 
             </ul>
         </li>
@@ -239,16 +249,16 @@
                 </li> 
             </ul>
         </li>
-        <li class="has-sub"><a href="ViewNilaiDetailTA2.php"><span>Nilai Detail TA 2</span></a>
+<!--        <li class="has-sub"><a href="ViewNilaiTA2.php"><span>Nilai TA 2</span></a>
             <ul>
                 <li>
-                    <a href="AddNilaiDetailTA2.php">Tambah Nilai Detail TA 2</a>
+                    <a href="AddNilaiTA2.php">Tambah Nilai TA 2</a>
                 </li>
                 <li>
-                    <a href="ViewNilaiDetailTA2.php">Lihat Nilai Detail TA 2</a>
+                    <a href="ViewNilaiTA2.php">Lihat Nilai TA 2</a>
                 </li> 
             </ul>
-        </li>
+        </li>-->
         
     </ul>
 </div>

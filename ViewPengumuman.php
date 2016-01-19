@@ -74,6 +74,7 @@ include 'controller/Pengumuman.php';
                                 <th>Tanggal Berakhir</th>
                                 <th>Aksi</th>
                             </tr>
+<<<<<<< HEAD
                             <?php
                                 $post = $_SESSION['value'];
                                 $x = count($post['id']);
@@ -92,6 +93,38 @@ include 'controller/Pengumuman.php';
                                 }
                             ?>
                             
+=======
+                            <tr>
+                                <td>1</td>
+                                <td>Belum Ada di Basisdata</td>
+                                <td>17/08/2015</td>
+                                <td>18/08/2015</td>
+                                <td>Btw kenapa judul pengumuman ga ada di tabelnya ya, masa pengumumannya ga ada judulnya</td>
+                                <td>belumtau</td>
+                                <td>
+                                    <div class="btn-group-vertical">
+                                        <button type="submit" class="btn btn-blue">Detail</button>
+                                        <button type="submit" class="btn btn-green">Ubah</button>
+                                        <button type="submit" class="btn btn-red">Hapus</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Kira kira sama</td>
+                                <td>15/08/2015</td>
+                                <td>18/08/2015</td>
+                                <td>Btw kenapa judul pengumuman ga ada di tabelnya ya, masa pengumumannya ga ada judulnya</td>
+                                <td>belumtau</td>
+                                <td class="middle">
+                                    <div class="btn-group-vertical">
+                                        <button type="submit" class="btn btn-blue">Detail</button>
+                                        <button type="submit" class="btn btn-green">Ubah</button>
+                                        <button type="submit" class="btn btn-red">Hapus</button>
+                                    </div>
+                                </td>
+                            </tr>
+>>>>>>> da8877dfe1262a22a65fa86aed8508055f025e50
                         </table>
                     </div>
             </div>
