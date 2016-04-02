@@ -3,9 +3,14 @@
     
     function insert ($kodeinstansi,$jenis,$namalengkap,$namasingkat,$alamat,$email,$notelp,$website,$namakontak,$keterangan){
         include '../db.php';
-        $sql = "INSERT INTO instansiluar VALUES ('".$kodeinstansi."','".$jenis."','".$namalengkap."','".$namasingkat."'"
-                . ",'".$alamat."','".$email."','".$notelp."','".$website."','".$namakontak."','".$keterangan."')";
-        return mysqli_query($link,$sql);
+//        $sql = "INSERT INTO instansiluar VALUES ('".$kodeinstansi."','".$jenis."','".$namalengkap."','".$namasingkat."'"
+//                . ",'".$alamat."','".$email."','".$notelp."','".$website."','".$namakontak."','".$keterangan."')";
+//        return mysqli_query($link,$sql);
+        $stmt = mysqli_prepare($link, "INSERT INTO instansiluar VALUES (?,?,?,?,?,?,?,?,?,?)");
+        $bind = mysqli_stmt_bind_param($stmt, 'ssssssssss', $kodeinstansi, $jenis, $namalengkap, $namasingkat, $alamat, $email, $notelp, $website, $namakontak, $keterangan);
+        $exec = mysqli_stmt_execute($stmt);
+        return $exec;
+        mysqli_stmt_close($stmt);
     }
     
     function view(){
