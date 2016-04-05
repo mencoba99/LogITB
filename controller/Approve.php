@@ -1,4 +1,4 @@
-<!--Approve Controller-->
+<!--Approve Controller test-->
 <?php
     include $_SERVER['DOCUMENT_ROOT'].'/LogITB/model/Approve.php';
     
