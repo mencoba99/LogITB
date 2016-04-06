@@ -19,8 +19,12 @@
 //        }else{
 //            $nip2="";
 //        }
-        $sql = "INSERT INTO skbimbinganta (nosk,peserta,pembimbing1,pembimbing2,judulta,status,file) VALUES ('".$sk."','".$nim."','".$nip1."','".$nip2."','".$judul."','".$status."','".$file."')";
-        return mysqli_query($link,$sql);
+//        $sql = "INSERT INTO skbimbinganta (nosk,peserta,pembimbing1,pembimbing2,judulta,status,file) VALUES ('".$sk."','".$nim."','".$nip1."','".$nip2."','".$judul."','".$status."','".$file."')";
+//        return mysqli_query($link,$sql);
+        $stmt = mysqli_prepare($link, "INSERT INTO skbimbinganta (nosk,peserta,pembimbing1,pembimbing2,judulta,status,file) VALUES (?,?,?,?,?,?,?)");
+        $bind = mysqli_stmt_bind_param($stmt, 'sssssss', $sk, $nim, $nip1, $nip2, $judul, $status, $file);
+        $exec = mysqli_stmt_execute($stmt);
+        return $exec;
     }
     function view(){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
@@ -41,8 +45,12 @@
     }
     function viewByID($id){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT * FROM tugasakhir WHERE id='".$id."'";
-        $res = mysqli_query($link, $sql);
+//        $sql = "SELECT * FROM tugasakhir WHERE id='".$id."'";
+//        $res = mysqli_query($link, $sql);
+        $stmt = mysqli_prepare($link, "SELECT * FROM tugasakhir WHERE id=?");
+        $bind = mysqli_stmt_bind_param($stmt, 's', $id);
+        $exec = mysqli_stmt_execute($stmt);
+        $res = mysqli_stmt_get_result($stmt);
         $i=0;
         if($r = mysqli_fetch_assoc($res)){
             $value['id']=$r['id'];
@@ -59,8 +67,12 @@
     
     function viewByNim($nim){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT * FROM tugasakhir WHERE peserta='".$nim."' AND status='Aktif'";
-        $res = mysqli_query($link, $sql);
+//        $sql = "SELECT * FROM tugasakhir WHERE peserta='".$nim."' AND status='Aktif'";
+//        $res = mysqli_query($link, $sql);
+        $stmt = mysqli_prepare($link, "SELECT * FROM tugasakhir WHERE peserta=? AND status='Aktif'");
+        $bind = mysqli_stmt_bind_param($stmt, 's', $nim);
+        $exec = mysqli_stmt_execute($stmt);
+        $res = mysqli_stmt_get_result($stmt);
         $i=0;
         if($r = mysqli_fetch_assoc($res)){
             $value['id']=$r['id'];
@@ -84,14 +96,22 @@
         }else{
             $stat = "Tidak Aktif";
         }
-        $sql = "UPDATE skbimbinganta SET status='".$stat."' WHERE nosk='".$sk."'";
-        return mysqli_query($link,$sql);
+//        $sql = "UPDATE skbimbinganta SET status='".$stat."' WHERE nosk='".$sk."'";
+//        return mysqli_query($link,$sql);
+        $stmt = mysqli_prepare($link, "UPDATE skbimbinganta SET status=? WHERE nosk=?");
+        $bind = mysqli_stmt_bind_param($stmt, 'ss', $stat, $sk);
+        $exec = mysqli_stmt_execute($stmt);
+        return $exec;
     }
     function delete ($sk){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
         unlink("../SK/".$sk.".pdf");
-        $sql = "DELETE FROM skbimbinganta WHERE nosk='".$sk."'";
-        return mysqli_query($link,$sql);
+//        $sql = "DELETE FROM skbimbinganta WHERE nosk='".$sk."'";
+//        return mysqli_query($link,$sql);
+        $stmt = mysqli_prepare($link, "DELETE FROM skbimbinganta WHERE nosk=?");
+        $bind = mysqli_stmt_bind_param($stmt, 's', $sk);
+        $exec = mysqli_stmt_execute($stmt);
+        return $exec;
     }
     
     function viewDosen(){
@@ -129,8 +149,12 @@
     
     function getNamaDosenByNip($nip){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT * FROM dosen WHERE nip='".$nip."'";
-        $res = mysqli_query($link, $sql);
+//        $sql = "SELECT * FROM dosen WHERE nip='".$nip."'";
+//        $res = mysqli_query($link, $sql);
+        $stmt = mysqli_prepare($link, "SELECT * FROM dosen WHERE nip=?");
+        $bind = mysqli_stmt_bind_param($stmt, 's', $nip);
+        $exec = mysqli_stmt_execute($stmt);
+        $res = mysqli_stmt_get_result($stmt);
         $i=0;
         if($r = mysqli_fetch_assoc($res)){
             $value=$r['nip']."-".$r['nama'];

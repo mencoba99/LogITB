@@ -2,14 +2,22 @@
 <?php
     function update ($id,$status){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "UPDATE bimbingan SET approved=".$status." WHERE id='".$id."'";
-        return mysqli_query($link,$sql);
+//        $sql = "UPDATE bimbingan SET approved=".$status." WHERE id='".$id."'";
+//        return mysqli_query($link,$sql);
+        $stmt = mysqli_prepare($link, "UPDATE bimbingan SET approved=? WHERE id=?");
+        $bind = mysqli_stmt_bind_param($stmt, 'is', $status, $id);
+        $exec = mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
     }
     
     function view($sk,$pb){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT * FROM bimbinganta WHERE nosk='".$sk."'";
-        $res = mysqli_query($link, $sql);
+//        $sql = "SELECT * FROM bimbinganta WHERE nosk='".$sk."'";
+//        $res = mysqli_query($link, $sql);
+        $stmt = mysqli_prepare($link, "SELECT * FROM bimbinganta WHERE nosk=?");
+        $bind = mysqli_stmt_bind_param($stmt, 's', $sk);
+        $exec = mysqli_stmt_execute($stmt);
+        $res = mysqli_stmt_get_result($stmt);
         $i=0;
         while($r = mysqli_fetch_assoc($res)){
             $value['no'][$i]=$r['nourut'];
@@ -34,12 +42,17 @@
             $i++;
         }
         return $value;
+        mysqli_stmt_close($stmt);
     }
     
     function getNamaDosenByNip($nip){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT * FROM dosen WHERE nip='".$nip."'";
-        $res = mysqli_query($link, $sql);
+//        $sql = "SELECT * FROM dosen WHERE nip='".$nip."'";
+//        $res = mysqli_query($link, $sql);
+        $stmt = mysqli_prepare($link, "SELECT * FROM dosen WHERE nip=?");
+        $bind = mysqli_stmt_bind_param($stmt, 's', $nip);
+        $exec = mysqli_stmt_execute($stmt);
+        $res = mysqli_stmt_get_result($stmt);
         $i=0;
         if($r = mysqli_fetch_assoc($res)){
             $value=$r['inisial']."-".$r['nama'];
@@ -48,6 +61,7 @@
             $value="";
         }
         return $value;
+        mysqli_stmt_close($stmt);
     }
     
     function viewMhs($nip){
@@ -63,8 +77,12 @@
             $syarat['nama'][$s]=$r['nama'];
             $s++;
         }
-        $sql = "SELECT * FROM skbimbinganta WHERE (pembimbing1='".$nip."' OR pembimbing2='".$nip."') AND status='Aktif'";
-        $res = mysqli_query($link, $sql);
+//        $sql = "SELECT * FROM skbimbinganta WHERE (pembimbing1='".$nip."' OR pembimbing2='".$nip."') AND status='Aktif'";
+//        $res = mysqli_query($link, $sql);
+        $stmt = mysqli_prepare($link, "SELECT * FROM skbimbinganta WHERE (pembimbing1=? OR pembimbing2=?) AND status='Aktif'");
+        $bind = mysqli_stmt_bind_param($stmt, 'ss', $nip, $nip);
+        $exec = mysqli_stmt_execute($stmt);
+        $res = mysqli_stmt_get_result($stmt);
         $i=0;
         while($r = mysqli_fetch_assoc($res)){
             $value['sk'][$i]=$r['nosk'];
@@ -92,12 +110,17 @@
             $i++;
         }
         return $value;
+        mysqli_stmt_close($stmt);
     }
     
     function getDetail($no,$sk){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT * FROM bimbinganta WHERE nourut=".$no." AND nosk='".$sk."'";
-        $res = mysqli_query($link, $sql);
+//        $sql = "SELECT * FROM bimbinganta WHERE nourut=".$no." AND nosk='".$sk."'";
+//        $res = mysqli_query($link, $sql);
+        $stmt = mysqli_prepare($link, "SELECT * FROM bimbinganta WHERE nourut=? AND nosk=?");
+        $bind = mysqli_stmt_bind_param($stmt, 'is', $no, $sk);
+        $exec = mysqli_stmt_execute($stmt);
+        $res = mysqli_stmt_get_result($stmt);
         $i=0;
         while($r = mysqli_fetch_assoc($res)){
             $value['no']=$r['nourut'];
@@ -121,12 +144,17 @@
             $i++;
         }
         return $value;
+        mysqli_stmt_close($stmt);
     }
     
     function getDetailSS($sk){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT * FROM syaratseminarta1 WHERE nosk='".$sk."'";
-        $res = mysqli_query($link, $sql);
+//        $sql = "SELECT * FROM syaratseminarta1 WHERE nosk='".$sk."'";
+//        $res = mysqli_query($link, $sql);
+        $stmt = mysqli_prepare($link, "SELECT * FROM syaratseminarta1 WHERE nosk=?");
+        $bind = mysqli_stmt_bind_param($stmt, 's', $sk);
+        $exec = mysqli_stmt_execute($stmt);
+        $res = mysqli_stmt_get_result($stmt);
         $i=0;
         while($r = mysqli_fetch_assoc($res)){
             $value['nim']=$r['peserta'];
@@ -142,12 +170,17 @@
             $i++;
         }
         return $value;
+        mysqli_stmt_close($stmt);
     }
     
     function approve($nip,$no,$sk){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT pembimbing1,pembimbing2 FROM skbimbinganta WHERE (pembimbing1='".$nip."' OR pembimbing2='".$nip."') AND nosk='".$sk."'";
-        $res = mysqli_query($link, $sql);
+//        $sql = "SELECT pembimbing1,pembimbing2 FROM skbimbinganta WHERE (pembimbing1='".$nip."' OR pembimbing2='".$nip."') AND nosk='".$sk."'";
+//        $res = mysqli_query($link, $sql);
+        $stmt = mysqli_prepare($link, "SELECT pembimbing1,pembimbing2 FROM skbimbinganta WHERE (pembimbing1=? OR pembimbing2=?) AND nosk=?");
+        $bind = mysqli_stmt_bind_param($stmt, 'sss', $nip, $nip, $sk);
+        $exec = mysqli_stmt_execute($stmt);
+        $res = mysqli_stmt_get_result($stmt);
         $x=0;
         if($r = mysqli_fetch_assoc($res)){
             if($nip==$r['pembimbing1']){
@@ -157,15 +190,23 @@
                 $x=2;
             }
         }
-        $sql = "UPDATE bimbinganta SET tspersetujuanpembimbing".$x."=now() WHERE nourut=".$no." AND nosk='".$sk."'";
-        mysqli_query($link, $sql);
-        
+//        $sql = "UPDATE bimbinganta SET tspersetujuanpembimbing".$x."=now() WHERE nourut=".$no." AND nosk='".$sk."'";
+//        mysqli_query($link, $sql);
+        mysqli_stmt_close($stmt);
+        $stmt = mysqli_prepare($link, "UPDATE bimbinganta SET tspersetujuanpembimbing".$x."=now() WHERE nourut=? AND nosk=?");
+        $bind = mysqli_stmt_bind_param($stmt, 'is', $no, $sk);
+        $exec = mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
     }
     
     function approvess($nip,$sk){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT pembimbing1,pembimbing2,nosk FROM skbimbinganta WHERE (pembimbing1='".$nip."' OR pembimbing2='".$nip."') AND nosk='".$sk."'";
-        $res = mysqli_query($link, $sql);
+//        $sql = "SELECT pembimbing1,pembimbing2,nosk FROM skbimbinganta WHERE (pembimbing1='".$nip."' OR pembimbing2='".$nip."') AND nosk='".$sk."'";
+//        $res = mysqli_query($link, $sql);
+        $stmt = mysqli_prepare($link, "SELECT pembimbing1,pembimbing2,nosk FROM skbimbinganta WHERE (pembimbing1=? OR pembimbing2=?) AND nosk=?");
+        $bind = mysqli_stmt_bind_param($stmt, 'sss', $nip, $nip, $sk);
+        $exec = mysqli_stmt_execute($stmt);
+        $res = mysqli_stmt_get_result($stmt);
         $x=0;
         if($r = mysqli_fetch_assoc($res)){
             if($nip==$r['pembimbing1']){
@@ -175,15 +216,23 @@
                 $x=2;
             }
         }
-        $sql = "UPDATE syaratseminarta1 SET tspersetujuanpembimbing".$x."=now() WHERE nosk='".$sk."'";
-        mysqli_query($link, $sql);
-        
+        mysqli_stmt_close($stmt);
+//        $sql = "UPDATE syaratseminarta1 SET tspersetujuanpembimbing".$x."=now() WHERE nosk='".$sk."'";
+//        mysqli_query($link, $sql);
+        $stmt = mysqli_prepare($link, "UPDATE syaratseminarta1 SET tspersetujuanpembimbing".$x."=now() WHERE nosk=?");
+        $bind = mysqli_stmt_bind_param($stmt, 's', $sk);
+        $exec = mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
     }
     
     function getDataDosen($nip){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
-        $sql = "SELECT * FROM dosen WHERE nip='".$nip."'";
-        $res = mysqli_query($link, $sql);
+//        $sql = "SELECT * FROM dosen WHERE nip='".$nip."'";
+//        $res = mysqli_query($link, $sql);
+        $stmt = mysqli_prepare($link, "SELECT * FROM dosen WHERE nip=?");
+        $bind = mysqli_stmt_bind_param($stmt, 's', $nip);
+        $exec = mysqli_stmt_execute($stmt);
+        $res = mysqli_stmt_get_result($stmt);
         $i=0;
         if($r = mysqli_fetch_assoc($res)){
             $value['nip']=$r['nip'];
@@ -195,5 +244,6 @@
             $i++;
         }
         return $value;
+        mysqli_stmt_close($stmt);
     }
 ?>
