@@ -56,7 +56,7 @@ session_start();
             <div class="container">
 		<div class="row">
                     <div class="col-lg-2">
-                        <?php include './SideMenuManager.php';
+                        <?php include './SideMenu.php';
                                 $mhs = $_SESSION['mhs'];
                                 unset($_SESSION['mhs']);
                                 $sk = $_SESSION['sk'];

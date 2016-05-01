@@ -74,7 +74,7 @@ include 'controller/SK.php';
 	<section id="content">
             <div class="container">
 		<div class="row">
-                    <div class="col-lg-2"><?php include './SideMenuManager.php';?></div>
+                    <div class="col-lg-2"><?php include './SideMenu.php';?></div>
                     <div class="col-lg-10">
                         <h3>Data Surat Keputusan Bimbingan Tugas Akhir</h3>
                         <table class="table table-bordered">

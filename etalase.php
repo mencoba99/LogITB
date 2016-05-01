@@ -168,15 +168,15 @@ include 'controller/User.php';
                         <div class="col-lg-9">
                         <h3>Pengumuman</h3>
                         <?php
-                            $post = $_SESSION['post'];
-                            $x = count($post['id']);
-                            for($i=0;$i<$x;$i++){
-                                echo "<div class=\"well\">";
-                                echo "<h4 class=\"judulpengumuman\">".$post['judul'][$i]."</h4>";
-                                echo "<p class=\"subjudulpenguman\"><strong>oleh ".$post['author'][$i]." pada tanggal ".$post['tgl1'][$i]."</strong></p>";
-                                echo "<p>".$post['isi'][$i]."</p>";
-                                echo "</div>";
-                            }
+//                            $post = $_SESSION['post'];
+//                            $x = count($post['id']);
+//                            for($i=0;$i<$x;$i++){
+//                                echo "<div class=\"well\">";
+//                                echo "<h4 class=\"judulpengumuman\">".$post['judul'][$i]."</h4>";
+//                                echo "<p class=\"subjudulpenguman\"><strong>oleh ".$post['author'][$i]." pada tanggal ".$post['tgl1'][$i]."</strong></p>";
+//                                echo "<p>".$post['isi'][$i]."</p>";
+//                                echo "</div>";
+//                            }
                         ?>
                         
                         </div>

@@ -7,62 +7,42 @@
 //        }
         if(isset($_POST['Admin'])){
             $_SESSION['usedrole']="Admin";
-            header('Location: DBAdmin.php');
+            header('Location: ViewProfile.php');
         }
         
         if(isset($_POST['TU_Akademik'])){
             $_SESSION['usedrole']="TU_Akademik";
-            header('Location: DBTU.php');
+            header('Location: ViewProfile.php');
         }
         
         if(isset($_POST['Mahasiswa'])){
             $_SESSION['usedrole']="Mahasiswa";
-            header('Location: DBMhs.php');
+            header('Location: ViewProfile.php');
         }
         
         if(isset($_POST['Pembimbing_TA'])){
             $_SESSION['usedrole']="Pembimbing_TA";
-            header('Location: DBPembimbingTA.php');
+            header('Location: ViewProfile.php');
         }
         
         if(isset($_POST['Penguji_TA'])){
             $_SESSION['usedrole']="Penguji_TA";
-            header('Location: DBPengujiTA.php');
-        }
-        
-        if(isset($_POST['Pembimbing_KP'])){
-            $_SESSION['usedrole']="Pembimbing_KP";
-            header('Location: DBPembimbingKP.php');
-        }
-        
-        if(isset($_POST['Penguji_KP'])){
-            $_SESSION['usedrole']="Penguji_KP";
-            header('Location: DBPengujiKP.php');
+            header('Location: ViewProfile.php');
         }
         
         if(isset($_POST['Kaprodi'])){
             $_SESSION['usedrole']="Kaprodi";
-            header('Location: DBKaprodi.php');
+            header('Location: ViewProfile.php');
         }
         
         if(isset($_POST['Tim_TA'])){
             $_SESSION['usedrole']="Tim_TA";
-            header('Location: DBTimTA.php');
-        }
-        
-        if(isset($_POST['Tim_KP'])){
-            $_SESSION['usedrole']="Tim_KP";
-            header('Location: DBTimKP.php');
-        }
-        
-        if(isset($_POST['Tim_Kemahasiswaan'])){
-            $_SESSION['usedrole']="Tim_Kemahasiswaan";
-            header('Location: DBTimSKPI.php');
+            header('Location: ViewProfile.php');
         }
         
         if(isset($_POST['Wali'])){
             $_SESSION['usedrole']="Wali";
-            header('Location: DBWali.php');
+            header('Location: ViewProfile.php');
         }
     }
 ?>

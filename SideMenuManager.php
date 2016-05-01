@@ -14,20 +14,8 @@
     else if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']=="Penguji_TA")){
         include './PengujiTAMenu.php';
     }
-    else if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']=="Pembimbing_KP")){
-        include './PembimbingKPMenu.php';
-    }
-    else if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']=="Penguji_KP")){
-        include './PengujiKPMenu.php';
-    }
     else if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']=="Tim_TA")){
         include './TimTAMenu.php';
-    }
-    else if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']=="Tim_KP")){
-        include './TimKPMenu.php';
-    }
-    else if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']=="Tim_Kemahasiswaan")){
-        include './TimSKPIMenu.php';
     }
     else if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']=="Wali")){
         include './WaliMenu.php';

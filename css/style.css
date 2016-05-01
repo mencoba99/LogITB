@@ -2096,7 +2096,7 @@ article img.pull-right, article .align-right{
 #cssmenu {
   width: 165px;
   background: #68a4c4;
-  font-family: 'Oxygen Mono', Tahoma, Arial, sans-serif;
+  font-weight: bold;
   zoom: 1;
   font-size: 12px;
 }
