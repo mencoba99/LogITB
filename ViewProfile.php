@@ -1,8 +1,8 @@
 <?php
 session_start();
-    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
-        header("Location: index.php");
-    }
+//    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
+//        header("Location: index.php");
+//    }
 $_SESSION['status']="view";
 include 'controller/Dosen.php';
 ?>
@@ -58,7 +58,7 @@ include 'controller/Dosen.php';
 		<div class="row">
                     <div class="col-lg-2"><?php include './SideMenu.php';?></div>
                     <div class="col-lg-10">
-                        <h3>Data Dosen</h3>
+                        <h3><?php echo $_SESSION['usedrole'];?></h3>
                         <table class="table table-bordered">
                             <tr>
                                 <th>NIP</th>
