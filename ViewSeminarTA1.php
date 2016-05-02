@@ -64,7 +64,7 @@ session_start();
 	</section>
 	<section id="content">
             <div class="container">
-		<div class="row">
+		<div class="row whitebgc">
                     <div class="col-lg-2"><?php include './SideMenu.php';?></div>
                     <div class="col-lg-10">
                         <h3>Data Seminar Tugas Akhir 1</h3>

@@ -166,7 +166,7 @@ header .navbar-collapse  ul.navbar-nav {
 }
 
 header .navbar-default{
-    background-color: #fff;
+    background-color: #f8f8f8;
 }
 
 header .nav li a:hover,
@@ -391,7 +391,7 @@ section.callaction {
 
 #content {
 	position:relative;
-	background:#fff;
+	background:#f8f8f8;
 	padding:20px 0 40px 0;
 }
 

@@ -40,7 +40,7 @@ session_start();
 	<!-- end header -->
 	<section id="inner-headline">
             <div class="container">
-                <div class="row">
+                <div class="row ">
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
                              <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
@@ -54,7 +54,7 @@ session_start();
 	</section>
 	<section id="content">
             <div class="container">
-		<div class="row">
+		<div class="row whitebgc">
                     <div class="col-lg-2"><?php include './SideMenu.php';?></div>
                     <div class="col-lg-10">
                         <h3>Data Detail Pengguna</h3>

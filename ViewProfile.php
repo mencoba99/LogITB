@@ -1,10 +1,10 @@
 <?php
 session_start();
-//    if(!isset($_SESSION['usedrole'])||(isset($_SESSION['usedrole'])&&$_SESSION['usedrole']!="Admin")){
-//        header("Location: index.php");
-//    }
-$_SESSION['status']="view";
-include 'controller/Dosen.php';
+    if(!isset($_SESSION['usedrole'])){
+        header("Location: index.php");
+    }
+//$_SESSION['status']="view";
+//include 'controller/User.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,10 +17,9 @@ include 'controller/Dosen.php';
 <!-- css -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
 <link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
-<link href="css/jcarousel.css" rel="stylesheet" />
 <link href="css/flexslider.css" rel="stylesheet" />
 <link href="css/style.css" rel="stylesheet" />
-
+<link href="css/font-awesome.min.css" rel="stylesheet" />
 
 <!-- Theme skin -->
 <link href="skins/default.css" rel="stylesheet" />
@@ -55,48 +54,76 @@ include 'controller/Dosen.php';
 	</section>
 	<section id="content">
             <div class="container">
-		<div class="row">
+                <div class="row whitebgc">
                     <div class="col-lg-2"><?php include './SideMenu.php';?></div>
                     <div class="col-lg-10">
-                        <h3><?php echo $_SESSION['usedrole'];?></h3>
-                        <table class="table table-bordered">
-                            <tr>
-                                <th>NIP</th>
-                                <th>Nama</th>
-                                <th>Inisial</th>
-                                <th>Email</th>
-                                <th>Alamat</th>
-                                <th>No. Telp</th>
-                                <th>Aksi</th>
-                            </tr>
-                            <?php
-                                $val = $_SESSION['value'];
-                                $x = count($val['nip']);
-                                for($i=0;$i<$x;$i++){
-                                    echo "<tr>";
-                                    echo "<td>".$val['nip'][$i]."</td>";
-                                    echo "<td>".$val['nama'][$i]."</td>";
-                                    echo "<td>".$val['inisial'][$i]."</td>";
-                                    echo "<td>".$val['email'][$i]."</td>";
-                                    echo "<td>".$val['alamat'][$i]."</td>";
-                                    echo "<td>".$val['telp'][$i]."</td>";
-                                    echo "<td class=\"middle\">";
-                                    echo "<form action=\"controller/Dosen.php\" method=\"POST\" enctype=\"multipart/form-data\">";
-                                    echo "<div class=\"btn-group-vertical\">";
-                                    echo "<input type=\"hidden\" name=\"nip\" value=".$val['nip'][$i]." class=\"btn btn-blue\" />";
-                                    echo "<input type=\"submit\" name=\"edit\" value=\"Ubah\" class=\"btn btn-green\" />";
-                                    echo "<input type=\"submit\" name=\"delete\" value=\"Hapus\" class=\"btn btn-red\" />";
-                                    echo "</div>";
-                                    echo "</form>";
-                                    echo "</td>";
-                                    echo "</tr>";
-                                }
-                            ?>
-                        </table>
+                        <div class="col-lg-12">
+                        <h3>Profil Pengguna</h3>
+                        </div>
+                        <div class="col-lg-12">
+                            <button type="button" class="btn btn-success btn-sm pull-right"><i class='fa fa-pencil-square-o'></i> Ubah Profil Pribadi</button>
+                        <button type="button" class="btn btn-warning btn-sm pull-right"><i class='fa fa-pencil-square-o'></i> Ubah Password</button>
+                        </div>
+                        <div class="col-lg-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Data Akun Pengguna</h3>
+                            </div>
+                            <div class="panel-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th class="vth">Username</th>
+                                            <td>Lastname</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>Kelompok</th>
+                                            <td>Lain-Lain</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Profil Pribadi Pengguna</h3>
+                            </div>
+                            <div class="panel-body">
+                                 <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th class="vth">NIM/NIP/Id Lain</th>
+                                            <td>Xxxxxxxxxxx</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>Nama</th>
+                                            <td>xxxxxxxxxxxxx</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Alamat</th>
+                                            <td>Xxxxxxxxxxxxx</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Notelp</th>
+                                            <td>Xxxxxxxxxx</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Email</th>
+                                            <td>Xxxxxxxxxx</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        </div>
+                        </div>
                     </div>
-                    <div class="col-lg-2"></div>
+<!--                    <div class="col-lg-2"></div>-->
 		</div>
-            </div>
 	</section>
 	<footer>
             <div class="container">
