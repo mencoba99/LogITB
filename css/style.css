@@ -2263,3 +2263,28 @@ article img.pull-right, article .align-right{
         font-family:'Open Sans', Courier New , monospace;
         font-size: 12px;
     }
+    
+    .roundedModalHeading{
+        border-radius: 15px 60px 0px 0px;
+        background-color: #68A4C4;
+    }
+    
+    .roundedModal{
+        border-radius: 15px 60px;
+    }
+    
+    .modal-header h4{
+        color: #fff;
+    }
+    
+    .close{
+        padding-right: 30px !important;
+    }
+    
+    .alert-success{
+        margin: 10px;
+    }
+    
+    .alert-danger{
+        margin: 10px;
+    }

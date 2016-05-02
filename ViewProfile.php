@@ -60,6 +60,8 @@ include 'controller/User.php';
                         <div class="col-lg-12">
                         <h3>Profil Pengguna</h3>
                         </div>
+                        <div class="alert-success col-lg-12">Pesan Ubah Berhasil</div>
+                        <div class="alert-danger col-lg-12">Pesan Ubah Gagal</div>
                         <div class="col-lg-12">
                             <button type="button" class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#profilEditModal"><i class='fa fa-pencil-square-o'></i> Ubah Profil Pribadi</button>
                         <button type="button" class="btn btn-warning btn-sm pull-right" data-toggle="modal" data-target="#passwordEditModal"><i class='fa fa-pencil-square-o'></i> Ubah Password</button>
@@ -98,6 +100,7 @@ include 'controller/User.php';
                                             <td><?php echo $_SESSION['data']['username'];?></td>
                                         </tr>
                                     </thead>
+<!--                                    Atribut dibuat sesuai Kelompok, Jadi jika dosen terdapat kelompok keahlian jika mahasiswa terdapat prodi dan seterusnya-->
                                     <tbody>
                                         <tr>
                                             <th>Nama</th>
@@ -186,8 +189,8 @@ include 'controller/User.php';
     <div class="modal-dialog">
 
           <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
+          <div class="modal-content roundedModal">
+            <div class="modal-header roundedModalHeading">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
               <h4 class="modal-title">Ubah Password</h4>
             </div>
@@ -218,6 +221,61 @@ include 'controller/User.php';
           </div>
     </div>
 </div>
+
+<div id="profilEditModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content roundedModal">
+            <div class="modal-header roundedModalHeading">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Ubah Profil Pengguna</h4>
+            </div>
+            <div class="modal-body">
+                <form action="" method="POST" enctype="multipart/form-data">
+<!--                    Form dibuat sesuai kelompok pengguna contoh menggunakan kelompok dosen, jika mahasiswa form berubah sesuai kelompok-->
+                            <div class="form-group">
+                                <label for="nip">NIP</label>
+                                <input type="text" name="nip" id="nip"  class="form-control" placeholder="NIP" value="" >
+                            </div>
+                            <div class="form-group">
+                                <label for="nama">Nama</label>
+                                <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama Lengkap" value="" >
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" name="email" id="email" class="form-control" placeholder="Email" value="" >
+                            </div>
+                            <div class="form-group">
+                                <label for="alamat">Alamat</label>
+                                <textarea name="alamat" id="alamat" class="form-control" placeholder="Alamat" value="" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="telp">No. Telepon</label>
+                                <input type="text" name="telp" id="telp" class="form-control" placeholder="Nomor Telepon/Handphone" value="" >
+                            </div>
+                            <div class="form-group">
+                                <label for="kelompokkeahlian">Kelompok Keahlian</label>
+                                <input type="text" name="kelompokkeahlian" id="kelompokkeahlian"  class="form-control" placeholder="Kelompok Keahlian" value="" >
+                            </div>
+                            <div class="form-group">
+                                <label for="Faksek">Faksek</label>
+                                <input type="text" name="faksek" id="faksek" class="form-control" placeholder="Faksek" value="" >
+                            </div>
+                            <div class="form-group">
+                                <label for="bidangutama">Bidang Utama</label>
+                                <input type="text" name="bidangutama" id="bidangutama" class="form-control" placeholder="Bidang Utama" value="" >
+                            </div>
+                            <div class="form-group" style="text-align: right">
+                                <button type="submit" name="update" value="Update" class="btn btn-primary" style="width: 120px;"><i class="fa fa-pencil-square-o"></i> Ubah</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 120px;"><i class="fa fa-times"></i> Tutup</button>
+                            </div>
+                        </form>
+            </div>
+          </div>
+    </div>
+</div>
+
 <!-- javascript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
