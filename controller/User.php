@@ -7,7 +7,7 @@
     if(isset($_POST['add'])){
         if(matchPassword($_POST['password'], $_POST['password2'])){
             if(checkUser($_POST['username'])){
-                $r = insert($_POST['username'], $_POST['password']);
+                $r = insert($_POST['username'], $_POST['password'],$_POST['kelompok']);
                 if($r){
                     session_start();
                     $_SESSION['success']="Berhasil tambah User";
@@ -45,7 +45,7 @@
     
     if(isset($_POST['update'])){
         if(checkPassword($_POST['username'], $_POST['password'])&&  matchPassword($_POST['passwordbaru'], $_POST['passwordbaru2'])){
-            $r = update($_POST['username'], $_POST['passwordbaru']);
+            $r = update($_POST['username'], $_POST['passwordbaru'],$_POST['kelompok']);
             session_start();
             if($r){
                 $_SESSION['success']="Berhasil Ubah Data User";

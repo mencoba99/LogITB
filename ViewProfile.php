@@ -1,10 +1,10 @@
 <?php
 session_start();
-    if(!isset($_SESSION['usedrole'])){
-        header("Location: index.php");
-    }
-//$_SESSION['status']="view";
-//include 'controller/User.php';
+//    if(!isset($_SESSION['usedrole'])){
+//        header("Location: index.php");
+//    }
+$_SESSION['status']="viewUser";
+include 'controller/User.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,8 +45,8 @@ session_start();
                     <div class="col-lg-12">
                         <ul class="breadcrumb">
                             <li><a href="index.php"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li><a href="DBAdmin.php">Admin</a></li>
-                            <li class="active">Lihat Dosen</li>
+                            <li><a href="ViewProfile.php">Admin</a></li>
+                            <li class="active">Lihat Profil Pengguna</li>
                         </ul>
                     </div>
                 </div>
@@ -61,8 +61,8 @@ session_start();
                         <h3>Profil Pengguna</h3>
                         </div>
                         <div class="col-lg-12">
-                            <button type="button" class="btn btn-success btn-sm pull-right"><i class='fa fa-pencil-square-o'></i> Ubah Profil Pribadi</button>
-                        <button type="button" class="btn btn-warning btn-sm pull-right"><i class='fa fa-pencil-square-o'></i> Ubah Password</button>
+                            <button type="button" class="btn btn-success btn-sm pull-right" data-toggle="modal" data-target="#profilEditModal"><i class='fa fa-pencil-square-o'></i> Ubah Profil Pribadi</button>
+                        <button type="button" class="btn btn-warning btn-sm pull-right" data-toggle="modal" data-target="#passwordEditModal"><i class='fa fa-pencil-square-o'></i> Ubah Password</button>
                         </div>
                         <div class="col-lg-12">
                         <div class="panel panel-primary">
@@ -74,13 +74,13 @@ session_start();
                                     <thead>
                                         <tr>
                                             <th class="vth">Username</th>
-                                            <td>Lastname</td>
+                                            <td><?php echo $_SESSION['data']['username'];?></td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <th>Kelompok</th>
-                                            <td>Lain-Lain</td>
+                                            <td><?php if($_SESSION['data']['kelompok']== 1){echo 'Dosen';}else if ($_SESSION['data']['kelompok']== 2){echo 'Mahasiswa';}else if ($_SESSION['data']['kelompok']== 3){echo 'Tendik';}else{echo 'Lain-lain';}?></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -94,8 +94,8 @@ session_start();
                                  <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th class="vth">NIM/NIP/Id Lain</th>
-                                            <td>Xxxxxxxxxxx</td>
+                                            <th class="vth"><?php if($_SESSION['data']['kelompok']== 1|| $_SESSION['data']['kelompok']== 3){echo 'NIP';}else if ($_SESSION['data']['kelompok']== 2){echo 'NIM';}else{echo 'ID Lain';}?></th>
+                                            <td><?php echo $_SESSION['data']['username'];?></td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -181,6 +181,43 @@ session_start();
 	</footer>
 </div>
 <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+
+<div id="passwordEditModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Ubah Password</h4>
+            </div>
+            <div class="modal-body">
+                <form action="./controller/User.php" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" name="username" id="idrole"  class="form-control" placeholder="Username" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password Sebelumnya</label>
+                                <input type="password" name="password" id="password" class="form-control" placeholder="Password" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordbaru">Password Baru</label>
+                                <input type="password" name="passwordbaru" id="passwordbaru" class="form-control" placeholder="Password Baru" value="">
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordbaru2">Ulangi Password Baru</label>
+                                <input type="password" name="passwordbaru2" id="passwordbaru2" class="form-control" placeholder="Ulangi Password Baru" value="">
+                            </div>
+                            <div class="form-group" style="text-align: right">
+                                <button type="submit" name="update" value="Update" class="btn btn-primary" style="width: 120px;"><i class="fa fa-pencil-square-o"></i> Ubah</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" style="width: 120px;"><i class="fa fa-times"></i> Tutup</button>
+                            </div>
+                        </form>
+            </div>
+          </div>
+    </div>
+</div>
 <!-- javascript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->

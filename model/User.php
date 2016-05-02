@@ -1,12 +1,12 @@
 <!--User Model-->
 <?php
     
-    function insert ($username,$password){
+    function insert ($username,$password,$kelompok){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
 //        $sql = "INSERT INTO user VALUES ('".$username."','".$password."')";
 //        return mysqli_query($link,$sql);
-        $stmt = mysqli_prepare($link, "INSERT INTO user VALUES (?,?)");
-        $bind = mysqli_stmt_bind_param($stmt, 'ss', $username, $password);
+        $stmt = mysqli_prepare($link, "INSERT INTO user VALUES (?,?,?)");
+        $bind = mysqli_stmt_bind_param($stmt, 'ss', $username, $password,$kelompok);
         $exec = mysqli_stmt_execute($stmt);
         return $exec;
     }
@@ -19,6 +19,7 @@
         while($r = mysqli_fetch_assoc($res)){
             $value['username'][$i]=$r['username'];
             $value['password'][$i]=$r['password'];
+            $value['kelompok'][$i]=$r['kelompok'];
             $i++;
         }
         return $value;
@@ -35,17 +36,18 @@
         if($r = mysqli_fetch_assoc($res)){
             $value['username']=$r['username'];
             $value['password']=$r['password'];
+            $value['kelompok']=$r['kelompok'];
             $i++;
         }
         return $value;
     }
-    function update ($username,$password){
+    function update ($username,$password,$kelompok){
         include $_SERVER['DOCUMENT_ROOT'].'/LogITB/db.php';
         $deskripsi = sha1($password);
 //        $sql = "UPDATE user SET password='".$deskripsi."' WHERE username='".$username."'";
 //        return mysqli_query($link,$sql);
-        $stmt = mysqli_prepare($link, "UPDATE user SET password=? WHERE username=?");
-        $bind = mysqli_stmt_bind_param($stmt, 'ss', $password, $username);
+        $stmt = mysqli_prepare($link, "UPDATE user SET password=?,kelompok=? WHERE username=?");
+        $bind = mysqli_stmt_bind_param($stmt, 'ss', $password,$kelompok, $username);
         $exec = mysqli_stmt_execute($stmt);
         return $exec;
     }
